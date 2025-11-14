@@ -199,6 +199,13 @@ public class Tile : MonoBehaviour
     }
     #endregion
 
+    #region Historical
+    public void ModifyMultiplier(float value)
+    {
+        multiplier += value;
+    }
+    #endregion
+
     #endregion
 
     #region BuildingEffect
