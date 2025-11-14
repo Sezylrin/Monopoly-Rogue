@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfab9dbbb0017e4ca1e6e62084bb113, type: 3}
+  m_Name: Cram School
+  m_EditorClassIdentifier: 
+  effect: Increase all School, Dormatory, House, Apartment and Townhouse tiles value
+    by 10
+  baseValue: 10
+  category: 16
+  rarity: 1
+  boostType: 10
+  texture: {fileID: 0}
+  building: {fileID: 1487403486575813573, guid: 2adf3394a123eae4988223a626774f51, type: 3}
+  maxLimit: 0
+  comparisonChecks:
+  - effectType: 1
+    value: 10
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: a5d4d6a942044dd4eb16011d2c9c1f0d, type: 2}
+    - {fileID: 11400000, guid: 9de1968aa32f78c4c820bad2e8e4e84d, type: 2}
+    - {fileID: 11400000, guid: 8ff1b0d9719ac2942b9dbb51cb1b768b, type: 2}
+    - {fileID: 11400000, guid: 49e702249db0578459008c600e78e7c7, type: 2}
+    - {fileID: 11400000, guid: 6b71f0ce18c6c1d4398c755fbdee528b, type: 2}

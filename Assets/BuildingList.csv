@@ -1,0 +1,67 @@
+Name,Rarity,Category,value,Max limit,Boost Type,Description
+Casino,legendary,commercial,30,0,"other, generic",Increase nearby Residential and Commercial tiles multiplier by 3x
+CERN,legendary,educational,30,1,"other, generic",Increase all Educational tiles value by 20
+ITER,legendary,"educational, energy",30,1,"other, specific","Increase all University, Nuclear Reactor and Fusion Reactor tiles multiplier by 7x"
+Fusion Reactor,legendary,energy,30,0,"other, generic",Increase all tiles value by 10
+Central Park,legendary,environmental,30,0,"self, generic",Increase value by 10 per Residential tiles
+Chemical Plant,legendary,industrial,30,0,"other, generic",Increase adjacent Industrial tiles multiplier by 5x. Decrease nearby Environmental tiles value by 20
+Chateau,legendary,residential,30,0,"other, generic",Increae all Environmental tiles multiplier by 2.5x
+Wildlife Safari,rare,environmental,30,0,"self, generic",Decrease value by 10 per nearby Residential and Industrial tiles
+Grand Hotel,epic,commercial,20,0,"self, generic",Increase value by 25 per nearby unique tiles
+Stadium,epic,commercial,20,0,"other, generic",Increase nearby Residential tiles multiplier by 1x
+Chemical Lab,epic,educational,20,0,"other, generic",Increase all Industrial tiles multiplier by 0.25x per nearby Educational tiles
+University,epic,educational,20,0,"other, generic",Increase all educational tiles multiplier by 0.5x
+Nuclear Reactor,epic,energy,20,0,"other, generic",Increase nearby tiles value by 20
+Botanical Garden,epic,environmental,20,0,"generic, specific, other","Increase nearby Residential, Hotel, Grand Hotel and Nature Reserve tiles base multiplier by 1x"
+National Park,epic,environmental,20,0,"other, specific",Increase all Wildlife Safari and Nature Reserve tiles multiplier by 1.5x
+Foundry,epic,industrial,20,0,"self, specific",Increase multiplier by 1x per Quarry tiles. Increase value by 10 per nearby Industrial tiles
+Manufacturing Plant,epic,industrial,20,0,"other, generic",Increase all Industrial and Commercial tiles multiplier by 0.25x
+Mansion,epic,residential,20,0,"self, generic",Increase value by 15 per Residential tiles
+Villa,epic,residential,20,0,"self, generic",Increase value by 20 per adjacent Environmental tiles. Decrease value by 20 per nearby Residential tiles
+Offshore Wind Turbines,common,energy,10,8,"self, specific",Decrease value by 5 when nearby other Offshore Wind Turbines tiles
+Beach,common,environmental,10,4,none,Does nothing
+Quarry,common,industrial,10,4,none,Does nothing
+Hotel,rare,commercial,10,0,"self, generic",Increase value by 10 per nearby Environmental and Commercial tiles
+Mall,rare,commercial,10,0,"other, generic",Increase nearby Commercial tiles effect range by 2
+Hospital,rare,commercial,10,0,"generic, other",Increase all Residential tiles multiplier by 0.25x
+Cram School,rare,educational,10,0,"other, specific","Increase all School, Dormatory, House, Apartment and Townhouse tiles value by 10"
+Research Lab,rare,educational,10,4,"other, generic",Increase all Industrial and Educational tiles multiplier by 0.1x
+Geothermal Plant,rare,energy,10,2,"other, generic",Increase all Industrial tiles multiplier by 0.25x
+Hydroelectric Dam,rare,energy,10,2,"self, specific",Increase value by 20 per adjacent River and Lake tiles
+Substation,rare,energy,10,0,"other, generic",Increase nearby energy tiles effect range by 2
+Nature Reserve,rare,environmental,10,0,"self, generic",Increase value by 10 per nearby Environmental tiles
+Zoo,rare,"environmental, commercial",10,0,"self, generic",Increase value by 15 per nearby Environmental tiles
+Aquarium,rare,"environmental, educational",10,0,"specific, other","Increase all River, Lake and Beach tiles value by 10"
+Lake,rare,environmental,10,0,"self, specific","Increase value by 10 per River, Hydroelectric Dam and Fishery tiles"
+Oil Rig,rare,industrial,10,0,"specific, self",Increase value by 20 per Refinery tiles
+Ship Yard,rare,industrial,10,2,"other, generic",Increase nearby Commercial tiles multiplier by 0.5x
+Train Yard,rare,industrial,10,2,"other, generic",Increase all Industrial tiles range effect by 1
+Refinery,rare,industrial,10,0,"specific, other",Increase all Gas Station and Gas Fired Plant tiles value by 15
+High Rise,rare,"residential, commercial",10,0,"other, generic",Increase adjacent Commercial and residential tiles value by 10
+House,rare,residential,10,0,"self, generic",Increase value by 5 per nearby tiles. Decrease value by 10 per nearby Industrial tiles 
+Fishery,common,"commercial, industrial",5,0,"self, specific","Increase value by 10 when adjacent to River, Lake and Beach tiles"
+Vetinery Hostpital,common,commercial,5,0,"other, generic",Increase nearby Residential tiles value by 5
+Clinic,common,commercial,5,0,"other, generic",Increase nearby Residential tiles mutiplier by 0.25x
+Bar,common,commercial,5,0,"self, generic",Increase value by 5 per nearby Industrial and Commercial tiles
+Office,common,commercial,5,0,"self, generic",Increase value by 7 per adjacent Industrial tiles
+Restaurant,common,commercial,5,0,"other, generic",Increase nearby Industrial and Commercial tiles value by 5
+Supermarket,common,commercial,5,0,"other, generic",Increase nearby Residential tiles value by 5
+Daycare,common,educational,5,0,"generic, self",Increase value by 5 per nearby residential tiles
+Library,common,educational,5,0,"generic, other",Increase nearby educational tiles multiplier by 0.25x
+School,common,educational,5,0,"other, generic",Increase nearby Residential tiles value by 5
+Coal Power Plant,common,energy,5,0,"specific, self",Increase value by 10 when adjacent to Quarry tiles
+Gas Fired Plant,common,energy,5,0,"generic, other",Increase nearby Industrial tiles value by 10. Decrease nearby residential tiles value by 10
+Gas Station,common,"energy, commercial",5,0,"generic, other",Increase nearby Residential tiles effect range by 1
+Solar Array,common,energy,5,0,"self, specific",Increase value by 5 per Solar Array tiles
+Hiking Trail,common,environmental,5,0,"other, generic",Increase adjacent tiles effect range by 1
+Park,common,environmental,5,0,"generic, other",Increase nearby Residential and Educational tiles value by 5
+River,common,environmental,5,0,"other, generic",Increase nearby Environmental tiles effect range by 1
+Campsite,common,"environmental, commercial",5,0,"self, generic",Increase value by 10 when adjacent to Environmental tiles
+Factory,common,industrial,5,0,"generic, self",Increase value by 7 when nearby Industrial tiles
+Smeltery,common,industrial,5,0,"specific, self",Increase value by 10 when adjacent to Quarry tiles
+Warehouse,common,industrial,5,0,"other, generic",Increase adjacent Industrial tiles value by 5
+Farm,common,industrial,5,0,"specific, other","Increase all Restaurant, Bar and Supermarket tiles value by 10"
+Dormatory,common,"residential, educational",5,0,"other, specific",Increase nearby School and University tiles multiplier by 1x
+Apartment,common,residential,5,0,"self, generic",Increase value by 5 per adjacent Residential and Commercial tiles
+Townhouse,common,residential,5,0,"other, generic",Increase adjacent Residential tiles value by 10
+Shack,common,residential,5,0,none,Does nothing

@@ -1,0 +1,550 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05187392bebd4d4b9ee9a96be671df3, type: 3}
+  m_Name: BuildingEffectGenerator
+  m_EditorClassIdentifier: 
+  allBuildings: {fileID: 11400000, guid: 823549fd77223324f884e6a643950cca, type: 2}
+  keywords:
+  - Keyword: nearby
+    value: 2
+  - Keyword: adjacent
+    value: 1
+  categoryKeywords:
+  - ' other '
+  - ' to '
+  - ' nearby '
+  - ' adjacent '
+  - ' all '
+  - ' per '
+  - ' when '
+  debugList:
+  - Increase value by 5 per nearby Industrial and Commercial tiles
+  - Increase nearby Residential and Commercial tiles multiplier by 3x
+  - Increase nearby Residential tiles mutiplier by 0.25x
+  - Increase value by 25 per nearby unique tiles
+  - Increase all Residential tiles multiplier by 0.25x
+  - Increase value by 10 per nearby Environmental and Commercial tiles
+  - Increase nearby Commercial tiles effect range by 2
+  - Increase value by 7 per adjacent Industrial tiles
+  - Increase nearby Industrial and Commercial tiles value by 5
+  - Increase nearby Residential tiles multiplier by 1x
+  - Increase nearby Residential tiles value by 5
+  - Increase nearby Residential tiles value by 5
+  - Increase all Educational tiles value by 20
+  - Increase all Industrial tiles multiplier by 0.25x per nearby Educational tiles
+  - Increase all School, Dormatory, House, Apartment and Townhouse tiles value by
+    10
+  - Increase value by 5 per nearby residential tiles
+  - Increase all University, Nuclear Reactor and Fusion Reactor tiles multiplier
+    by 7x
+  - Increase nearby educational tiles multiplier by 0.25x
+  - Increase all Industrial and Educational tiles multiplier by 0.1x
+  - Increase nearby Residential tiles value by 5
+  - Increase all educational tiles multiplier by 0.5x
+  - Increase value by 10 when adjacent to Quarry tiles
+  - Increase all tiles value by 10
+  - Increase nearby Industrial tiles value by 10
+  - Decrease nearby residential tiles value by 10
+  - Increase all Industrial tiles multiplier by 0.25x
+  - Increase value by 20 per adjacent River and Lake tiles
+  - Increase nearby tiles value by 20
+  - Decrease value by 5 when nearby other Offshore Wind Turbines tiles
+  - Increase value by 5 per Solar Array tiles
+  - Increase nearby energy tiles effect range by 2
+  - Does nothing
+  - Increase nearby Residential, Hotel, Grand Hotel and Nature Reserve tiles base
+    multiplier by 1x
+  - Increase value by 10 per Residential tiles
+  - Increase adjacent tiles effect range by 1
+  - Increase value by 10 per River, Hydroelectric Dam and Fishery tiles
+  - Increase all Wildlife Safari and Nature Reserve tiles multiplier by 1.5x
+  - Increase value by 10 per nearby Environmental tiles
+  - Increase nearby Residential and Educational tiles value by 5
+  - Increase nearby Environmental tiles effect range by 1
+  - Decrease value by 10 per nearby Residential and Industrial tiles
+  - Increase adjacent Industrial tiles multiplier by 5x
+  - Decrease nearby Environmental tiles value by 20
+  - Increase value by 7 when nearby Industrial tiles
+  - Increase all Restaurant, Bar and Supermarket tiles value by 10
+  - Increase multiplier by 1x per Quarry tiles
+  - Increase value by 10 per nearby Industrial tiles
+  - Increase all Industrial and Commercial tiles multiplier by 0.25x
+  - Increase value by 20 per Refinery tiles
+  - Does nothing
+  - Increase all Gas Station and Gas Fired Plant tiles value by 15
+  - Increase nearby Commercial tiles multiplier by 0.5x
+  - Increase value by 10 when adjacent to Quarry tiles
+  - Increase all Industrial tiles range effect by 1
+  - Increase adjacent Industrial tiles value by 5
+  - Increase all River, Lake and Beach tiles value by 10
+  - Increase value by 10 when adjacent to Environmental tiles
+  - Increase nearby School and University tiles multiplier by 1x
+  - Increase value by 10 when adjacent to River, Lake and Beach tiles
+  - Increase nearby Residential tiles effect range by 1
+  - Increase value by 15 per nearby Environmental tiles
+  - Increase value by 5 per adjacent Residential and Commercial tiles
+  - Increae all Environmental tiles multiplier by 2.5x
+  - Increase adjacent Commercial and residential tiles value by 10
+  - Increase value by 5 per nearby tiles
+  - 'Decrease value by 10 per nearby Industrial tiles '
+  - Increase value by 15 per Residential tiles
+  - Does nothing
+  - Increase adjacent Residential tiles value by 10
+  - Increase value by 20 per adjacent Environmental tiles
+  - Decrease value by 20 per nearby Residential tiles
+  debugComparison:
+  - effectType: 1
+    value: 5
+    compareCategory: 1
+    categoryCompare: 6
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 2
+    value: 3
+    compareCategory: 1
+    categoryCompare: 5
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 0
+    value: 0.25
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 25
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 2
+    value: 0.25
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 1
+    value: 10
+    compareCategory: 1
+    categoryCompare: 36
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 3
+    value: 2
+    compareCategory: 1
+    categoryCompare: 4
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 7
+    compareCategory: 1
+    categoryCompare: 2
+    neighbourDist: 1
+    compareSpecific: []
+  - effectType: 1
+    value: 5
+    compareCategory: 1
+    categoryCompare: 6
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 2
+    value: 1
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 5
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 5
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 20
+    compareCategory: 1
+    categoryCompare: 16
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 2
+    value: 0.25
+    compareCategory: 1
+    categoryCompare: 16
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 10
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: a5d4d6a942044dd4eb16011d2c9c1f0d, type: 2}
+    - {fileID: 11400000, guid: 9de1968aa32f78c4c820bad2e8e4e84d, type: 2}
+    - {fileID: 11400000, guid: 8ff1b0d9719ac2942b9dbb51cb1b768b, type: 2}
+    - {fileID: 11400000, guid: 49e702249db0578459008c600e78e7c7, type: 2}
+    - {fileID: 11400000, guid: 6b71f0ce18c6c1d4398c755fbdee528b, type: 2}
+  - effectType: 1
+    value: 5
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 2
+    value: 7
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: 5b728e9a01eb6454b9532043de2b8029, type: 2}
+    - {fileID: 11400000, guid: e2ecf82f9c99ecc4ab560d8f769a427c, type: 2}
+    - {fileID: 11400000, guid: ab050b29200bf4d4ebcc23730fedcaa2, type: 2}
+  - effectType: 2
+    value: 0.25
+    compareCategory: 1
+    categoryCompare: 16
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 2
+    value: 0.1
+    compareCategory: 1
+    categoryCompare: 18
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 1
+    value: 5
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 2
+    value: 0.5
+    compareCategory: 1
+    categoryCompare: 16
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 1
+    value: 10
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 1
+    compareSpecific:
+    - {fileID: 11400000, guid: 6f771a240036c9c45890bc338b3c9cf5, type: 2}
+  - effectType: 1
+    value: 10
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 1
+    value: 10
+    compareCategory: 1
+    categoryCompare: 2
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: -10
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 2
+    value: 0.25
+    compareCategory: 1
+    categoryCompare: 2
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 1
+    value: 20
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 1
+    compareSpecific:
+    - {fileID: 11400000, guid: 4abd4deada087e44d8015f699d51aff4, type: 2}
+    - {fileID: 11400000, guid: 08329128f1f94914fb3c327e1ff6cf5b, type: 2}
+  - effectType: 1
+    value: 20
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: -5
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 2
+    compareSpecific:
+    - {fileID: 11400000, guid: 653f1291f2a8a31449b9f0fdab025ae4, type: 2}
+  - effectType: 1
+    value: 5
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: e371a45849499c140b35b0cce7be2e4f, type: 2}
+  - effectType: 3
+    value: 2
+    compareCategory: 1
+    categoryCompare: 8
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 2
+    value: 1
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 2
+    compareSpecific:
+    - {fileID: 11400000, guid: 378e604e7f6e7ed4c9d4054913a61655, type: 2}
+    - {fileID: 11400000, guid: 82c4cada5f555d44bb1ba307eac8c089, type: 2}
+    - {fileID: 11400000, guid: eabc56afc063d5147a0b505117ba12cf, type: 2}
+  - effectType: 1
+    value: 10
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 3
+    value: 1
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 1
+    compareSpecific: []
+  - effectType: 1
+    value: 10
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: 4abd4deada087e44d8015f699d51aff4, type: 2}
+    - {fileID: 11400000, guid: 869613179074b9349866c2a6a84b25b7, type: 2}
+    - {fileID: 11400000, guid: c08a8b65b65ab4b46a85ce517fdbde53, type: 2}
+  - effectType: 2
+    value: 1.5
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: 645d9142a48510043bfbbec52a854562, type: 2}
+    - {fileID: 11400000, guid: eabc56afc063d5147a0b505117ba12cf, type: 2}
+  - effectType: 1
+    value: 10
+    compareCategory: 1
+    categoryCompare: 32
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 5
+    compareCategory: 1
+    categoryCompare: 17
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 3
+    value: 1
+    compareCategory: 1
+    categoryCompare: 32
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: -10
+    compareCategory: 1
+    categoryCompare: 3
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 2
+    value: 5
+    compareCategory: 1
+    categoryCompare: 2
+    neighbourDist: 1
+    compareSpecific: []
+  - effectType: 1
+    value: -20
+    compareCategory: 1
+    categoryCompare: 32
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 7
+    compareCategory: 1
+    categoryCompare: 2
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 10
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: 7490090e5abf23048af0ccdf6aa82ec5, type: 2}
+    - {fileID: 11400000, guid: e5e10a535d5259643a6ed03f415ebc2c, type: 2}
+    - {fileID: 11400000, guid: e7beb16df43ee444cb5a50dda47c2191, type: 2}
+  - effectType: 2
+    value: 1
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: 6f771a240036c9c45890bc338b3c9cf5, type: 2}
+  - effectType: 1
+    value: 10
+    compareCategory: 1
+    categoryCompare: 2
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 2
+    value: 0.25
+    compareCategory: 1
+    categoryCompare: 6
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 1
+    value: 20
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: c2650e869e5985244bf25dfed946ac02, type: 2}
+  - effectType: 1
+    value: 15
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: b887d3d27981076489496c0ed8bde88a, type: 2}
+    - {fileID: 11400000, guid: 0bd94fa4ff324a84bb12b57ba5e6bba7, type: 2}
+  - effectType: 2
+    value: 0.5
+    compareCategory: 1
+    categoryCompare: 4
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 10
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 1
+    compareSpecific:
+    - {fileID: 11400000, guid: 6f771a240036c9c45890bc338b3c9cf5, type: 2}
+  - effectType: 3
+    value: 1
+    compareCategory: 1
+    categoryCompare: 2
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 1
+    value: 5
+    compareCategory: 1
+    categoryCompare: 2
+    neighbourDist: 1
+    compareSpecific: []
+  - effectType: 1
+    value: 10
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: -1
+    compareSpecific:
+    - {fileID: 11400000, guid: 4abd4deada087e44d8015f699d51aff4, type: 2}
+    - {fileID: 11400000, guid: 08329128f1f94914fb3c327e1ff6cf5b, type: 2}
+    - {fileID: 11400000, guid: 9caf9db08dd6d8c4eaa30518af197287, type: 2}
+  - effectType: 1
+    value: 10
+    compareCategory: 1
+    categoryCompare: 32
+    neighbourDist: 1
+    compareSpecific: []
+  - effectType: 2
+    value: 1
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 2
+    compareSpecific:
+    - {fileID: 11400000, guid: a5d4d6a942044dd4eb16011d2c9c1f0d, type: 2}
+    - {fileID: 11400000, guid: 5b728e9a01eb6454b9532043de2b8029, type: 2}
+  - effectType: 1
+    value: 10
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 1
+    compareSpecific:
+    - {fileID: 11400000, guid: 4abd4deada087e44d8015f699d51aff4, type: 2}
+    - {fileID: 11400000, guid: 08329128f1f94914fb3c327e1ff6cf5b, type: 2}
+    - {fileID: 11400000, guid: 9caf9db08dd6d8c4eaa30518af197287, type: 2}
+  - effectType: 3
+    value: 1
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 15
+    compareCategory: 1
+    categoryCompare: 32
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 5
+    compareCategory: 1
+    categoryCompare: 5
+    neighbourDist: 1
+    compareSpecific: []
+  - effectType: 2
+    value: 2.5
+    compareCategory: 1
+    categoryCompare: 32
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 1
+    value: 10
+    compareCategory: 1
+    categoryCompare: 5
+    neighbourDist: 1
+    compareSpecific: []
+  - effectType: 1
+    value: 5
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: -10
+    compareCategory: 1
+    categoryCompare: 2
+    neighbourDist: 2
+    compareSpecific: []
+  - effectType: 1
+    value: 15
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: -1
+    compareSpecific: []
+  - effectType: 1
+    value: 10
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 1
+    compareSpecific: []
+  - effectType: 1
+    value: 20
+    compareCategory: 1
+    categoryCompare: 32
+    neighbourDist: 1
+    compareSpecific: []
+  - effectType: 1
+    value: -20
+    compareCategory: 1
+    categoryCompare: 1
+    neighbourDist: 2
+    compareSpecific: []
+  debugListForTesting: {fileID: 11400000, guid: 823549fd77223324f884e6a643950cca, type: 2}

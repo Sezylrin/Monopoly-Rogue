@@ -1,0 +1,494 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b06649e2286f84389b59df1e228c16, type: 3}
+  m_Name: ExportImportCSVObj
+  m_EditorClassIdentifier: 
+  allBuildings: {fileID: 11400000, guid: 823549fd77223324f884e6a643950cca, type: 2}
+  TextAssetData: {fileID: 4900000, guid: cced4fa8d26feb54f988aec27d296536, type: 3}
+  importData:
+  - Name
+  - Rarity
+  - Category
+  - Base Value
+  - Max limit
+  - Boost Type
+  - "Description\r"
+  - Casino
+  - legendary
+  - commercial
+  - 30
+  - 0
+  - other@generic
+  - "Increase nearby Residential and Commercial tiles multiplier by 3x\r"
+  - CERN
+  - legendary
+  - educational
+  - 30
+  - 1
+  - other@generic
+  - "Increase all Educational tiles base value by 20\r"
+  - ITER
+  - legendary
+  - educational@energy
+  - 30
+  - 1
+  - other@specific
+  - "Increase University@Nuclear Reactor and Fusion Reactor base multiplier by 7x\r"
+  - Fusion Reactor
+  - legendary
+  - energy
+  - 30
+  - 0
+  - other@generic
+  - "Increase all tiles base value by 10\r"
+  - Central Park
+  - legendary
+  - environmental
+  - 30
+  - 0
+  - self@generic
+  - "Increase base value by 10 per Residential tiles\r"
+  - Chemical Plant
+  - legendary
+  - industrial
+  - 30
+  - 0
+  - other@generic
+  - "Increase adjacent Industrial tiles multiplier by 5x. Decrease nearby Environmental
+    tiles base value by 20\r"
+  - Chateau
+  - legendary
+  - residential
+  - 30
+  - 0
+  - other@generic
+  - "Increae all environemental tiless multiplier by 2.5x\r"
+  - Grand Hotel
+  - epic
+  - commercial
+  - 20
+  - 0
+  - self@generic
+  - "Increase base value by 25 per nearby unique tile\r"
+  - Stadium
+  - epic
+  - commercial
+  - 20
+  - 0
+  - other@generic
+  - "Increase nearby Residential tiles multiplier by 1x\r"
+  - Chemical Lab
+  - epic
+  - educational
+  - 20
+  - 0
+  - other@generic
+  - "Increase industrial tiles multiplier by 0.25x per nearby Educational tile\r"
+  - University
+  - epic
+  - educational
+  - 20
+  - 0
+  - other@generic
+  - "increase all educational tile multiplier by 0.5x\r"
+  - Nuclear Reactor
+  - epic
+  - energy
+  - 20
+  - 0
+  - other@generic
+  - "Increase nearby tiles base value by 20\r"
+  - Botanical Garden
+  - epic
+  - environmental
+  - 20
+  - 0
+  - generic@specific@other
+  - "Increase nearby Residential@Hotel@Grand Hotel and Nature Researve tiles base
+    multiplier by 1x\r"
+  - National Park
+  - epic
+  - environmental
+  - 20
+  - 0
+  - other@specific
+  - "Increase Wildlife Safari and Nature Researve tiles multiplier by 1.5x\r"
+  - Foundry
+  - epic
+  - industrial
+  - 20
+  - 0
+  - self@specific
+  - "Increase self multiplier by 1x per Quarry tile. Increase self value by 10 per
+    nearby Industrial tile\r"
+  - Manufacturing Plant
+  - epic
+  - industrial
+  - 20
+  - 0
+  - other@generic
+  - "Increase all Industrial and Commercial tiles multiplier by 0.25x\r"
+  - Mansion
+  - epic
+  - residential
+  - 20
+  - 0
+  - self@generic
+  - "Increase base value by 15 per Residential tiles\r"
+  - Villa
+  - epic
+  - residential
+  - 20
+  - 0
+  - self@generic
+  - "Increase base value by 20 per adjacent Environmental tiles. Reduce base value
+    by 20 per nearby Residential tiles\r"
+  - Hotel
+  - rare
+  - commercial
+  - 10
+  - 0
+  - self@generic
+  - "Increase base value by 10 per nearby Environmental and Commercial tiles\r"
+  - Mall
+  - rare
+  - commercial
+  - 10
+  - 0
+  - other@generic
+  - "Increase nearby Commercial tiles effect range by 2\r"
+  - Hospital
+  - rare
+  - commercial
+  - 10
+  - 0
+  - generic@other
+  - "Increase all Residential tiles multiplier by 0.25x\r"
+  - Cram School
+  - rare
+  - educational
+  - 10
+  - 0
+  - other@specific
+  - "Increase base value of all School@Dormatory@House@Apartment and Townhouse tile
+    by 10\r"
+  - Research Lab
+  - rare
+  - educational
+  - 10
+  - 4
+  - other@generic
+  - "Increase all Industrial and Educational tiles multiplier by 0.1x\r"
+  - Geothermal Plant
+  - rare
+  - energy
+  - 10
+  - 2
+  - other@generic
+  - "Increase all Industrial tiles multiplier by 0.25x\r"
+  - Hydroelectric Dam
+  - rare
+  - energy
+  - 10
+  - 2
+  - self@specific
+  - "Increase base value by 20 per adjacent River and Lake tiles\r"
+  - Substation
+  - rare
+  - energy
+  - 10
+  - 0
+  - other@generic
+  - "Increase nearby energy tiles effect range by 2\r"
+  - Nature Reserve
+  - rare
+  - environmental
+  - 10
+  - 0
+  - self@generic
+  - "Increase base vlue by 10 per nearby Environmental tiles\r"
+  - Wildlife Safari
+  - rare
+  - environmental
+  - 30
+  - 0
+  - self@generic
+  - "Decrease self value by 10 per nearby Residential and Industrial tiles\r"
+  - Zoo
+  - rare
+  - environmental@commercial
+  - 10
+  - 0
+  - self@generic
+  - "Increase base value by 15 per nearby Environmental tiles\r"
+  - Aquarium
+  - rare
+  - environmental@educational
+  - 10
+  - 0
+  - specific@other
+  - "Increase River@Lake and Beach tiles value by 10\r"
+  - Lake
+  - rare
+  - environmental
+  - 10
+  - 0
+  - self@specific
+  - "Increase base value by 10 per River@Hydroelectric Dam and Fishery\r"
+  - Oil Rig
+  - rare
+  - industrial
+  - 10
+  - 0
+  - specific@self
+  - "Increase base value by 20 per Refinery\r"
+  - Ship Yard
+  - rare
+  - industrial
+  - 10
+  - 2
+  - other@generic
+  - "Increase nearby commerical tiles multiplier by 0.5x\r"
+  - Train Yard
+  - rare
+  - industrial
+  - 10
+  - 2
+  - other@generic
+  - "Increase all Industiral tiles range effect by 1\r"
+  - Refinery
+  - rare
+  - industrial
+  - 10
+  - 0
+  - specific@other
+  - "Increase all Gas Station and Gas Fired Plant base value by 15\r"
+  - High Rise
+  - rare
+  - residential@commercial
+  - 10
+  - 0
+  - other@generic
+  - "Increase adjacent commercial and residential tiles base value by 10\r"
+  - House
+  - rare
+  - residential
+  - 10
+  - 0
+  - self@generic
+  - "Increase base value by 5 per nearby tiles. Reduce base value by 10 per nearby
+    Industrial tiles \r"
+  - Fishery
+  - common
+  - commercial@industrial
+  - 5
+  - 0
+  - self@specific
+  - "Increase base value by 10 when adjacent to River@Lake and Beach tiles\r"
+  - Vetinery Hostpital
+  - common
+  - commercial
+  - 5
+  - 0
+  - self
+  - "Increase nearby Residential tiles value by 5\r"
+  - Clinic
+  - common
+  - commercial
+  - 5
+  - 0
+  - other@generic
+  - "Increase nearby Residential tiles mutiplier by 0.25x\r"
+  - Bar
+  - common
+  - commercial
+  - 5
+  - 0
+  - self@generic
+  - "increase base value by 5 per nearby Industrial and Commercial tiles\r"
+  - Office
+  - common
+  - commercial
+  - 5
+  - 0
+  - self@generic
+  - "Increase base value by 7 per adjacent Industrial tiles\r"
+  - Restaurant
+  - common
+  - commercial
+  - 5
+  - 0
+  - other@generic
+  - "Increase nearby Industrial and Commercial tiless value by 5\r"
+  - Supermarket
+  - common
+  - commercial
+  - 5
+  - 0
+  - other@generic
+  - "Increase nearby Residential tiles value by 5\r"
+  - Daycare
+  - common
+  - educational
+  - 5
+  - 0
+  - generic@self
+  - "increase base value by 5 per nearby residential\r"
+  - Library
+  - common
+  - educational
+  - 5
+  - 0
+  - generic@other
+  - "Increase nearby educational tiles multiplier by 0.25x\r"
+  - School
+  - common
+  - educational
+  - 5
+  - 0
+  - other@generic
+  - "increase base value of nearby residence by 5\r"
+  - Coal Power Plant
+  - common
+  - energy
+  - 5
+  - 0
+  - specific@self
+  - "Increase base value by 10 when next to quarry\r"
+  - Gas Fired Plant
+  - common
+  - energy
+  - 5
+  - 0
+  - generic@other
+  - "Increase base value of nearby Industrial tiles by 10@decrease base value of
+    nearby residential tiless by 10\r"
+  - Gas Station
+  - common
+  - energy@commercial
+  - 5
+  - 0
+  - generic@other
+  - "Increase nearby residential tiles effect range by 1\r"
+  - Offshore Wind Turbines
+  - common
+  - energy
+  - 10
+  - 8
+  - self@specific
+  - "Decrease base value by 5 when nearby other Offshore Wind Turbines\r"
+  - Solar Array
+  - common
+  - energy
+  - 5
+  - 0
+  - self@specific@other
+  - "Increase base value by 5 per solar panel tiles\r"
+  - Hiking Trail
+  - common
+  - environmental
+  - 5
+  - 0
+  - other@generic
+  - "Increase adjacent tile effect range by 1\r"
+  - Park
+  - common
+  - environmental
+  - 5
+  - 0
+  - generic@other
+  - "Increase base value of nearby residential and educational tiless by 5\r"
+  - River
+  - common
+  - environmental
+  - 5
+  - 0
+  - other@generic
+  - "Increase nearby environmental tiles effect range by 1\r"
+  - Campsite
+  - common
+  - environmental
+  - 5
+  - 0
+  - self@generic
+  - "When adjacent to environemental tiless@boost base value by 10\r"
+  - Beach
+  - common
+  - environmental
+  - 10
+  - 4
+  - none
+  - "Does nothing\r"
+  - Factory
+  - common
+  - industrial
+  - 5
+  - 0
+  - generic@self
+  - "Increase base value by 7 when nearby Industrial tiless\r"
+  - Quarry
+  - common
+  - industrial
+  - 10
+  - 4
+  - none
+  - "Does nothing\r"
+  - Smeltery
+  - common
+  - industrial
+  - 5
+  - 0
+  - specific@self
+  - "Increase base value by 10 when next to a quarry\r"
+  - Warehouse
+  - common
+  - industrial
+  - 5
+  - 0
+  - other@generic
+  - "Increase adjacent Industrial tiles value by 5\r"
+  - Farm
+  - common
+  - industrial
+  - 5
+  - 0
+  - specific@other
+  - "Increase Restaurant@Bar and Supermarket tiles value by 10\r"
+  - Dormatory
+  - common
+  - residential@educational
+  - 5
+  - 0
+  - other@specific
+  - "Increase nearby Schools and university tiles multiplier by 1x\r"
+  - Apartment
+  - common
+  - residential
+  - 5
+  - 0
+  - self@generic
+  - "Increase base value by 5 per adjacent Residential or Commercial tiles\r"
+  - Townhouse
+  - common
+  - residential
+  - 5
+  - 0
+  - other@generic
+  - "Increase adjacent Residential tiles value by 10\r"
+  - Shack
+  - common
+  - residential
+  - 5
+  - 0
+  - none
+  - Does nothing
+  colAmount: 7

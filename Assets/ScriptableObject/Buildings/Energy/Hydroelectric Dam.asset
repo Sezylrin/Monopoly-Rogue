@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfab9dbbb0017e4ca1e6e62084bb113, type: 3}
+  m_Name: Hydroelectric Dam
+  m_EditorClassIdentifier: 
+  effect: Increase value by 20 per adjacent River and Lake tiles
+  baseValue: 10
+  category: 8
+  rarity: 1
+  boostType: 9
+  texture: {fileID: 0}
+  building: {fileID: 1487403486575813573, guid: 2adf3394a123eae4988223a626774f51, type: 3}
+  maxLimit: 2
+  comparisonChecks:
+  - effectType: 1
+    value: 20
+    compareCategory: 0
+    categoryCompare: 0
+    neighbourDist: 1
+    compareSpecific:
+    - {fileID: 11400000, guid: 4abd4deada087e44d8015f699d51aff4, type: 2}
+    - {fileID: 11400000, guid: 08329128f1f94914fb3c327e1ff6cf5b, type: 2}

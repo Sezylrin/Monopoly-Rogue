@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436073cc7689ed9439534748f239214c, type: 3}
+  m_Name: Disaster Prevention
+  m_EditorClassIdentifier: 
+  <rarity>k__BackingField: 1
+  prefab: {fileID: 8231255406048521489, guid: 6656500a23878be45a9623bf6721a30b, type: 3}
+  description: 'Apply Disaster Prevention building effect. Base value reduce by 10,
+    multiplier increase by 0.5x '
+  objectPF: {fileID: 8635925974600081937, guid: 64e996ea6d4290b4ebbd2534adad5384, type: 3}
