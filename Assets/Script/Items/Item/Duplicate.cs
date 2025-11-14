@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoundaryAdjustment : BaseItem
+public class Duplicate : BaseItem
 {
     [SerializeField]
     private IntSO currentPosSO;
@@ -11,22 +11,27 @@ public class BoundaryAdjustment : BaseItem
     private IntSO gridSizeSO;
     [SerializeField]
     private BoolSO IsDisableButtonSO;
-    // Start is called before the first frame update
     public override void AttemptItemUse()
     {
-        bool cancel = (TileGrid.Instance.GetBuildingOnTile(currentPosSO.Int) == null) 
-            || (TileGrid.Instance.IsTileProtected());
+        bool cancel = TileGrid.Instance.IsTileProtected();
         if (cancel)
         {
             base.ItemUseCancel();
             return;
         }
-        for (int i = -2; i <= 2; i++)
+        bool found = false;
+        for (int i = 0; i < gridSizeSO.Int; i++)
         {
-            if (i == 0)
+            cancel = i == currentPosSO.Int || !TileGrid.Instance.GetBuildingOnTile(i) || TileGrid.Instance.IsNotAtLimit(TileGrid.Instance.GetBuildingOnTile(i).GetSO());
+            if (cancel)
                 continue;
-            int pos = (currentPosSO.Int - i + gridSizeSO.Int) % gridSizeSO.Int;
-            TileGrid.Instance.EnableTileButtonUI(pos, ButtonAction.boundaryAdjustment);
+            found = true;
+            TileGrid.Instance.EnableTileButtonUIIgnoreProtection(i, ButtonAction.duplicate);
+        }
+        if (!found)
+        {
+            base.ItemUseCancel();
+            return;
         }
         IsDisableButtonSO.Bool = true;
     }
@@ -42,12 +47,12 @@ public class BoundaryAdjustment : BaseItem
     {
         if (IsDisableButtonSO.Bool)
             return;
-        for (int i = -2; i <= 2; i++)
+        for (int i = 0; i < gridSizeSO.Int; i++)
         {
-            if (i == 0)
+            if (i == currentPosSO.Int)
                 continue;
             int pos = (currentPosSO.Int - i + gridSizeSO.Int) % gridSizeSO.Int;
-            TileGrid.Instance.DisableTileButtonUI(pos, ButtonAction.boundaryAdjustment);
+            TileGrid.Instance.DisableTileButtonUI(pos, ButtonAction.duplicate);
         }
         base.ItemUseSuccessful();
     }

@@ -16887,7 +16887,6 @@ MonoBehaviour:
   IsCollectCashSO: {fileID: 11400000, guid: 6c2cec0c49da30d4eb03f02ccd0794aa, type: 2}
   IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
   CanRollSO: {fileID: 11400000, guid: 76044513a8b25c140b0bc2d48fc4631c, type: 2}
-  roller: {fileID: 1844926784}
   taxText: {fileID: 480277566}
   currentSubTurnSO: {fileID: 11400000, guid: 2974b5cd8b31d8c4cac78bd92cc5e92b, type: 2}
   taxAmountSO: {fileID: 11400000, guid: 64d7c05fa0745724f94e10902974565b, type: 2}
@@ -17594,7 +17593,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsOpenProbabilityUiSO: {fileID: 11400000, guid: 88ffd76c3c8852142a92b9f0e9c1ad8a, type: 2}
-  roller: {fileID: 1844926784}
 --- !u!114 &1881520649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18768,7 +18766,8 @@ MonoBehaviour:
     list:
     - {fileID: 11400000, guid: 1198471e2ea2e8446b44ac4668fd38b5, type: 2}
   testItem:
-  - {fileID: 11400000, guid: 586047f3af378f747b69b48a93a7153e, type: 2}
+  - {fileID: 11400000, guid: f99a819c55980404cac4dfa025940940, type: 2}
+  - {fileID: 11400000, guid: 235b8ea78d2fbfa42b55bd049210ba88, type: 2}
   GenerateOnStart: 1
 --- !u!1 &2050395608
 GameObject:

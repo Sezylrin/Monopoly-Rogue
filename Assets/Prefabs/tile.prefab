@@ -47,9 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentBuilding: {fileID: 0}
-  newTilePos: {fileID: 11400000, guid: a8bfea3d447884347ae538778a3a2d40, type: 2}
-  UiForBoundaryAdjustment: {fileID: 7590664760540644126}
+  button: {fileID: 2638470124588535118}
+  buttonUIOBJ: {fileID: 7590664760540644126}
   IsDisableButtonSO: {fileID: 11400000, guid: c0ad7794c0ec25041a93a06a488c7f45, type: 2}
+  newTilePosSO: {fileID: 11400000, guid: a8bfea3d447884347ae538778a3a2d40, type: 2}
+  isTileProtected: 0
 --- !u!1 &7590664760540644126
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +112,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -502435751
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &7577740511105820097
 MonoBehaviour:
@@ -271,19 +273,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1766510228023584159}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 471105584530262570}
-        m_TargetAssemblyTypeName: Tile, Assembly-CSharp
-        m_MethodName: SetNewTilePos
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8318408292765853644
 GameObject:
   m_ObjectHideFlags: 0

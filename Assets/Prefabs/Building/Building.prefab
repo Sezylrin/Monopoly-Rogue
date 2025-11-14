@@ -62,7 +62,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -502435751
-  m_SortingOrder: 83
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &8173236331899061146
 MonoBehaviour:
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &3804650382641348859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,12 +298,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756788ea1a93b924e9b1d1353d87d215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentValue: 0
   buildingSO: {fileID: 0}
   gridSize: {fileID: 11400000, guid: 1abb22a1d0b2f32499565b6499a3843e, type: 2}
   buildingAffectingSelf: []
   buildingSelfAffecting: []
   buildingModified: []
   comparisons: []
+  currentTile: {fileID: 0}
 --- !u!1 &7517480325661966276
 GameObject:
   m_ObjectHideFlags: 0

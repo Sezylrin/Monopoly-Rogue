@@ -1,7 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
+using UnityEngine.UI;
+public enum ButtonAction
+{
+    boundaryAdjustment,
+    duplicate,
+}
 public class Tile : MonoBehaviour
 {
     [CollapsibleGroup("Tiles")]
@@ -10,6 +15,12 @@ public class Tile : MonoBehaviour
     private TileGrid grid;
     private Dictionary<string,TileEffect> effects = new Dictionary<string, TileEffect>();
     private int tilePos;
+
+    [SerializeField]
+    private Button button;
+
+    private float multiplier = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,27 +32,7 @@ public class Tile : MonoBehaviour
     {
 
     }
-    [CollapsibleGroup("Boundary Adjustment")]
-    [SerializeField]
-    private IntSO newTilePos;
-    [SerializeField]
-    private GameObject UiForBoundaryAdjustment;
-    [SerializeField]
-    private BoolSO IsDisableButtonSO;
-    public void ShowUI()
-    {
-        UiForBoundaryAdjustment.SetActive(true);
-    }
-    public void HideUI()
-    {
-        UiForBoundaryAdjustment.SetActive(false);
-    }
-    public void SetNewTilePos()
-    {
-        newTilePos.Int = tilePos; 
-        UiForBoundaryAdjustment.SetActive(false);
-        IsDisableButtonSO.Bool = false;
-    }
+    #region Getter and Setter
     public void SetTilePos(int tilePos)
     {
         this.tilePos = tilePos;
@@ -50,20 +41,88 @@ public class Tile : MonoBehaviour
     {
         this.grid = grid;
     }
-
     public float GetTileScore()
     {
-        if(currentBuilding)
-        return currentBuilding.GetCurrentValue();
+        if (currentBuilding)
+            return currentBuilding.GetCurrentValue() * multiplier;
         else
             return 0;
-        
     }
-
     public Building GetCurrentBuilding()
     {
         return currentBuilding;
     }
+    #endregion
+
+    #region Button Management
+    [CollapsibleGroup("Button Management")]
+    [SerializeField]
+    private GameObject buttonUIOBJ;
+    [SerializeField]
+    private BoolSO IsDisableButtonSO;
+    public void ShowUI(ButtonAction action)
+    {
+        buttonUIOBJ.SetActive(true);
+        AddListeners(action);
+    }
+    public void HideUI(ButtonAction action)
+    {
+        RemoveListeners(action);
+        buttonUIOBJ.SetActive(false);
+    }
+    public void AddListeners(ButtonAction action)
+    {
+        switch (action)
+        {
+            case ButtonAction.boundaryAdjustment:
+                Debug.Log("triggering BA");
+                button.onClick.AddListener(SetNewTilePos);
+                break;
+            case ButtonAction.duplicate:
+                Debug.Log("triggering");
+                button.onClick.AddListener(CopyBuilding);
+                break;
+        }
+    }
+    public void RemoveListeners(ButtonAction action)
+    {
+        switch (action)
+        {
+            case ButtonAction.boundaryAdjustment:
+                button.onClick.RemoveListener(SetNewTilePos);
+                break;
+            case ButtonAction.duplicate:
+                button.onClick.RemoveListener(CopyBuilding);
+                break;
+        }
+    }
+    #endregion
+
+    #region Duplicate
+    public void CopyBuilding()
+    {
+        Building temp = Instantiate(currentBuilding.gameObject).GetComponent<Building>();
+        temp.ClearEffects();
+        temp.ResetAllValues();
+        grid.Duplicate(temp);
+        temp.UpdateDict();
+        temp.ReapplyEffect();
+        IsDisableButtonSO.Bool = false;
+    }
+    #endregion
+
+    #region Boundary Adjustment
+    [CollapsibleGroup("Boundary Adjustment")]
+    [SerializeField]
+    private IntSO newTilePosSO;
+    public void SetNewTilePos()
+    {
+        newTilePosSO.Int = tilePos;
+        IsDisableButtonSO.Bool = false;
+    }
+    #endregion
+
+    #region Change Building
     public void ChangeBuilding(Building newBuilding, int position, bool destroy = true)
     {
         if (currentBuilding)
@@ -74,7 +133,11 @@ public class Tile : MonoBehaviour
             }
             currentBuilding.RemoveAllAffected();
             if (destroy)
+            {
+                if (currentBuilding.GetSO().maxLimit > 0)
+                    grid.RemoveLimit(currentBuilding.GetSO());
                 Destroy(currentBuilding.gameObject);
+            }
         }
         if(newBuilding == null)
         {
@@ -91,6 +154,8 @@ public class Tile : MonoBehaviour
             effect.Value.ApplyEffect();
         }
     }
+    #endregion
+
     #region TileEffects
     public void RemoveAllTileEffect()
     {
@@ -146,9 +211,18 @@ public class Tile : MonoBehaviour
         else
         {
             BuildingEffect effect = Instantiate(buildingEffectPF, currentBuilding.transform).GetComponent<BuildingEffect>();
+            effect.gameObject.name = buildingEffectPF.name;
             currentBuilding.AddBuildingEffect(effect);
             return true;
         }
+    }
+    #endregion
+
+    #region debug
+    [ContextMenu("Debug destroy building")]
+    private void DestroyBuilding()
+    {
+        ChangeBuilding(null, tilePos);
     }
     #endregion
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
+using UnityEngine.InputSystem.Composites;
 
 public class TileGrid : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class TileGrid : MonoBehaviour
 
     [SerializeField]
     private BoolSO IsCollectCash;
-    void Start()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -42,6 +43,9 @@ public class TileGrid : MonoBehaviour
             Instance = this;
             Debug.Log("smth has gone wrong");
         }
+    }
+    void Start()
+    {
         //spawn starting building
         /*for (int i = 0; i < tiles.Length; i ++)
         {
@@ -86,7 +90,8 @@ public class TileGrid : MonoBehaviour
         if (building == null)
             return;
         building.gameObject.name = building.GetSO().name + " " + pos.ToString();
-        
+        if (building.GetSO().maxLimit > 0)
+            ModifyLimits(building.GetSO());
         List<Building> affectedBuildings = new List<Building>{building};
         for (int i = 0; i < tiles.Length;i ++)
         {
@@ -112,6 +117,14 @@ public class TileGrid : MonoBehaviour
             needUpdating.ApplyEffects();
         }
     }
+    private void ToChangeBuilding(object sender, EventArgs e)
+    {
+        if (buildingToChange.Building != null)
+        {
+            ChangeBuilding(buildingToChange.Building, currentPos);
+            buildingToChange.ResetValue();
+        }
+    }
 
     public Tile[] GetTile()
     {
@@ -133,19 +146,49 @@ public class TileGrid : MonoBehaviour
     {
         return GridSize.Int;
     }
-
-    private void ToChangeBuilding(object sender, EventArgs e)
+    #region Limit
+    private Dictionary<BuildingSO, int> limits = new Dictionary<BuildingSO, int>();
+    public void ModifyLimits(BuildingSO building)
     {
-        if(buildingToChange.Building != null)
+        if(!limits.TryAdd(building, 1))
         {
-            ChangeBuilding(buildingToChange.Building, currentPos);
-            buildingToChange.ResetValue();
+            limits[building]++;
+        }
+        if (limits[building] == building.maxLimit)
+        {
+            BuildingRoller.Instance.RemoveFromSorted(building);
         }
     }
+
+    public void RemoveLimit(BuildingSO building)
+    {
+        if (limits.ContainsKey(building))
+        {
+            limits[building]--;
+            BuildingRoller.Instance.AddToSorted(building);
+        }
+        else
+        {
+            Debug.Log("Limits messed up somewhere");
+        }
+    }
+    public bool IsNotAtLimit(BuildingSO building)
+    {
+        return limits.ContainsKey(building) ? limits[building] < building.maxLimit : false;
+    }
+    #endregion
+
     #region BuildingEffects
     public bool AddBuildingEffect(GameObject buildingEffectPF)
     {
         return tiles[currentPos].AddBuildingEffect(buildingEffectPF);
+    }
+    #endregion
+
+    #region Duplicate
+    public void Duplicate(Building building)
+    {
+        ChangeBuilding(building, currentPos);
     }
     #endregion
 
@@ -189,15 +232,19 @@ public class TileGrid : MonoBehaviour
     [CollapsibleGroup("Boundary Adjustment")]
     [SerializeField]
     private IntSO newTilePosSO;
-    public void EnableBoundaryAdjustmentUI(int pos)
+    public void EnableTileButtonUI(int pos, ButtonAction action)
     {
         if (!tiles[pos].IsTileProtected())
-            tiles[pos].ShowUI();
+            tiles[pos].ShowUI(action);
     }
-
-    public  void DisableBoundaryAdjustmentUI(int pos)
+    
+    public void EnableTileButtonUIIgnoreProtection(int pos, ButtonAction action)
     {
-        tiles[pos].HideUI();
+        tiles[pos].ShowUI(action);
+    }
+    public  void DisableTileButtonUI(int pos, ButtonAction action)
+    {
+        tiles[pos].HideUI(action);
     }
 
     public void MoveBuilding(object sender, EventArgs e)
@@ -205,11 +252,13 @@ public class TileGrid : MonoBehaviour
         Building buildingOne = GetBuildingOnTile(currentPos);
         buildingOne.RemoveAllAffected();
         buildingOne.ResetAllValues();
+        buildingOne.ReapplyEffect();
         Building buildingTwo = GetBuildingOnTile(newTilePosSO.Int);
         if (buildingTwo != null)
         {
             buildingTwo.RemoveAllAffected();
             buildingTwo.ResetAllValues();
+            buildingTwo.ReapplyEffect();
         }
         ChangeBuilding(null, currentPos, false);
         ChangeBuilding(buildingOne, newTilePosSO.Int, false);
