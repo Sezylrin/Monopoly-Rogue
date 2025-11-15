@@ -6,22 +6,22 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     [SerializeField]
-    private IntSO turnSO;
+    private IntSO turnNumberSO;
     [SerializeField]
     private TileGrid grid;
     [SerializeField]
-    private IntSO turnsPerRent;
+    private IntSO turnsPerTaxSO;
     [SerializeField]
-    private BoolSO IsRentTurn;
+    private BoolSO IsTaxTurn;
     [SerializeField]
-    private IntSO currentSubTurn;
+    private IntSO currentSubTurnSO;
 
     [SerializeField]
     private BoolSO IsTurnChangeSO;
     // Start is called before the first frame update
     void Start()
     {
-        currentSubTurn.Int = turnsPerRent.Int;
+        currentSubTurnSO.Int = turnsPerTaxSO.Int;
         IsTurnChangeSO.onValueChanged += TriggerSubTurn;
     }
 
@@ -30,12 +30,12 @@ public class TurnManager : MonoBehaviour
         if (!IsTurnChangeSO.Bool)
             return;
         IsTurnChangeSO.ResetValue();
-        currentSubTurn.Int--;
-        if (currentSubTurn.Int == -1)
+        currentSubTurnSO.Int--;
+        if (currentSubTurnSO.Int == -1)
         {
-            currentSubTurn.Int = turnsPerRent.Int;
-            turnSO.Int++;
-            IsRentTurn.Bool = true;                
+            currentSubTurnSO.Int = turnsPerTaxSO.Int;
+            turnNumberSO.Int++;
+            IsTaxTurn.Bool = true;                
         }
     }
     // Update is called once per frame

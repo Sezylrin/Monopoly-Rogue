@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28f9941d88651174e9668658ce97bb03, type: 3}
-  m_Name: NewTilePos
+  m_Name: TeleportPos
   m_EditorClassIdentifier: 
-  Descirption: To determine tilepos to move building to for item boundary adjustment
+  Descirption: Pos to teleport player to
   <ShouldReset>k__BackingField: 1
   <defaultValue>k__BackingField: -1
   _int: -1

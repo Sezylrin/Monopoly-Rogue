@@ -12,20 +12,20 @@ public class TaxManager : MonoBehaviour
     [SerializeField]
     private List<int> taxes = new List<int>();
     [SerializeField]
-    private BoolSO isTaxTurn;
+    private BoolSO IsTaxTurn;
     [SerializeField]
     private IntSO taxTurn;
     [SerializeField]
     private IntSO taxAmount;
     private void Start()
     {
-        isTaxTurn.onValueChanged += CheckTax;
+        IsTaxTurn.onValueChanged += CheckTax;
         taxAmount.Int = taxes[taxTurn.Int];
     }
 
     private void CheckTax(object sender, EventArgs e)
     {
-        if (isTaxTurn.Bool)
+        if (IsTaxTurn.Bool)
         {
             if(taxTurn.Int < taxes.Count)
             {
@@ -36,7 +36,7 @@ public class TaxManager : MonoBehaviour
                 else
                     taxAmount.Int = taxes[taxTurn.Int];
             }
-            isTaxTurn.ResetValue();
+            IsTaxTurn.ResetValue();
         }
     }
     private void Update()

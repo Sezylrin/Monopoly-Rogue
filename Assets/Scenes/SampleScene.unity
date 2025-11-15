@@ -14293,15 +14293,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7707a1f3b4b328049847e73b7c8e0070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 922022542}
   playerPos: {fileID: 1498548367}
   diceMinMax: {x: 1, y: 6}
   diceAmount: 2
   customDiceRollSO: {fileID: 11400000, guid: ad4d239dfd11ace44aebe0fc7fcc2b05, type: 2}
   moveDuration: 1
-  currentBuilding: {fileID: 11400000, guid: b99036cd489173a41abf4b8282e176c3, type: 2}
   isToRollSO: {fileID: 11400000, guid: e976a232cd9d46740846cca3d2a9c66e, type: 2}
   canRollSO: {fileID: 11400000, guid: 76044513a8b25c140b0bc2d48fc4631c, type: 2}
+  teleportPosSO: {fileID: 11400000, guid: 86b1c526ec332d041bb48706764811d7, type: 2}
 --- !u!4 &1498548367
 Transform:
   m_ObjectHideFlags: 0
@@ -18710,11 +18709,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b401b67f89a59c47a5a1ed3cae8292a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSO: {fileID: 11400000, guid: 0ae50bef838492e47b07d98a7ed6e59e, type: 2}
+  turnNumberSO: {fileID: 11400000, guid: 0ae50bef838492e47b07d98a7ed6e59e, type: 2}
   grid: {fileID: 922022542}
-  turnsPerRent: {fileID: 11400000, guid: d60a98829b4ab0f469e2dee2ce7eb916, type: 2}
-  IsRentTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
-  currentSubTurn: {fileID: 11400000, guid: 2974b5cd8b31d8c4cac78bd92cc5e92b, type: 2}
+  turnsPerTaxSO: {fileID: 11400000, guid: d60a98829b4ab0f469e2dee2ce7eb916, type: 2}
+  IsTaxTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
+  currentSubTurnSO: {fileID: 11400000, guid: 2974b5cd8b31d8c4cac78bd92cc5e92b, type: 2}
   IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
 --- !u!114 &2019500285
 MonoBehaviour:
@@ -18731,7 +18730,7 @@ MonoBehaviour:
   currentMoneySO: {fileID: 11400000, guid: 2839112328709b440a244839b46e206b, type: 2}
   GameOverSO: {fileID: 11400000, guid: 1b9669e19ce7581428eb5b53de726569, type: 2}
   taxes: 3200000064000000c8000000
-  isTaxTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
+  IsTaxTurn: {fileID: 0}
   taxTurn: {fileID: 11400000, guid: ce49ba9300f458b4b8ae7616a1c5e06f, type: 2}
   taxAmount: {fileID: 11400000, guid: 64d7c05fa0745724f94e10902974565b, type: 2}
 --- !u!114 &2019500286

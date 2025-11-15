@@ -16,8 +16,7 @@ public class BaseItemTile : BaseItem
     protected ButtonAction action;
     public override void AttemptItemUse()
     {
-        bool cancel = CantUseItem();
-        if (cancel)
+        if (CantUseItem())
         {
             base.ItemUseCancel();
             return;
@@ -59,7 +58,7 @@ public class BaseItemTile : BaseItem
     {
         found = false;
     }
-    protected virtual void ModifyUI(bool value, int i)
+    protected void ModifyUI(bool value, int i)
     {
         if (value)
             TileGrid.Instance.EnableTileButtonUI(i, action);

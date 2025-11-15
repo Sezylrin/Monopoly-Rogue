@@ -6,8 +6,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public class MovePlayer : MonoBehaviour
 {
-    [SerializeField]
-    private TileGrid grid;
+    [CollapsibleGroup("Player")]
     [SerializeField]
     private Transform playerPos;
     [SerializeField]
@@ -18,14 +17,18 @@ public class MovePlayer : MonoBehaviour
     private IntSO customDiceRollSO;
     [SerializeField]
     private float moveDuration;
-    [SerializeField]
-    private BuildingTypeSO currentBuilding;
 
     private int currentPos = 0;
+    private TileGrid grid;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        grid = TileGrid.Instance;
+    }
     void Start()
     {
         isToRollSO.onValueChanged += MovePlayerAround;
+        teleportPosSO.onValueChanged += Teleport;
     }
     [SerializeField]
     private BoolSO isToRollSO;
@@ -69,11 +72,16 @@ public class MovePlayer : MonoBehaviour
     {
         currentPos = (currentPos + moveAmount) % grid.GetTile().Length;
         grid.SetCurrentPos(currentPos);
-        currentBuilding.Building = grid.GetBuildingOnTile(currentPos);
     }
-    // Update is called once per frame
-    void Update()
+    [CollapsibleGroup("Teleport")]
+    [SerializeField]
+    private IntSO teleportPosSO;
+
+    private void Teleport(object sender, EventArgs e)
     {
-        
+        currentPos = teleportPosSO.Int;
+        teleportPosSO.ResetValue();
+        grid.SetCurrentPos(currentPos); 
+        transform.position = grid.GetTile()[currentPos].transform.position;
     }
 }

@@ -50,6 +50,7 @@ MonoBehaviour:
   button: {fileID: 2638470124588535118}
   buttonUIOBJ: {fileID: 7590664760540644126}
   IsDisableButtonSO: {fileID: 11400000, guid: c0ad7794c0ec25041a93a06a488c7f45, type: 2}
+  teleportPosSO: {fileID: 11400000, guid: 86b1c526ec332d041bb48706764811d7, type: 2}
   newTilePosSO: {fileID: 11400000, guid: a8bfea3d447884347ae538778a3a2d40, type: 2}
   isTileProtected: 0
 --- !u!1 &7590664760540644126

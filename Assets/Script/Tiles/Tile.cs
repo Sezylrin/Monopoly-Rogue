@@ -8,6 +8,7 @@ public enum ButtonAction
     duplicate,
     transport,
     transfer,
+    teleport,
 }
 public class Tile : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Tile : MonoBehaviour
     private Building currentBuilding;
     private TileGrid grid;
     private Dictionary<string,TileEffect> effects = new Dictionary<string, TileEffect>();
-    private int tilePos;
+    private int currentPos;
 
     [SerializeField]
     private Button button;
@@ -35,9 +36,9 @@ public class Tile : MonoBehaviour
 
     }
     #region Getter and Setter
-    public void SetTilePos(int tilePos)
+    public void SetTilePos(int currentPos)
     {
-        this.tilePos = tilePos;
+        this.currentPos = currentPos;
     }
     public void SetGrid(TileGrid grid)
     {
@@ -88,6 +89,9 @@ public class Tile : MonoBehaviour
             case ButtonAction.transfer:
                 button.onClick.AddListener(Transfer);
                 break;
+            case ButtonAction.teleport:
+                button.onClick.AddListener(Teleport);
+                break;
         }
     }
     public void RemoveListeners(ButtonAction action)
@@ -106,7 +110,21 @@ public class Tile : MonoBehaviour
             case ButtonAction.transfer:
                 button.onClick.RemoveListener(Transfer);
                 break;
+            case ButtonAction.teleport:
+                button.onClick.RemoveListener(Teleport);
+                break;
         }
+    }
+    #endregion
+
+    #region Teleport
+    [CollapsibleGroup("Teleport")]
+    [SerializeField]
+    private IntSO teleportPosSO;
+    private void Teleport()
+    {
+        IsDisableButtonSO.Bool = false;
+        teleportPosSO.Int = currentPos;
     }
     #endregion
 
@@ -117,6 +135,7 @@ public class Tile : MonoBehaviour
         {
             grid.AddBuildingEffect(effect.gameObject);
         }
+        IsDisableButtonSO.Bool = false;
     }
     #endregion
 
@@ -139,7 +158,7 @@ public class Tile : MonoBehaviour
     private IntSO newTilePosSO;
     private void SetNewTilePos()
     {
-        newTilePosSO.Int = tilePos;
+        newTilePosSO.Int = currentPos;
         IsDisableButtonSO.Bool = false;
     }
     #endregion
@@ -256,7 +275,7 @@ public class Tile : MonoBehaviour
     [ContextMenu("Debug destroy building")]
     private void DestroyBuilding()
     {
-        ChangeBuilding(null, tilePos);
+        ChangeBuilding(null, currentPos);
     }
     #endregion
 }
