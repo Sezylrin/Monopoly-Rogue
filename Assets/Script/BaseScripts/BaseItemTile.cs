@@ -29,6 +29,7 @@ public class BaseItemTile : BaseItem
             return;
         }
         IsDisableButtonSO.Bool = true;
+        IsDisableButtonSO.onValueChanged += ItemUsed;
     }
     protected virtual bool CantUseItem()
     {
@@ -64,10 +65,6 @@ public class BaseItemTile : BaseItem
             TileGrid.Instance.EnableTileButtonUI(i, action);
         else
             TileGrid.Instance.DisableTileButtonUI(i, action);
-    }
-    protected void OnEnable()
-    {
-        IsDisableButtonSO.onValueChanged += ItemUsed;
     }
     protected void OnDisable()
     {

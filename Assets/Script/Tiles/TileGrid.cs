@@ -139,8 +139,7 @@ public class TileGrid : MonoBehaviour
 
     public Building GetBuildingOnTile(int pos = -1)
     {
-        pos = CheckPos(pos);
-        return tiles[pos].GetCurrentBuilding();
+        return tiles[CheckPos(pos)].GetCurrentBuilding();
     }
 
     public int GetSize()
@@ -180,15 +179,14 @@ public class TileGrid : MonoBehaviour
     #endregion
 
     #region BuildingEffects
-    public bool AddBuildingEffect(GameObject buildingEffectPF)
+    public bool AddBuildingEffect(GameObject buildingEffectPF, int pos = -1)
     {
-        return tiles[currentPos].AddBuildingEffect(buildingEffectPF);
+        return tiles[CheckPos(pos)].AddBuildingEffect(buildingEffectPF);
     }
 
     public bool BuildingContainsAnyEffects(int pos = -1)
     {
-        pos = CheckPos(pos);
-        return tiles[pos].BuildingContainsAnyEffects();
+        return tiles[CheckPos(pos)].BuildingContainsAnyEffects();
     }
     #endregion
 

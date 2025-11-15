@@ -9,6 +9,7 @@ public enum ButtonAction
     transport,
     transfer,
     teleport,
+    restructuring,
 }
 public class Tile : MonoBehaviour
 {
@@ -92,6 +93,9 @@ public class Tile : MonoBehaviour
             case ButtonAction.teleport:
                 button.onClick.AddListener(Teleport);
                 break;
+            case ButtonAction.restructuring:
+                button.onClick.AddListener(Restructuring);
+                break;
         }
     }
     public void RemoveListeners(ButtonAction action)
@@ -113,7 +117,32 @@ public class Tile : MonoBehaviour
             case ButtonAction.teleport:
                 button.onClick.RemoveListener(Teleport);
                 break;
+            case ButtonAction.restructuring:
+                button.onClick.RemoveListener(Teleport);
+                break;
         }
+    }
+    #endregion
+
+    #region Restructuring
+    private void Restructuring()
+    {
+        List<BuildingEffect> effectOne = new List<BuildingEffect>(currentBuilding.GetAllEffects());
+        Building temp = grid.GetBuildingOnTile();
+        List<BuildingEffect> effectTwo = new List<BuildingEffect>(temp.GetAllEffects());
+        currentBuilding.RemoveAllBuildingEffect(false);
+        temp.RemoveAllBuildingEffect(false);
+        foreach (BuildingEffect effect in effectOne)
+        {
+            temp.AddBuildingEffect(effect);
+            effect.transform.parent = temp.transform;
+        }
+        foreach(BuildingEffect effect in effectTwo)
+        {
+            currentBuilding.AddBuildingEffect(effect);
+            effect.transform.parent = currentBuilding.transform;
+        }
+        IsDisableButtonSO.Bool = false;
     }
     #endregion
 

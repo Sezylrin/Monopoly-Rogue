@@ -112,6 +112,7 @@ public class UIManager : MonoBehaviour
         if (IsOpenBuildMenuUI.Bool)
         {
             rerollButtonOBJ.SetActive(true);
+
             IsOpenBuildMenuUI.Bool = false;
             BuildingRoller.Instance.ResetCardToStoredSO();
             return;

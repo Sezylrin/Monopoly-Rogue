@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeritageEffect : TileEffect
+public class SmoothEffect : TileEffect
 {
     public override void ApplyEffect()
     {
-        ModifyMultiplier();
+        ModifyRange();
     }
 
     public override void RemoveEffect()
     {
-        ModifyMultiplier(true);
+        ModifyRange(true);
     }
 }

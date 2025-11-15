@@ -10,10 +10,6 @@ public class ProbabilityItem : BaseItem
     [SerializeField]
     private IntSO probabilityIncreaseSO;
 
-    private void OnEnable()
-    {
-        IsOpenProbabilityUiSO.onValueChanged += ItemUsed;
-    }
     private void OnDisable()
     {
         IsOpenProbabilityUiSO.onValueChanged -= ItemUsed;
@@ -22,6 +18,7 @@ public class ProbabilityItem : BaseItem
     {
         probabilityIncreaseSO.Int = (itemSO as ProbabilityItemSO).amount;
         IsOpenProbabilityUiSO.Bool = true;
+        IsOpenProbabilityUiSO.onValueChanged += ItemUsed;
     }
     private void ItemUsed(object sender, EventArgs e)
     {

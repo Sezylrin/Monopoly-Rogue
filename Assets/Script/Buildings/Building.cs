@@ -343,8 +343,8 @@ public class Building : MonoBehaviour
             if (isDestroy)
                 Destroy(effect.Value.gameObject);
         }
-        if (isDestroy)
-            effects.Clear();
+        effects.Clear();
+        effectList.Clear();
     }
 
     public bool ContainsAnyEffect()
