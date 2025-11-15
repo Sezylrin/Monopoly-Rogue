@@ -24,7 +24,7 @@ public class TileGrid : MonoBehaviour
     public static TileGrid Instance;
 
     [SerializeField]
-    private BuildingTypeSO buildingToChange;
+    private BuildingTypeSO newBuildingSO;
 
     [SerializeField]
     private IntSO GridSize;
@@ -49,18 +49,16 @@ public class TileGrid : MonoBehaviour
         //spawn starting building
         /*for (int i = 0; i < tiles.Length; i ++)
         {
-            tiles[i].SetGrid(this);
             Building temp = Instantiate(startingBuilding.building, Vector3.zero, Quaternion.identity).GetComponent<Building>();
             temp.Initiate(startingBuilding);
-            temp.gameObject.name = temp.GetSO().name + " " + i.ToString();
-            tiles[i].ChangeBuilding(temp,i);
+            ChangeBuilding(temp, i);
         }*/
         for (int i = 0; i < tiles.Length; i++)
         {
             tiles[i].SetGrid(this);
             tiles[i].SetTilePos(i);
         }
-        buildingToChange.onValueChanged += ToChangeBuilding;
+        newBuildingSO.onValueChanged += ToChangeBuilding;
         GridSize.Int = tiles.Length;
         IsCollectCash.onValueChanged += CalculateMoney;
         isRemoveTileEffect.onValueChanged += RemoveAllTileEffect;
@@ -119,10 +117,10 @@ public class TileGrid : MonoBehaviour
     }
     private void ToChangeBuilding(object sender, EventArgs e)
     {
-        if (buildingToChange.Building != null)
+        if (newBuildingSO.Building != null)
         {
-            ChangeBuilding(buildingToChange.Building, currentPos);
-            buildingToChange.ResetValue();
+            ChangeBuilding(newBuildingSO.Building, currentPos);
+            newBuildingSO.ResetValue();
         }
     }
 
@@ -248,8 +246,7 @@ public class TileGrid : MonoBehaviour
 
     public bool AddTileEffect(GameObject effectToAdd, int pos = -1)
     {
-        pos = CheckPos(pos);
-        if (tiles[pos].IsTileProtected())
+        if (tiles[CheckPos(pos)].IsTileProtected())
             return false;
         if (!tiles[pos].ContainsTileEffect(effectToAdd.name))
         {
@@ -262,8 +259,12 @@ public class TileGrid : MonoBehaviour
 
     public bool IsTileProtected(int pos = -1)
     {
-        pos = CheckPos(pos);
-        return tiles[pos].IsTileProtected();
+        return tiles[CheckPos(pos)].IsTileProtected();
+    }
+
+    public bool HasTileEffects(int pos = -1)
+    {
+        return tiles[CheckPos(pos)].HasTileEffect();
     }
     #endregion
 

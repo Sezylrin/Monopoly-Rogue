@@ -17,8 +17,7 @@ public class Tile : MonoBehaviour
     [SerializeField]
     private Building currentBuilding;
     private TileGrid grid;
-    private Dictionary<string,TileEffect> effects = new Dictionary<string, TileEffect>();
-    private int currentPos;
+    private int thisTilePos;
 
     [SerializeField]
     private Button button;
@@ -37,9 +36,9 @@ public class Tile : MonoBehaviour
 
     }
     #region Getter and Setter
-    public void SetTilePos(int currentPos)
+    public void SetTilePos(int thisTilePos)
     {
-        this.currentPos = currentPos;
+        this.thisTilePos = thisTilePos;
     }
     public void SetGrid(TileGrid grid)
     {
@@ -153,7 +152,7 @@ public class Tile : MonoBehaviour
     private void Teleport()
     {
         IsDisableButtonSO.Bool = false;
-        teleportPosSO.Int = currentPos;
+        teleportPosSO.Int = thisTilePos;
     }
     #endregion
 
@@ -187,7 +186,7 @@ public class Tile : MonoBehaviour
     private IntSO newTilePosSO;
     private void SetNewTilePos()
     {
-        newTilePosSO.Int = currentPos;
+        newTilePosSO.Int = thisTilePos;
         IsDisableButtonSO.Bool = false;
     }
     #endregion
@@ -227,6 +226,8 @@ public class Tile : MonoBehaviour
     #endregion
 
     #region TileEffects
+
+    private Dictionary<string,TileEffect> effects = new Dictionary<string, TileEffect>();
     public void RemoveAllTileEffect()
     {
         foreach (KeyValuePair<string, TileEffect> effect in effects)
@@ -251,6 +252,11 @@ public class Tile : MonoBehaviour
     public bool ContainsTileEffect(string effect)
     {
         return effects.ContainsKey(effect);
+    }
+
+    public bool HasTileEffect()
+    {
+        return effects.Count > 0;
     }
 
     #region Protected Site
@@ -304,7 +310,7 @@ public class Tile : MonoBehaviour
     [ContextMenu("Debug destroy building")]
     private void DestroyBuilding()
     {
-        ChangeBuilding(null, currentPos);
+        ChangeBuilding(null, thisTilePos);
     }
     #endregion
 }

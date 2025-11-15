@@ -23,6 +23,6 @@ public class CustomDice : BaseItem
     private void ItemUsed(object sender, EventArgs e)
     {
         if(!isOpenCustomDiceUiSO.Bool)
-            base.ItemUseSuccessful();
+            ItemUseSuccessful();
     }
 }

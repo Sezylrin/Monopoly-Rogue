@@ -19,7 +19,7 @@ public class DevelopmentItem : BaseItem
         if (TileGrid.Instance.IsTileProtected())
         {
             
-            base.ItemUseCancel();
+            ItemUseCancel();
             return;
         }
         developmentRarity.Rarity = itemSO.rarity;
@@ -30,6 +30,6 @@ public class DevelopmentItem : BaseItem
     private void ItemUsed(object sender, EventArgs e)
     {
         if (IsOpenBuildMenuUI.Bool == false)
-            base.ItemUseSuccessful();
+            ItemUseSuccessful();
     }
 }

@@ -23,6 +23,6 @@ public class ProbabilityItem : BaseItem
     private void ItemUsed(object sender, EventArgs e)
     {
         if (!IsOpenProbabilityUiSO.Bool)
-            base.ItemUseSuccessful();
+            ItemUseSuccessful();
     }
 }

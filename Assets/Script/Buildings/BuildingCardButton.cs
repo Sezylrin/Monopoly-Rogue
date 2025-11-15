@@ -10,7 +10,7 @@ public class BuildingCardButton : MonoBehaviour
     [SerializeField]
     private GameObject Outline;
     [SerializeField]
-    private BuildingTypeSO newBuildingToSet;
+    private BuildingTypeSO newBuildingSO;
     void Start()
     {
         
@@ -41,7 +41,7 @@ public class BuildingCardButton : MonoBehaviour
     {
         Building temp = Instantiate(card.GetSO().building, Vector3.zero, Quaternion.identity).GetComponent<Building>();
         temp.Initiate(card.GetSO());
-        newBuildingToSet.Building = temp;
+        newBuildingSO.Building = temp;
         Outline.SetActive(false);
     }
 }

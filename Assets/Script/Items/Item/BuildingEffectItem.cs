@@ -8,11 +8,11 @@ public class BuildingEffectItem : BaseItem
     {
         if (TileGrid.Instance.AddBuildingEffect((itemSO as PFItemSO).objectPF))
         {
-            base.ItemUseSuccessful();
+            ItemUseSuccessful();
         }
         else
         {
-            base.ItemUseCancel();
+            ItemUseCancel();
         }
     }
 }

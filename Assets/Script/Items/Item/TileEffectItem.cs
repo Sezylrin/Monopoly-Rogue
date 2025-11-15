@@ -8,11 +8,11 @@ public class TileEffectItem : BaseItem
     {
         if(TileGrid.Instance.AddTileEffect((itemSO as PFItemSO).objectPF))
         {
-            base.ItemUseSuccessful();
+            ItemUseSuccessful();
         }
         else
         {
-            base.ItemUseCancel();
+            ItemUseCancel();
         }
     }
 }

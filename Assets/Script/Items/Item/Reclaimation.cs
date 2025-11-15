@@ -9,7 +9,12 @@ public class Reclaimation : BaseItem
     private BoolSO isRemoveTileEffect;
     public override void AttemptItemUse()
     {
+        if (!TileHasEffect())
+        {
+            ItemUseCancel();
+            return;
+        }
         isRemoveTileEffect.Bool = true;
-        base.ItemUseSuccessful();
+        ItemUseSuccessful();
     }
 }

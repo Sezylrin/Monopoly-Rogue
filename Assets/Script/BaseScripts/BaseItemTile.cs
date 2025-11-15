@@ -18,14 +18,14 @@ public class BaseItemTile : BaseItem
     {
         if (CantUseItem())
         {
-            base.ItemUseCancel();
+            ItemUseCancel();
             return;
         }
         bool found = false;
         ShouldOpenTileUICondition(true,out found);
         if (!found)
         {
-            base.ItemUseCancel();
+            ItemUseCancel();
             return;
         }
         IsDisableButtonSO.Bool = true;
@@ -34,22 +34,6 @@ public class BaseItemTile : BaseItem
     protected virtual bool CantUseItem()
     {
         return TileIsProtected();
-    }
-    protected bool TileIsProtected(int pos = -1)
-    {
-        return TileGrid.Instance.IsTileProtected(pos);
-    }
-    protected bool TileHasNoBuilding(int pos = -1)
-    {
-        return !TileGrid.Instance.GetBuildingOnTile(pos);
-    }
-    protected bool BuildingAtMaxLimit(int pos = -1)
-    {
-        return !TileGrid.Instance.IsNotAtLimit(TileGrid.Instance.GetBuildingOnTile(pos).GetSO());
-    }
-    protected bool BuildingContainsEffects(int pos = -1)
-    {
-        return TileGrid.Instance.BuildingContainsAnyEffects(pos);
     }
     protected bool IsCurrentPos(int pos)
     {
@@ -75,6 +59,6 @@ public class BaseItemTile : BaseItem
         if (IsDisableButtonSO.Bool)
             return;
         ShouldOpenTileUICondition(false, out bool found);
-        base.ItemUseSuccessful();
+        ItemUseSuccessful();
     }
 }
