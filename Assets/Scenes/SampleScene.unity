@@ -8637,9 +8637,9 @@ MonoBehaviour:
   buildingToChange: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
   GridSize: {fileID: 11400000, guid: 1abb22a1d0b2f32499565b6499a3843e, type: 2}
   IsCollectCash: {fileID: 11400000, guid: 6c2cec0c49da30d4eb03f02ccd0794aa, type: 2}
-  isRemoveTileEffect: {fileID: 11400000, guid: 4bb3354d72acb6f4084d6b627f28a670, type: 2}
   newTilePosSO: {fileID: 11400000, guid: a8bfea3d447884347ae538778a3a2d40, type: 2}
-  debugBuildingSO: {fileID: 11400000, guid: e357c73f63f73a24fbde08165fe40b11, type: 2}
+  isRemoveTileEffect: {fileID: 11400000, guid: 4bb3354d72acb6f4084d6b627f28a670, type: 2}
+  debugBuildingSO: {fileID: 11400000, guid: 9de1968aa32f78c4c820bad2e8e4e84d, type: 2}
   DebugPosition: 0
 --- !u!1 &938910417
 GameObject:
@@ -18767,7 +18767,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1198471e2ea2e8446b44ac4668fd38b5, type: 2}
   testItem:
   - {fileID: 11400000, guid: f99a819c55980404cac4dfa025940940, type: 2}
-  - {fileID: 11400000, guid: 235b8ea78d2fbfa42b55bd049210ba88, type: 2}
+  - {fileID: 11400000, guid: 739e8efe985dc8a4cba214f443f0ffdf, type: 2}
+  - {fileID: 11400000, guid: dd0d244ac12aadc47b0ae34296cfea0e, type: 2}
   GenerateOnStart: 1
 --- !u!1 &2050395608
 GameObject:

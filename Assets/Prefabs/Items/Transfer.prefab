@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1937166447101389310
+--- !u!1 &1593775698284406924
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6867530366926704922}
-  - component: {fileID: 670200893305220145}
+  - component: {fileID: 8737982222898069917}
+  - component: {fileID: 6208528139518328115}
   m_Layer: 0
-  m_Name: Duplicate
+  m_Name: Transfer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6867530366926704922
+--- !u!4 &8737982222898069917
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937166447101389310}
+  m_GameObject: {fileID: 1593775698284406924}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9271078, y: -1.3041621, z: -0.386162}
+  m_LocalPosition: {x: 0.8101301, y: 0.33578852, z: -0.03912209}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &670200893305220145
+--- !u!114 &6208528139518328115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937166447101389310}
+  m_GameObject: {fileID: 1593775698284406924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 161cd7d3849b259419f96201e66ef91d, type: 3}
+  m_Script: {fileID: 11500000, guid: cef7042c29b44a04784a41de66b0259e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemSO: {fileID: 0}
   currentPosSO: {fileID: 11400000, guid: 988d47bb99feace40a637ed446566b0f, type: 2}
   gridSizeSO: {fileID: 11400000, guid: 1abb22a1d0b2f32499565b6499a3843e, type: 2}
   IsDisableButtonSO: {fileID: 11400000, guid: c0ad7794c0ec25041a93a06a488c7f45, type: 2}
-  action: 1
+  action: 3

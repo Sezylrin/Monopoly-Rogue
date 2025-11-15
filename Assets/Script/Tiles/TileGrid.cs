@@ -137,8 +137,9 @@ public class TileGrid : MonoBehaviour
         currentPosSO.Int = currentPos;
     }
 
-    public Building GetBuildingOnTile(int pos)
+    public Building GetBuildingOnTile(int pos = -1)
     {
+        pos = CheckPos(pos);
         return tiles[pos].GetCurrentBuilding();
     }
 
@@ -183,6 +184,12 @@ public class TileGrid : MonoBehaviour
     {
         return tiles[currentPos].AddBuildingEffect(buildingEffectPF);
     }
+
+    public bool BuildingContainsAnyEffects(int pos = -1)
+    {
+        pos = CheckPos(pos);
+        return tiles[pos].BuildingContainsAnyEffects();
+    }
     #endregion
 
     #region Duplicate
@@ -192,44 +199,8 @@ public class TileGrid : MonoBehaviour
     }
     #endregion
 
-    #region tileEffects
-    [CollapsibleGroup("TileEffects")]
-    [SerializeField]
-    private BoolSO isRemoveTileEffect;
-
-    private void RemoveAllTileEffect(object sender, EventArgs e)
-    {
-        tiles[currentPos].RemoveAllTileEffect();
-        isRemoveTileEffect.ResetValue();
-    }
-
-    public bool AddTileEffect(GameObject effectToAdd, int pos = -1)
-    {
-        if(pos < 0)
-        {
-            pos = currentPos;
-        }
-        if (tiles[pos].IsTileProtected())
-            return false;
-        if (!tiles[pos].ContainsTileEffect(effectToAdd.name))
-        {
-            TileEffect effect = Instantiate(effectToAdd, tiles[pos].transform).GetComponent<TileEffect>();
-            tiles[pos].AddTileEffect(effect);
-            return true;
-        }
-        return false;
-    }
-
-    public bool IsTileProtected(int pos = -1)
-    {
-        if (pos < 0)
-            pos = currentPos;
-        return tiles[pos].IsTileProtected();
-    }
-    #endregion
-
-    #region Boundary Adjustment
-    [CollapsibleGroup("Boundary Adjustment")]
+    #region Movement
+    [CollapsibleGroup("Movement")]
     [SerializeField]
     private IntSO newTilePosSO;
     public void EnableTileButtonUI(int pos, ButtonAction action)
@@ -263,6 +234,45 @@ public class TileGrid : MonoBehaviour
         ChangeBuilding(null, currentPos, false);
         ChangeBuilding(buildingOne, newTilePosSO.Int, false);
         ChangeBuilding(buildingTwo, currentPos, false);
+    }
+    #endregion
+
+    #region tileEffects
+    [CollapsibleGroup("TileEffects")]
+    [SerializeField]
+    private BoolSO isRemoveTileEffect;
+
+    private void RemoveAllTileEffect(object sender, EventArgs e)
+    {
+        tiles[currentPos].RemoveAllTileEffect();
+        isRemoveTileEffect.ResetValue();
+    }
+
+    public bool AddTileEffect(GameObject effectToAdd, int pos = -1)
+    {
+        pos = CheckPos(pos);
+        if (tiles[pos].IsTileProtected())
+            return false;
+        if (!tiles[pos].ContainsTileEffect(effectToAdd.name))
+        {
+            TileEffect effect = Instantiate(effectToAdd, tiles[pos].transform).GetComponent<TileEffect>();
+            tiles[pos].AddTileEffect(effect);
+            return true;
+        }
+        return false;
+    }
+
+    public bool IsTileProtected(int pos = -1)
+    {
+        pos = CheckPos(pos);
+        return tiles[pos].IsTileProtected();
+    }
+    #endregion
+
+    #region Utility
+    private int CheckPos(int pos)
+    {
+        return pos < 0? currentPos : pos;
     }
     #endregion
 

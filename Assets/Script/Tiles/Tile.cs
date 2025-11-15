@@ -6,6 +6,8 @@ public enum ButtonAction
 {
     boundaryAdjustment,
     duplicate,
+    transport,
+    transfer,
 }
 public class Tile : MonoBehaviour
 {
@@ -75,12 +77,16 @@ public class Tile : MonoBehaviour
         switch (action)
         {
             case ButtonAction.boundaryAdjustment:
-                Debug.Log("triggering BA");
                 button.onClick.AddListener(SetNewTilePos);
                 break;
             case ButtonAction.duplicate:
-                Debug.Log("triggering");
                 button.onClick.AddListener(CopyBuilding);
+                break;
+            case ButtonAction.transport:
+                button.onClick.AddListener(SetNewTilePos);
+                break;
+            case ButtonAction.transfer:
+                button.onClick.AddListener(Transfer);
                 break;
         }
     }
@@ -94,12 +100,28 @@ public class Tile : MonoBehaviour
             case ButtonAction.duplicate:
                 button.onClick.RemoveListener(CopyBuilding);
                 break;
+            case ButtonAction.transport:
+                button.onClick.RemoveListener(SetNewTilePos);
+                break;
+            case ButtonAction.transfer:
+                button.onClick.RemoveListener(Transfer);
+                break;
+        }
+    }
+    #endregion
+
+    #region Transfer
+    private void Transfer()
+    {
+        foreach (BuildingEffect effect in currentBuilding.GetAllEffects())
+        {
+            grid.AddBuildingEffect(effect.gameObject);
         }
     }
     #endregion
 
     #region Duplicate
-    public void CopyBuilding()
+    private void CopyBuilding()
     {
         Building temp = Instantiate(currentBuilding.gameObject).GetComponent<Building>();
         temp.ClearEffects();
@@ -111,11 +133,11 @@ public class Tile : MonoBehaviour
     }
     #endregion
 
-    #region Boundary Adjustment
-    [CollapsibleGroup("Boundary Adjustment")]
+    #region Movement
+    [CollapsibleGroup("Movement")]
     [SerializeField]
     private IntSO newTilePosSO;
-    public void SetNewTilePos()
+    private void SetNewTilePos()
     {
         newTilePosSO.Int = tilePos;
         IsDisableButtonSO.Bool = false;
@@ -222,6 +244,11 @@ public class Tile : MonoBehaviour
             currentBuilding.AddBuildingEffect(effect);
             return true;
         }
+    }
+
+    public bool BuildingContainsAnyEffects()
+    {
+        return currentBuilding? currentBuilding.ContainsAnyEffect() : false;
     }
     #endregion
 

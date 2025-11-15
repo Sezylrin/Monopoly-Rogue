@@ -346,6 +346,16 @@ public class Building : MonoBehaviour
         if (isDestroy)
             effects.Clear();
     }
+
+    public bool ContainsAnyEffect()
+    {
+        return effectList.Count > 0;
+    }
+
+    public List<BuildingEffect> GetAllEffects()
+    {
+        return effectList;
+    }
     #endregion
 
     #region Debug
