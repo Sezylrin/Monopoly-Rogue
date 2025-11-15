@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8312543802240854555}
-  - component: {fileID: 5942327903208533714}
+  - component: {fileID: -6619398497604723490}
   m_Layer: 0
   m_Name: Superior Design
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5942327903208533714
+--- !u!114 &-6619398497604723490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4139222073338468771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e55483827d141e4cae1172ea6b38fb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 928227311c779b948ba3dd896cdb0a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   value: 50

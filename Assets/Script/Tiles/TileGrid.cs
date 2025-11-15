@@ -182,6 +182,11 @@ public class TileGrid : MonoBehaviour
         return tiles[CheckPos(pos)].AddBuildingEffect(buildingEffectPF);
     }
 
+    public void RemoveAllBuildingEffects(int pos = -1)
+    {
+        tiles[CheckPos(pos)].RemoveAllBuildingEffects();
+    }
+
     public bool BuildingContainsAnyEffects(int pos = -1)
     {
         return tiles[CheckPos(pos)].BuildingContainsAnyEffects();
@@ -246,7 +251,8 @@ public class TileGrid : MonoBehaviour
 
     public bool AddTileEffect(GameObject effectToAdd, int pos = -1)
     {
-        if (tiles[CheckPos(pos)].IsTileProtected())
+        pos = CheckPos(pos);
+        if (tiles[pos].IsTileProtected())
             return false;
         if (!tiles[pos].ContainsTileEffect(effectToAdd.name))
         {

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1227600507743517390}
-  - component: {fileID: 8937681559273937220}
+  - component: {fileID: 5320227503882174864}
   m_Layer: 0
   m_Name: Smooth Land
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8937681559273937220
+--- !u!114 &5320227503882174864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6255104284335804555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d765a9ad26c5e13499d93b03ce332d12, type: 3}
+  m_Script: {fileID: 11500000, guid: ae467412f4480154a80a33166470750d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0

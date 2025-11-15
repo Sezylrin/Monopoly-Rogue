@@ -304,6 +304,11 @@ public class Tile : MonoBehaviour
     {
         return currentBuilding? currentBuilding.ContainsAnyEffect() : false;
     }
+
+    public void RemoveAllBuildingEffects()
+    {
+        currentBuilding.RemoveAllBuildingEffect(true);
+    }
     #endregion
 
     #region debug

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436073cc7689ed9439534748f239214c, type: 3}
+  m_Name: Basic Renovation
+  m_EditorClassIdentifier: 
+  <rarity>k__BackingField: 0
+  prefab: {fileID: 8231255406048521489, guid: 6656500a23878be45a9623bf6721a30b, type: 3}
+  description: Apply the Renovated building effect. Increase a the buildings base
+    value by 5
+  objectPF: {fileID: 3772085366281670688, guid: 20aad3860dcb15c4dbee1d1d8760e315, type: 3}

@@ -47,3 +47,4 @@ MonoBehaviour:
   value: 0
   range: 0
   multiplier: 0
+  tileMultiplierAmount: 1

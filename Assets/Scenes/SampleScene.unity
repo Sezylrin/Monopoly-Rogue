@@ -1117,53 +1117,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!1 &114761975
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 114761977}
-  - component: {fileID: 114761976}
-  m_Layer: 0
-  m_Name: Relocation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &114761976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114761975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa7e706e30ede34ea0f5e7baa257cda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemSO: {fileID: 0}
-  currentPosSO: {fileID: 11400000, guid: 988d47bb99feace40a637ed446566b0f, type: 2}
-  newTilePosSO: {fileID: 11400000, guid: a8bfea3d447884347ae538778a3a2d40, type: 2}
---- !u!4 &114761977
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114761975}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.791022, y: -2.159473, z: -0.02904993}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &121146643
 GameObject:
   m_ObjectHideFlags: 0
@@ -4137,7 +4090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1520010176}
   Outline: {fileID: 2078789685}
-  newBuildingToSet: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
+  newBuildingSO: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
 --- !u!114 &358030441 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 471105584530262570, guid: 12f586cff34bfc24a91651261715b060, type: 3}
@@ -8634,7 +8587,7 @@ MonoBehaviour:
   currentPosSO: {fileID: 11400000, guid: 988d47bb99feace40a637ed446566b0f, type: 2}
   moneyEarned: {fileID: 11400000, guid: dde42f704bede7a41ac44e3d48bda3b4, type: 2}
   startingBuilding: {fileID: 11400000, guid: 4ed100a96b7bbc246b07840611f9fb7f, type: 2}
-  buildingToChange: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
+  newBuildingSO: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
   GridSize: {fileID: 11400000, guid: 1abb22a1d0b2f32499565b6499a3843e, type: 2}
   IsCollectCash: {fileID: 11400000, guid: 6c2cec0c49da30d4eb03f02ccd0794aa, type: 2}
   newTilePosSO: {fileID: 11400000, guid: a8bfea3d447884347ae538778a3a2d40, type: 2}
@@ -10180,7 +10133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 502091385}
   Outline: {fileID: 1688959745}
-  newBuildingToSet: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
+  newBuildingSO: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
 --- !u!224 &1116474076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14300,6 +14253,7 @@ MonoBehaviour:
   moveDuration: 1
   isToRollSO: {fileID: 11400000, guid: e976a232cd9d46740846cca3d2a9c66e, type: 2}
   canRollSO: {fileID: 11400000, guid: 76044513a8b25c140b0bc2d48fc4631c, type: 2}
+  IsReversalActive: {fileID: 11400000, guid: 00a04d1efddf89b439f950004c252510, type: 2}
   teleportPosSO: {fileID: 11400000, guid: 86b1c526ec332d041bb48706764811d7, type: 2}
 --- !u!4 &1498548367
 Transform:
@@ -16776,7 +16730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1147164224}
   Outline: {fileID: 2087267674}
-  newBuildingToSet: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
+  newBuildingSO: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
 --- !u!114 &1843818691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18765,8 +18719,10 @@ MonoBehaviour:
     list:
     - {fileID: 11400000, guid: 1198471e2ea2e8446b44ac4668fd38b5, type: 2}
   testItem:
-  - {fileID: 11400000, guid: 54e03801be010e54ea6dc9ebcd4d7656, type: 2}
-  - {fileID: 11400000, guid: 45cb43131a875a141afc1feb2b8c1530, type: 2}
+  - {fileID: 11400000, guid: 83dc9588a8e83d24aa73d5480d25df9e, type: 2}
+  - {fileID: 11400000, guid: f99a819c55980404cac4dfa025940940, type: 2}
+  - {fileID: 11400000, guid: dd0d244ac12aadc47b0ae34296cfea0e, type: 2}
+  - {fileID: 11400000, guid: f8d570d6b8d1ba9499a606026238ace0, type: 2}
   GenerateOnStart: 1
 --- !u!1 &2050395608
 GameObject:
@@ -20051,4 +20007,3 @@ SceneRoots:
   - {fileID: 1844926782}
   - {fileID: 109300559}
   - {fileID: 2019500283}
-  - {fileID: 114761977}

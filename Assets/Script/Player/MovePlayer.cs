@@ -34,6 +34,8 @@ public class MovePlayer : MonoBehaviour
     private BoolSO isToRollSO;
     [SerializeField]
     private BoolSO canRollSO;
+    [SerializeField]
+    private BoolSO IsReversalActive;
     public void MovePlayerAround(object sender, EventArgs e)
     {
         if (!isToRollSO.Bool || !canRollSO.Bool)
@@ -58,20 +60,17 @@ public class MovePlayer : MonoBehaviour
         float duration = moveDuration / moveAmount;
         for (int i = 0;i < moveAmount; i++)
         {
-            diceMoving.Append(transform.DOMove(grid.GetTile()[(currentPos + i + 1) % grid.GetTile().Length].transform.position, duration).SetEase(Ease.Linear));
+            int nextTile = IsReversalActive.Bool ? (currentPos - i - 1 + grid.GetSize()) % grid.GetSize() : (currentPos + i + 1) % grid.GetSize();
+            diceMoving.Append(transform.DOMove(grid.GetTile()[nextTile].transform.position, duration).SetEase(Ease.Linear));
         }
         diceMoving.OnComplete(() => SetPos(moveAmount));
     }
 
-    private void MovePlayerFunc(int amount)
-    {
-
-    }
-
     private void SetPos(int moveAmount)
     {
-        currentPos = (currentPos + moveAmount) % grid.GetTile().Length;
+        currentPos = IsReversalActive.Bool? (currentPos - moveAmount + grid.GetSize()) % grid.GetSize() : (currentPos + moveAmount) % grid.GetSize();
         grid.SetCurrentPos(currentPos);
+        IsReversalActive.ResetValue();
     }
     [CollapsibleGroup("Teleport")]
     [SerializeField]
