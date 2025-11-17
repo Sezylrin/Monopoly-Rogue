@@ -112,8 +112,9 @@ public class UIManager : MonoBehaviour
         if (IsOpenBuildMenuUI.Bool)
         {
             rerollButtonOBJ.SetActive(true);
+
             IsOpenBuildMenuUI.Bool = false;
-            roller.ResetCardToStoredSO();
+            BuildingRoller.Instance.ResetCardToStoredSO();
             return;
         }
         openBuildMenuObj.SetActive(true);
@@ -131,7 +132,7 @@ public class UIManager : MonoBehaviour
     {
         if (!IsOpenBuildMenuUI.Bool)
             return;
-        roller.GenerateBuildingTemp(developmentRarity.Rarity);
+        BuildingRoller.Instance.GenerateBuildingTemp(developmentRarity.Rarity);
         buildMenuCanvas.SetActive(true);
         rerollButtonOBJ.SetActive(false);
     }
@@ -145,8 +146,6 @@ public class UIManager : MonoBehaviour
     private BoolSO IsTurnChangeSO;
     [SerializeField]
     private BoolSO CanRollSO;
-    [SerializeField]
-    private BuildingRoller roller;
     //being called by unity button event
     public void OnCollectCash()
     {
@@ -158,7 +157,7 @@ public class UIManager : MonoBehaviour
 
         IsTurnChangeSO.Bool = true;
         CanRollSO.Bool = true;
-        roller.GenerateBuildingStored();
+        BuildingRoller.Instance.GenerateBuildingStored();
     }
     #endregion
 

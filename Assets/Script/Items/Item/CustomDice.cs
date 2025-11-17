@@ -10,10 +10,6 @@ public class CustomDice : BaseItem
     private void Start()
     {
     }
-    private void OnEnable()
-    {
-        isOpenCustomDiceUiSO.onValueChanged += ItemUsed;
-    }
     private void OnDisable()
     {
         isOpenCustomDiceUiSO.onValueChanged -= ItemUsed;
@@ -21,11 +17,12 @@ public class CustomDice : BaseItem
     public override void AttemptItemUse()
     {
         isOpenCustomDiceUiSO.Bool = true;
+        isOpenCustomDiceUiSO.onValueChanged += ItemUsed;
     }
 
     private void ItemUsed(object sender, EventArgs e)
     {
         if(!isOpenCustomDiceUiSO.Bool)
-            base.ItemUseSuccessful();
+            ItemUseSuccessful();
     }
 }

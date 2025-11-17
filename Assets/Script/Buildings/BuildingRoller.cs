@@ -36,6 +36,20 @@ public class BuildingRoller : MonoBehaviour
     [SerializeField]
     private List<BuildingSO> selectedCards;
     // Start is called before the first frame update
+    public static BuildingRoller Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            DestroyImmediate(Instance);
+            Instance = this;
+            Debug.Log("smth has gone wrong");
+        }
+    }
     void Start()
     {
         
@@ -72,6 +86,22 @@ public class BuildingRoller : MonoBehaviour
             {
                 sortedBuildings[(int)buildingSO.rarity][ints].Add(buildingSO);
             }
+        }
+    }
+
+    public void RemoveFromSorted(BuildingSO toRemove)
+    {
+        foreach (int listPos in Utility.EnumPoses(toRemove.category))
+        {
+            sortedBuildings[(int)toRemove.rarity][listPos].Remove(toRemove);
+        }
+    }
+
+    public void AddToSorted(BuildingSO toAdd)
+    {
+        foreach (int listPos in Utility.EnumPoses(toAdd.category))
+        {
+            sortedBuildings[(int)toAdd.rarity][listPos].Add(toAdd);
         }
     }
     #endregion

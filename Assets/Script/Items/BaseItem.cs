@@ -56,4 +56,26 @@ public class BaseItem : MonoBehaviour
     {
         return itemSO;
     }
+
+    protected bool TileHasEffect(int pos = -1)
+    {
+        return TileGrid.Instance.HasTileEffects(pos);
+    }
+    protected bool TileIsProtected(int pos = -1)
+    {
+        return TileGrid.Instance.IsTileProtected(pos);
+    }
+    protected bool TileHasNoBuilding(int pos = -1)
+    {
+        return !TileGrid.Instance.GetBuildingOnTile(pos);
+    }
+    protected bool BuildingAtMaxLimit(int pos = -1)
+    {
+        return !TileGrid.Instance.IsNotAtLimit(TileGrid.Instance.GetBuildingOnTile(pos).GetSO());
+    }
+    protected bool BuildingContainsEffects(int pos = -1)
+    {
+        return TileGrid.Instance.BuildingContainsAnyEffects(pos);
+    }
+
 }

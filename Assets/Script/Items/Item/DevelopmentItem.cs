@@ -9,10 +9,6 @@ public class DevelopmentItem : BaseItem
     private BoolSO IsOpenBuildMenuUI;
     [SerializeField]
     private RaritySO developmentRarity;
-    private void OnEnable()
-    {
-        IsOpenBuildMenuUI.onValueChanged += ItemUsed;
-    }
 
     private void OnDisable()
     {
@@ -23,16 +19,17 @@ public class DevelopmentItem : BaseItem
         if (TileGrid.Instance.IsTileProtected())
         {
             
-            base.ItemUseCancel();
+            ItemUseCancel();
             return;
         }
         developmentRarity.Rarity = itemSO.rarity;
         IsOpenBuildMenuUI.Bool = true;
+        IsOpenBuildMenuUI.onValueChanged += ItemUsed;
     }
 
     private void ItemUsed(object sender, EventArgs e)
     {
         if (IsOpenBuildMenuUI.Bool == false)
-            base.ItemUseSuccessful();
+            ItemUseSuccessful();
     }
 }

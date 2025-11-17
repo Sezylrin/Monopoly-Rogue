@@ -6,7 +6,7 @@ public class LootBag : BaseItem
 {
     public override void AttemptItemUse()
     {
-        base.ItemUseSuccessful();
+        ItemUseSuccessful();
         manager.GenerateMultipleItem(itemSO.rarity, (itemSO as LootBagItemSO).amount, itemSO);
         
     }

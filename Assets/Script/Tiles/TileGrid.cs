@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
+using UnityEngine.InputSystem.Composites;
 
 public class TileGrid : MonoBehaviour
 {
@@ -23,14 +24,14 @@ public class TileGrid : MonoBehaviour
     public static TileGrid Instance;
 
     [SerializeField]
-    private BuildingTypeSO buildingToChange;
+    private BuildingTypeSO newBuildingSO;
 
     [SerializeField]
     private IntSO GridSize;
 
     [SerializeField]
     private BoolSO IsCollectCash;
-    void Start()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -42,21 +43,22 @@ public class TileGrid : MonoBehaviour
             Instance = this;
             Debug.Log("smth has gone wrong");
         }
+    }
+    void Start()
+    {
         //spawn starting building
         /*for (int i = 0; i < tiles.Length; i ++)
         {
-            tiles[i].SetGrid(this);
             Building temp = Instantiate(startingBuilding.building, Vector3.zero, Quaternion.identity).GetComponent<Building>();
             temp.Initiate(startingBuilding);
-            temp.gameObject.name = temp.GetSO().name + " " + i.ToString();
-            tiles[i].ChangeBuilding(temp,i);
+            ChangeBuilding(temp, i);
         }*/
         for (int i = 0; i < tiles.Length; i++)
         {
             tiles[i].SetGrid(this);
             tiles[i].SetTilePos(i);
         }
-        buildingToChange.onValueChanged += ToChangeBuilding;
+        newBuildingSO.onValueChanged += ToChangeBuilding;
         GridSize.Int = tiles.Length;
         IsCollectCash.onValueChanged += CalculateMoney;
         isRemoveTileEffect.onValueChanged += RemoveAllTileEffect;
@@ -86,7 +88,8 @@ public class TileGrid : MonoBehaviour
         if (building == null)
             return;
         building.gameObject.name = building.GetSO().name + " " + pos.ToString();
-        
+        if (building.GetSO().maxLimit > 0)
+            ModifyLimits(building.GetSO());
         List<Building> affectedBuildings = new List<Building>{building};
         for (int i = 0; i < tiles.Length;i ++)
         {
@@ -112,6 +115,14 @@ public class TileGrid : MonoBehaviour
             needUpdating.ApplyEffects();
         }
     }
+    private void ToChangeBuilding(object sender, EventArgs e)
+    {
+        if (newBuildingSO.Building != null)
+        {
+            ChangeBuilding(newBuildingSO.Building, currentPos);
+            newBuildingSO.ResetValue();
+        }
+    }
 
     public Tile[] GetTile()
     {
@@ -124,28 +135,106 @@ public class TileGrid : MonoBehaviour
         currentPosSO.Int = currentPos;
     }
 
-    public Building GetBuildingOnTile(int pos)
+    public Building GetBuildingOnTile(int pos = -1)
     {
-        return tiles[pos].GetCurrentBuilding();
+        return tiles[CheckPos(pos)].GetCurrentBuilding();
     }
 
     public int GetSize()
     {
         return GridSize.Int;
     }
-
-    private void ToChangeBuilding(object sender, EventArgs e)
+    #region Limit
+    private Dictionary<BuildingSO, int> limits = new Dictionary<BuildingSO, int>();
+    public void ModifyLimits(BuildingSO building)
     {
-        if(buildingToChange.Building != null)
+        if(!limits.TryAdd(building, 1))
         {
-            ChangeBuilding(buildingToChange.Building, currentPos);
-            buildingToChange.ResetValue();
+            limits[building]++;
+        }
+        if (limits[building] == building.maxLimit)
+        {
+            BuildingRoller.Instance.RemoveFromSorted(building);
         }
     }
-    #region BuildingEffects
-    public bool AddBuildingEffect(GameObject buildingEffectPF)
+
+    public void RemoveLimit(BuildingSO building)
     {
-        return tiles[currentPos].AddBuildingEffect(buildingEffectPF);
+        if (limits.ContainsKey(building))
+        {
+            limits[building]--;
+            BuildingRoller.Instance.AddToSorted(building);
+        }
+        else
+        {
+            Debug.Log("Limits messed up somewhere");
+        }
+    }
+    public bool IsNotAtLimit(BuildingSO building)
+    {
+        return limits.ContainsKey(building) ? limits[building] < building.maxLimit : false;
+    }
+    #endregion
+
+    #region BuildingEffects
+    public bool AddBuildingEffect(GameObject buildingEffectPF, int pos = -1)
+    {
+        return tiles[CheckPos(pos)].AddBuildingEffect(buildingEffectPF);
+    }
+
+    public void RemoveAllBuildingEffects(int pos = -1)
+    {
+        tiles[CheckPos(pos)].RemoveAllBuildingEffects();
+    }
+
+    public bool BuildingContainsAnyEffects(int pos = -1)
+    {
+        return tiles[CheckPos(pos)].BuildingContainsAnyEffects();
+    }
+    #endregion
+
+    #region Duplicate
+    public void Duplicate(Building building)
+    {
+        ChangeBuilding(building, currentPos);
+    }
+    #endregion
+
+    #region Movement
+    [CollapsibleGroup("Movement")]
+    [SerializeField]
+    private IntSO newTilePosSO;
+    public void EnableTileButtonUI(int pos, ButtonAction action)
+    {
+        if (!tiles[pos].IsTileProtected())
+            tiles[pos].ShowUI(action);
+    }
+    
+    public void EnableTileButtonUIIgnoreProtection(int pos, ButtonAction action)
+    {
+        tiles[pos].ShowUI(action);
+    }
+    public  void DisableTileButtonUI(int pos, ButtonAction action)
+    {
+        tiles[pos].HideUI(action);
+    }
+
+    public void MoveBuilding(object sender, EventArgs e)
+    {
+        Building buildingOne = GetBuildingOnTile(currentPos);
+        buildingOne.RemoveAllAffected();
+        buildingOne.ResetAllValues();
+        buildingOne.ReapplyEffect();
+        Building buildingTwo = GetBuildingOnTile(newTilePosSO.Int);
+        if (buildingTwo != null)
+        {
+            buildingTwo.RemoveAllAffected();
+            buildingTwo.ResetAllValues();
+            buildingTwo.ReapplyEffect();
+        }
+        ChangeBuilding(null, currentPos, false);
+        ChangeBuilding(buildingOne, newTilePosSO.Int, false);
+        ChangeBuilding(buildingTwo, currentPos, false);
     }
     #endregion
 
@@ -162,10 +251,7 @@ public class TileGrid : MonoBehaviour
 
     public bool AddTileEffect(GameObject effectToAdd, int pos = -1)
     {
-        if(pos < 0)
-        {
-            pos = currentPos;
-        }
+        pos = CheckPos(pos);
         if (tiles[pos].IsTileProtected())
             return false;
         if (!tiles[pos].ContainsTileEffect(effectToAdd.name))
@@ -179,41 +265,19 @@ public class TileGrid : MonoBehaviour
 
     public bool IsTileProtected(int pos = -1)
     {
-        if (pos < 0)
-            pos = currentPos;
-        return tiles[pos].IsTileProtected();
+        return tiles[CheckPos(pos)].IsTileProtected();
+    }
+
+    public bool HasTileEffects(int pos = -1)
+    {
+        return tiles[CheckPos(pos)].HasTileEffect();
     }
     #endregion
 
-    #region Boundary Adjustment
-    [CollapsibleGroup("Boundary Adjustment")]
-    [SerializeField]
-    private IntSO newTilePosSO;
-    public void EnableBoundaryAdjustmentUI(int pos)
+    #region Utility
+    private int CheckPos(int pos)
     {
-        if (!tiles[pos].IsTileProtected())
-            tiles[pos].ShowUI();
-    }
-
-    public  void DisableBoundaryAdjustmentUI(int pos)
-    {
-        tiles[pos].HideUI();
-    }
-
-    public void MoveBuilding(object sender, EventArgs e)
-    {
-        Building buildingOne = GetBuildingOnTile(currentPos);
-        buildingOne.RemoveAllAffected();
-        buildingOne.ResetAllValues();
-        Building buildingTwo = GetBuildingOnTile(newTilePosSO.Int);
-        if (buildingTwo != null)
-        {
-            buildingTwo.RemoveAllAffected();
-            buildingTwo.ResetAllValues();
-        }
-        ChangeBuilding(null, currentPos, false);
-        ChangeBuilding(buildingOne, newTilePosSO.Int, false);
-        ChangeBuilding(buildingTwo, currentPos, false);
+        return pos < 0? currentPos : pos;
     }
     #endregion
 

@@ -16,15 +16,6 @@ public class CornerCutting : BuildingEffect
     {
         IsTurnChangeSO.onValueChanged += TurnChanged;
     }
-    public override void ApplyEffect()
-    {
-        ModifyValue();
-    }
-
-    public override void RemoveEffect()
-    {
-        ModifyValue(true);
-    }
 
     public void TurnChanged(object sender, EventArgs e)
     {

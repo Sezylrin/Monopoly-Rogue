@@ -3668,53 +3668,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f586cff34bfc24a91651261715b060, type: 3}
---- !u!1 &323804751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 323804753}
-  - component: {fileID: 323804752}
-  m_Layer: 0
-  m_Name: HeritageTEffect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &323804752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323804751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dca99fc667d5e340bfac548158c683f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 0
-  range: 0
-  multiplier: 0
---- !u!4 &323804753
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323804751}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8395839, y: -1.2066674, z: -0.024423948}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &329366829
 GameObject:
   m_ObjectHideFlags: 0
@@ -4137,7 +4090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1520010176}
   Outline: {fileID: 2078789685}
-  newBuildingToSet: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
+  newBuildingSO: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
 --- !u!114 &358030441 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 471105584530262570, guid: 12f586cff34bfc24a91651261715b060, type: 3}
@@ -8634,12 +8587,12 @@ MonoBehaviour:
   currentPosSO: {fileID: 11400000, guid: 988d47bb99feace40a637ed446566b0f, type: 2}
   moneyEarned: {fileID: 11400000, guid: dde42f704bede7a41ac44e3d48bda3b4, type: 2}
   startingBuilding: {fileID: 11400000, guid: 4ed100a96b7bbc246b07840611f9fb7f, type: 2}
-  buildingToChange: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
+  newBuildingSO: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
   GridSize: {fileID: 11400000, guid: 1abb22a1d0b2f32499565b6499a3843e, type: 2}
   IsCollectCash: {fileID: 11400000, guid: 6c2cec0c49da30d4eb03f02ccd0794aa, type: 2}
-  isRemoveTileEffect: {fileID: 11400000, guid: 4bb3354d72acb6f4084d6b627f28a670, type: 2}
   newTilePosSO: {fileID: 11400000, guid: a8bfea3d447884347ae538778a3a2d40, type: 2}
-  debugBuildingSO: {fileID: 11400000, guid: e357c73f63f73a24fbde08165fe40b11, type: 2}
+  isRemoveTileEffect: {fileID: 11400000, guid: 4bb3354d72acb6f4084d6b627f28a670, type: 2}
+  debugBuildingSO: {fileID: 11400000, guid: 9de1968aa32f78c4c820bad2e8e4e84d, type: 2}
   DebugPosition: 0
 --- !u!1 &938910417
 GameObject:
@@ -10180,7 +10133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 502091385}
   Outline: {fileID: 1688959745}
-  newBuildingToSet: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
+  newBuildingSO: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
 --- !u!224 &1116474076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14293,15 +14246,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7707a1f3b4b328049847e73b7c8e0070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 922022542}
   playerPos: {fileID: 1498548367}
   diceMinMax: {x: 1, y: 6}
   diceAmount: 2
   customDiceRollSO: {fileID: 11400000, guid: ad4d239dfd11ace44aebe0fc7fcc2b05, type: 2}
   moveDuration: 1
-  currentBuilding: {fileID: 11400000, guid: b99036cd489173a41abf4b8282e176c3, type: 2}
   isToRollSO: {fileID: 11400000, guid: e976a232cd9d46740846cca3d2a9c66e, type: 2}
   canRollSO: {fileID: 11400000, guid: 76044513a8b25c140b0bc2d48fc4631c, type: 2}
+  IsReversalActive: {fileID: 11400000, guid: 00a04d1efddf89b439f950004c252510, type: 2}
+  teleportPosSO: {fileID: 11400000, guid: 86b1c526ec332d041bb48706764811d7, type: 2}
 --- !u!4 &1498548367
 Transform:
   m_ObjectHideFlags: 0
@@ -16777,7 +16730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1147164224}
   Outline: {fileID: 2087267674}
-  newBuildingToSet: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
+  newBuildingSO: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
 --- !u!114 &1843818691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16887,7 +16840,6 @@ MonoBehaviour:
   IsCollectCashSO: {fileID: 11400000, guid: 6c2cec0c49da30d4eb03f02ccd0794aa, type: 2}
   IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
   CanRollSO: {fileID: 11400000, guid: 76044513a8b25c140b0bc2d48fc4631c, type: 2}
-  roller: {fileID: 1844926784}
   taxText: {fileID: 480277566}
   currentSubTurnSO: {fileID: 11400000, guid: 2974b5cd8b31d8c4cac78bd92cc5e92b, type: 2}
   taxAmountSO: {fileID: 11400000, guid: 64d7c05fa0745724f94e10902974565b, type: 2}
@@ -17594,7 +17546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsOpenProbabilityUiSO: {fileID: 11400000, guid: 88ffd76c3c8852142a92b9f0e9c1ad8a, type: 2}
-  roller: {fileID: 1844926784}
 --- !u!114 &1881520649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18712,11 +18663,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b401b67f89a59c47a5a1ed3cae8292a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSO: {fileID: 11400000, guid: 0ae50bef838492e47b07d98a7ed6e59e, type: 2}
+  turnNumberSO: {fileID: 11400000, guid: 0ae50bef838492e47b07d98a7ed6e59e, type: 2}
   grid: {fileID: 922022542}
-  turnsPerRent: {fileID: 11400000, guid: d60a98829b4ab0f469e2dee2ce7eb916, type: 2}
-  IsRentTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
-  currentSubTurn: {fileID: 11400000, guid: 2974b5cd8b31d8c4cac78bd92cc5e92b, type: 2}
+  turnsPerTaxSO: {fileID: 11400000, guid: d60a98829b4ab0f469e2dee2ce7eb916, type: 2}
+  IsTaxTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
+  currentSubTurnSO: {fileID: 11400000, guid: 2974b5cd8b31d8c4cac78bd92cc5e92b, type: 2}
   IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
 --- !u!114 &2019500285
 MonoBehaviour:
@@ -18733,7 +18684,7 @@ MonoBehaviour:
   currentMoneySO: {fileID: 11400000, guid: 2839112328709b440a244839b46e206b, type: 2}
   GameOverSO: {fileID: 11400000, guid: 1b9669e19ce7581428eb5b53de726569, type: 2}
   taxes: 3200000064000000c8000000
-  isTaxTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
+  IsTaxTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
   taxTurn: {fileID: 11400000, guid: ce49ba9300f458b4b8ae7616a1c5e06f, type: 2}
   taxAmount: {fileID: 11400000, guid: 64d7c05fa0745724f94e10902974565b, type: 2}
 --- !u!114 &2019500286
@@ -18768,7 +18719,10 @@ MonoBehaviour:
     list:
     - {fileID: 11400000, guid: 1198471e2ea2e8446b44ac4668fd38b5, type: 2}
   testItem:
-  - {fileID: 11400000, guid: 586047f3af378f747b69b48a93a7153e, type: 2}
+  - {fileID: 11400000, guid: 83dc9588a8e83d24aa73d5480d25df9e, type: 2}
+  - {fileID: 11400000, guid: f99a819c55980404cac4dfa025940940, type: 2}
+  - {fileID: 11400000, guid: dd0d244ac12aadc47b0ae34296cfea0e, type: 2}
+  - {fileID: 11400000, guid: f8d570d6b8d1ba9499a606026238ace0, type: 2}
   GenerateOnStart: 1
 --- !u!1 &2050395608
 GameObject:
@@ -20053,4 +20007,3 @@ SceneRoots:
   - {fileID: 1844926782}
   - {fileID: 109300559}
   - {fileID: 2019500283}
-  - {fileID: 323804753}

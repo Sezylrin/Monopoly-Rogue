@@ -1,8 +1,10 @@
+using KevinCastejon.MissingFeatures.MissingAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using Unity.VisualScripting;
 using UnityEngine;
 [Flags]
 public enum BuildingCategory
@@ -35,13 +37,15 @@ public enum BoostType
 public class Building : MonoBehaviour
 {
     [CollapsibleGroup("Building")]
-    [SerializeField]
+    [SerializeField, ReadOnlyProp]
     private int currentValue = 0;
+    [SerializeField, ReadOnlyProp]
     private int baseValue;
+    private int baseMultiplier = 1;
+    [SerializeField]
+    private float currentMultiplier;
     [SerializeField]
     private BuildingSO buildingSO;
-    private int baseMultiplier = 1;
-    private float currentMultiplier;
     private int currentPosition;
     [SerializeField]
     private IntSO gridSize;
@@ -103,6 +107,7 @@ public class Building : MonoBehaviour
     {
         currentValue = baseValue;
         currentMultiplier = baseMultiplier;
+        comparisons = new List<Comparisons>(buildingSO.comparisonChecks);
     }
     public BuildingSO GetSO()
     {
@@ -155,6 +160,16 @@ public class Building : MonoBehaviour
             {
                 buildingSelfAffecting[i][j].RemoveAffectingSelf(this);
             }
+            buildingSelfAffecting[i].Clear();
+            buildingModified[i].Clear();
+        }
+    }
+
+    public void ClearEffects()
+    {
+        buildingAffectingSelf.Clear();
+        for (int i = 0; i < buildingSelfAffecting.Count; i++)
+        {            
             buildingSelfAffecting[i].Clear();
             buildingModified[i].Clear();
         }
@@ -292,16 +307,61 @@ public class Building : MonoBehaviour
     [CollapsibleGroup("BuildingEffects")]
     [SerializeField]
     private Dictionary<string, BuildingEffect> effects = new Dictionary<string, BuildingEffect>();
-
+    [SerializeField]
+    private List<BuildingEffect> effectList;
     public void AddBuildingEffect(BuildingEffect effect)
     {
+        effectList.Add(effect);
         effects.Add(effect.gameObject.name, effect);
         effect.SetBuilding(this);
         effect.ApplyEffect();
     }
+
+    public void UpdateDict()
+    {
+        foreach (BuildingEffect effect in effectList)
+        {
+            effects.Add(effect.gameObject.name, effect);
+        }
+    }
     public bool ContainsBuildingEffect(string effect)
     {
         return effects.ContainsKey(effect);
+    }
+    public void ReapplyEffect()
+    {
+        foreach (KeyValuePair<string, BuildingEffect> effect in effects)
+        {
+            effect.Value.ApplyEffect();
+        }
+    }
+    public void RemoveAllBuildingEffect(bool isDestroy)
+    {
+        foreach (KeyValuePair<string,BuildingEffect> effect in effects)
+        {
+            effect.Value.RemoveEffect();
+            if (isDestroy)
+                Destroy(effect.Value.gameObject);
+        }
+        effects.Clear();
+        effectList.Clear();
+    }
+
+    public bool ContainsAnyEffect()
+    {
+        return effectList.Count > 0;
+    }
+
+    public List<BuildingEffect> GetAllEffects()
+    {
+        return effectList;
+    }
+    #endregion
+
+    #region Debug
+    public void DebugStuff()
+    {
+        Debug.Log(currentValue + " " + baseValue);
     }
     #endregion
 }
