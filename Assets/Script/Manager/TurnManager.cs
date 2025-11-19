@@ -29,7 +29,7 @@ public class TurnManager : MonoBehaviour
     {
         if (!IsTurnChangeSO.Bool)
             return;
-        IsTurnChangeSO.ResetValue();
+        IsTurnChangeSO.ResetValueDelay();
         currentSubTurnSO.Int--;
         if (currentSubTurnSO.Int == -1)
         {

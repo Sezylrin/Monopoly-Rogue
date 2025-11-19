@@ -7,11 +7,11 @@ using UnityEngine;
 public class UpdateMoneyUI : MonoBehaviour
 {
     public TMP_Text UIText;
-    public IntSO money;
+    public FloatSO currentMoney;
     // Start is called before the first frame update
     void Start()
     {
-        money.onValueChanged += UpdateValueListner;
+        currentMoney.onValueChanged += UpdateValueListner;
         UpdateValue();
     }
 
@@ -22,7 +22,7 @@ public class UpdateMoneyUI : MonoBehaviour
 
     private void UpdateValue()
     {
-        UIText.text = "Money: $" + money.Int.ToString();
+        UIText.text = "currentMoney: $" + currentMoney.Float.ToString("0.00");
     }
     // Update is called once per frame
     void Update()

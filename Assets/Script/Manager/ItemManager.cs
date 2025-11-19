@@ -20,6 +20,7 @@ public class ItemManager : MonoBehaviour
     private void Start()
     {
         itemSlotUsed.onValueChanged += UseItem;
+        IsAttemptGenerate.onValueChanged += AttemptGenerate;
         if(GenerateOnStart)
             TestGenerate();
     }
@@ -74,9 +75,10 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    public void GenerateMultipleItem(Rarity rarity, int amount, ItemSO sender)
+    public void GenerateMultipleItem(Rarity rarity, int amount, ItemSO sender = null)
     {
-        sortedItemSO[(int)rarity].Remove(sender);
+        if (sender)
+            sortedItemSO[(int)rarity].Remove(sender);
         for (int i = 0; i < amount; i++)
         {
             if (sortedItemSO[(int)rarity].Count == 0)
@@ -86,9 +88,27 @@ public class ItemManager : MonoBehaviour
             if (itemListSO.Count <= itemAmount)
                 GenerateItem(sortedItemSO[(int)rarity][random]);
         }
-        sortedItemSO[(int)rarity].Add(sender);
+        if(sender)
+            sortedItemSO[(int)rarity].Add(sender);
     }
 
+    #region ItemLottery
+    [CollapsibleGroup("Item Lottery")]
+    [SerializeField]
+    private BoolSO IsAttemptGenerate;
+    [SerializeField]
+    private RaritySO itemLotteryRaritySO;
+    private void AttemptGenerate(object sender, EventArgs e)
+    {
+        if (IsAttemptGenerate.Bool)
+        {
+            GenerateMultipleItem(itemLotteryRaritySO.Rarity, 1);
+            IsAttemptGenerate.ResetValue();
+        }
+    }
+    #endregion
+
+    #region Debug
     [CollapsibleGroup("Debug")]
     [SerializeField]
     private List<ItemSO> testItem = new List<ItemSO>();
@@ -105,4 +125,5 @@ public class ItemManager : MonoBehaviour
                 GenerateItem(itemSO);
         }
     }
+    #endregion
 }

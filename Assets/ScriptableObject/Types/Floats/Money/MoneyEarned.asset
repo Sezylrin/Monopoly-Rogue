@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28f9941d88651174e9668658ce97bb03, type: 3}
+  m_Script: {fileID: 11500000, guid: c07eee61b48d41444a1ddd57b9871d80, type: 3}
   m_Name: MoneyEarned
   m_EditorClassIdentifier: 
   Descirption: How much money the player earned in a turn
   <ShouldReset>k__BackingField: 1
   <defaultValue>k__BackingField: 0
-  _int: 0
+  _float: 0

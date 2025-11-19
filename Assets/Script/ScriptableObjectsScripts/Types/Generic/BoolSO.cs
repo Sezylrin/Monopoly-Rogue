@@ -20,6 +20,7 @@ public class BoolSO : ResetableTypeSO<bool>
             }
             _bool = value;
             onValueChanged?.Invoke(this, EventArgs.Empty);
+            DelayReset();
         }
     }
     public override void ResetValue()

@@ -20,6 +20,7 @@ public class IntSO : ResetableTypeSO<int>
             }
             _int = value;
             onValueChanged?.Invoke(this, EventArgs.Empty);
+            DelayReset();
         }
     }
 
