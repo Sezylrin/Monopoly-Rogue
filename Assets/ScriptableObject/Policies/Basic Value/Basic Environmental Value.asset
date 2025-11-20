@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28f9941d88651174e9668658ce97bb03, type: 3}
-  m_Name: CurrentMoney
+  m_Script: {fileID: 11500000, guid: 180de661651d079478cd0c3b034221e5, type: 3}
+  m_Name: Basic Environmental Value
   m_EditorClassIdentifier: 
-  Descirption: Players current money
-  <ShouldReset>k__BackingField: 1
-  <defaultValue>k__BackingField: 0
-  _int: 0
+  PolicyPF: {fileID: 2481190641859973450, guid: f0a6bf5c7caa17049bc6a80d00077b77, type: 3}
+  rarity: 0
+  effect: Increase Environmental building base value by 5

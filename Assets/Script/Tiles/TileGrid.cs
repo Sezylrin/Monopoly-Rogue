@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem.Composites;
@@ -16,9 +17,6 @@ public class TileGrid : MonoBehaviour
     private int currentPos;
 
     [SerializeField]
-    private IntSO moneyEarned;
-
-    [SerializeField]
     private BuildingSO startingBuilding;
 
     public static TileGrid Instance;
@@ -28,9 +26,6 @@ public class TileGrid : MonoBehaviour
 
     [SerializeField]
     private IntSO GridSize;
-
-    [SerializeField]
-    private BoolSO IsCollectCash;
     private void Awake()
     {
         if (Instance == null)
@@ -60,7 +55,6 @@ public class TileGrid : MonoBehaviour
         }
         newBuildingSO.onValueChanged += ToChangeBuilding;
         GridSize.Int = tiles.Length;
-        IsCollectCash.onValueChanged += CalculateMoney;
         isRemoveTileEffect.onValueChanged += RemoveAllTileEffect;
         newTilePosSO.onValueChanged += MoveBuilding;
         
@@ -71,17 +65,15 @@ public class TileGrid : MonoBehaviour
     {
         
     }
-    public void CalculateMoney(object sender, EventArgs e)
+    public float GetProjectedMoney()
     {
-        if (!IsCollectCash.Bool)
-            return;
         float money = 0;
         foreach(Tile tile in tiles)
             money += tile.GetTileScore();
-        moneyEarned.Int += Mathf.FloorToInt(money);
-        IsCollectCash.ResetValue();
+        return money;
     }
-
+    #region ChangeBuilding
+    private int totalBuilding = 0;
     private void ChangeBuilding(Building building,int pos, bool destroy = true)
     {
         tiles[pos].ChangeBuilding(building, pos, destroy);
@@ -119,20 +111,27 @@ public class TileGrid : MonoBehaviour
     {
         if (newBuildingSO.Building != null)
         {
+            BuildingAdded();
             ChangeBuilding(newBuildingSO.Building, currentPos);
-            newBuildingSO.ResetValue();
+            newBuildingSO.ResetValueDelay();
         }
     }
 
+    public void BuildingAdded()
+    {
+        totalBuilding++;
+    }
+
+    public void BuildingRemoved()
+    {
+        totalBuilding--;
+    }
+    #endregion
+
+    #region Getters
     public Tile[] GetTile()
     {
         return tiles;
-    }
-
-    public void SetCurrentPos(int pos)
-    {
-        currentPos = pos;
-        currentPosSO.Int = currentPos;
     }
 
     public Building GetBuildingOnTile(int pos = -1)
@@ -144,6 +143,13 @@ public class TileGrid : MonoBehaviour
     {
         return GridSize.Int;
     }
+
+    public int GetTotalBuilding()
+    {
+        return totalBuilding;
+    }
+    #endregion
+
     #region Limit
     private Dictionary<BuildingSO, int> limits = new Dictionary<BuildingSO, int>();
     public void ModifyLimits(BuildingSO building)
@@ -278,6 +284,48 @@ public class TileGrid : MonoBehaviour
     private int CheckPos(int pos)
     {
         return pos < 0? currentPos : pos;
+    }
+
+    public void SetCurrentPos(int pos)
+    {
+        currentPos = pos;
+        currentPosSO.Int = currentPos;
+    }
+    #endregion
+
+    #region PolicyPoint
+    [CollapsibleGroup("Policy Point")]
+    [SerializeField, NamedArray(new string[] { "Common", "Rare", "Epic", "Legendary" })]
+    private int[] pointAmount = new int[4];
+
+    public int EarnPolicyPoint()
+    {
+        Rarity rarity;
+        int final = 0;
+        foreach (Tile tile in  tiles)
+        {
+            Building temp = tile.GetCurrentBuilding();
+            if (temp)
+            {
+                rarity = temp.GetSO().rarity;
+                switch (rarity)
+                {
+                    case Rarity.common:
+                        final += pointAmount[0];
+                        break;
+                    case Rarity.rare:
+                        final += pointAmount[1];
+                        break;
+                    case Rarity.epic:
+                        final += pointAmount[2];
+                        break;
+                    case Rarity.legendary: 
+                        final += pointAmount[3];
+                        break;
+                }
+            }
+        }
+        return final;
     }
     #endregion
 

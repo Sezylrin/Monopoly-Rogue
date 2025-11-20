@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d50337c45c9e2d4fab4959b8a5f2360, type: 3}
   m_Name: newBuilding
   m_EditorClassIdentifier: 
-  Descirption: new building to spawn
+  Descirption: new building to spawn as a reference
   <ShouldReset>k__BackingField: 0
   <defaultValue>k__BackingField: {fileID: 0}

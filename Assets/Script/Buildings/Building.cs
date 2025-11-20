@@ -95,7 +95,7 @@ public class Building : MonoBehaviour
 
     public void DestroyBuilding()
     {
-        currentTile.ChangeBuilding(null, currentPosition);
+        currentTile.DestroyBuilding();
     }
 
     public float GetCurrentValue()
@@ -118,6 +118,13 @@ public class Building : MonoBehaviour
     {
         return currentPosition;
     }
+
+    #region Compare getters
+    public bool CompareCategory(BuildingCategory category)
+    {
+        return buildingSO.category.HasFlag(category);
+    }
+    #endregion
 
     #region modifying associated lists
 

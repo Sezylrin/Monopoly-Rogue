@@ -9,7 +9,7 @@ public class TypeSO<T> : BaseTypeSO
 {
 
     public virtual EventHandler onValueChanged { get; set; }
-
+    protected bool delayReset;
     protected virtual void OnValidate()
     {
         if (EditorApplication.isPlaying)
@@ -47,6 +47,22 @@ public class ResetableTypeSO<T> : TypeSO<T>, ITypeSO<T>, ITypeCanReset
     public virtual void ResetValue()
     {
 
+    }
+    /// <summary>
+    /// Reset value after invoke is called, only works if called during the same invoke
+    /// </summary>
+    public void ResetValueDelay()
+    {
+        delayReset = true;
+    }
+
+    protected void DelayReset()
+    {
+        if (delayReset)
+        {
+            ResetValue();
+            delayReset = false;
+        }
     }
 #if UNITY_EDITOR
     protected override void OnValidate()

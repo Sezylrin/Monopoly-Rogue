@@ -40,7 +40,7 @@ public class MovePlayer : MonoBehaviour
     {
         if (!isToRollSO.Bool || !canRollSO.Bool)
             return;
-        isToRollSO.ResetValue();
+        isToRollSO.ResetValueDelay();
         canRollSO.Bool = false;
         int moveAmount = 0;
         if(customDiceRollSO.Int == 0)

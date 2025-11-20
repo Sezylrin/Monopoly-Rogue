@@ -21,6 +21,7 @@ public class StringSO : ResetableTypeSO<string>
             }
             _string = value;
             onValueChanged?.Invoke(this, EventArgs.Empty);
+            DelayReset();
         }
     }
 

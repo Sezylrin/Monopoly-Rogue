@@ -8585,13 +8585,12 @@ MonoBehaviour:
   - {fileID: 2126690118}
   - {fileID: 1845435745}
   currentPosSO: {fileID: 11400000, guid: 988d47bb99feace40a637ed446566b0f, type: 2}
-  moneyEarned: {fileID: 11400000, guid: dde42f704bede7a41ac44e3d48bda3b4, type: 2}
   startingBuilding: {fileID: 11400000, guid: 4ed100a96b7bbc246b07840611f9fb7f, type: 2}
   newBuildingSO: {fileID: 11400000, guid: 5b9c25cc33c4b134494b568f19775848, type: 2}
   GridSize: {fileID: 11400000, guid: 1abb22a1d0b2f32499565b6499a3843e, type: 2}
-  IsCollectCash: {fileID: 11400000, guid: 6c2cec0c49da30d4eb03f02ccd0794aa, type: 2}
   newTilePosSO: {fileID: 11400000, guid: a8bfea3d447884347ae538778a3a2d40, type: 2}
   isRemoveTileEffect: {fileID: 11400000, guid: 4bb3354d72acb6f4084d6b627f28a670, type: 2}
+  pointAmount: 00000000000000000000000000000000
   debugBuildingSO: {fileID: 11400000, guid: 9de1968aa32f78c4c820bad2e8e4e84d, type: 2}
   DebugPosition: 0
 --- !u!1 &938910417
@@ -17185,7 +17184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIText: {fileID: 1852068029}
-  money: {fileID: 11400000, guid: 2839112328709b440a244839b46e206b, type: 2}
+  currentMoney: {fileID: 11400000, guid: 9d404bb13e1916b4eb496ea1ee3c7ce2, type: 2}
 --- !u!114 &1852068029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18615,6 +18614,8 @@ GameObject:
   - component: {fileID: 2019500284}
   - component: {fileID: 2019500285}
   - component: {fileID: 2019500286}
+  - component: {fileID: 2019500287}
+  - component: {fileID: 2019500288}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -18634,8 +18635,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf53b1861a2c6814e904cd46dfa928d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMoney: {fileID: 11400000, guid: 2839112328709b440a244839b46e206b, type: 2}
-  moneyToAdd: {fileID: 11400000, guid: dde42f704bede7a41ac44e3d48bda3b4, type: 2}
+  currentMoney: {fileID: 11400000, guid: 9d404bb13e1916b4eb496ea1ee3c7ce2, type: 2}
+  IsCollectCash: {fileID: 11400000, guid: 6c2cec0c49da30d4eb03f02ccd0794aa, type: 2}
+  IsBasicGambling: {fileID: 11400000, guid: 326092942dd60d540a9764d2f9979762, type: 2}
 --- !u!4 &2019500283
 Transform:
   m_ObjectHideFlags: 0
@@ -18681,7 +18683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f83ffb5f4d0b91479eeb51f475e02b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMoneySO: {fileID: 11400000, guid: 2839112328709b440a244839b46e206b, type: 2}
+  currentMoneySO: {fileID: 0}
   GameOverSO: {fileID: 11400000, guid: 1b9669e19ce7581428eb5b53de726569, type: 2}
   taxes: 3200000064000000c8000000
   IsTaxTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
@@ -18718,12 +18720,48 @@ MonoBehaviour:
   - Name: legendary
     list:
     - {fileID: 11400000, guid: 1198471e2ea2e8446b44ac4668fd38b5, type: 2}
+  IsAttemptGenerate: {fileID: 11400000, guid: a44e999711bc45b4a8abf58d5cfc629f, type: 2}
+  itemLotteryRaritySO: {fileID: 11400000, guid: 4795454d1d863ca408b899bcbe8a9298, type: 2}
   testItem:
   - {fileID: 11400000, guid: 83dc9588a8e83d24aa73d5480d25df9e, type: 2}
   - {fileID: 11400000, guid: f99a819c55980404cac4dfa025940940, type: 2}
   - {fileID: 11400000, guid: dd0d244ac12aadc47b0ae34296cfea0e, type: 2}
   - {fileID: 11400000, guid: f8d570d6b8d1ba9499a606026238ace0, type: 2}
   GenerateOnStart: 1
+--- !u!114 &2019500287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019500281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6676ff3dc8daf4c99f3a349a750a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  policies: []
+  debugSpawn:
+  - {fileID: 11400000, guid: 00d748fb4767f1446a8a422692067fb7, type: 2}
+--- !u!114 &2019500288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019500281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1862366f56950f44978da0919f80e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
+  rollsPerPolicy: 2
+  currentRoll: 0
+  CurrentPolicyPointSO: {fileID: 11400000, guid: f9493dd58c5e51b4db94df44a7107d0a, type: 2}
+  IsBasicInterest: {fileID: 11400000, guid: 0cf968a667bf1444fab4457b4883962d, type: 2}
+  SpendPolicyPoint: {fileID: 11400000, guid: 4bc8d20a84e515744b9064925744dd74, type: 2}
+  canSpendPolicyPoint: {fileID: 11400000, guid: 4b3dc239de56d4c469cf00ed15d40b87, type: 2}
 --- !u!1 &2050395608
 GameObject:
   m_ObjectHideFlags: 0
