@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Descirption: how much policy point the attempted action costs
   <ShouldReset>k__BackingField: 1
-  <defaultValue>k__BackingField: 0
-  _int: 0
+  <defaultValue>k__BackingField: -1
+  _int: -1

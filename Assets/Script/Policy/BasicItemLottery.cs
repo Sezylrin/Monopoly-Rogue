@@ -11,12 +11,12 @@ public class BasicItemLottery : BasePolicy
     [SerializeField]
     private int percentPerBuilding;
     [SerializeField]
-    private Rarity rarity;
+    private CalculateRarityListSO CalculateAllRarity;
     [SerializeField]
     private RaritySO itemLotteryRaritySO;
     [SerializeField]
     private BoolSO IsAttemptGenerate;
-    public override void Initialise()
+    protected override void Initialise()
     {
         IsTurnChangeSO.onValueChanged += AttemptItemGenerate;
     }
@@ -26,7 +26,7 @@ public class BasicItemLottery : BasePolicy
         int percent = percentPerBuilding * TileGrid.Instance.GetTotalBuilding();
         if (Random.Range(0,100) <  percent)
         {
-            itemLotteryRaritySO.Rarity = rarity;
+            itemLotteryRaritySO.Rarity = CalculateAllRarity.CalculateRarity();
             IsAttemptGenerate.Bool = true;
         }
     }

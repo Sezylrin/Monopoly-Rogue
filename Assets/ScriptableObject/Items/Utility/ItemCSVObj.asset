@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd9bdaf4853b1f43bb3dc83a7c4df62, type: 3}
+  m_Name: ItemCSVObj
+  m_EditorClassIdentifier: 
+  allItems: {fileID: 11400000, guid: 3bb6d4556ab710f4493ec69a8f43c322, type: 2}
+  TextAssetData: {fileID: 4900000, guid: 7a243af18f2f3ce4198de77ff052fceb, type: 3}
+  importData:
+  - Name
+  - Rarity
+  - Cost
+  - "Effect\r"
+  - Custom Dice
+  - rare
+  - 4
+  - "Control your next dice roll to be a value between 1-10\r"
+  - Rare Development
+  - rare
+  - 4
+  - "Select between a random rare building to build on your current tile\r"
+  - Rare Loot Bag
+  - rare
+  - 4
+  - "Randomly generate 2 rare rarity items\r"
+  - Reclaimation
+  - rare
+  - 4
+  - "Remove all tile effects from the current tile\r"
+  - Boundary Adjustment
+  - rare
+  - 4
+  - "Move the current building to a chosen nearby location\r"
+  - Protected site
+  - rare
+  - 4
+  - "Apply the Protected tile effect to the current tile. buildings on tile have
+    base value increased by 30@no more changes can be made to the tile or building.\r"
+  - Corner Cutting
+  - rare
+  - 4
+  - "Apply the Cut Corners building effect. Increase the base value of the building
+    by 20@but destroys the building in 4 turns\r"
+  - Disaster Prevention
+  - rare
+  - 4
+  - "Apply Disaster Prevention building effect. Base value reduce by 10@multiplier
+    increase by 0.5x \r"
+  - Rare Category Priority
+  - rare
+  - 4
+  - "Increase probability to draw selected category during build phase for the next
+    3 turns. Does not stack\r"
+  - Legendary Development
+  - legendary
+  - 8
+  - "Select between random legendary building to build on your current tile\r"
+  - Duplicate
+  - legendary
+  - 8
+  - "Duplicate a selected building with all its effects@will not work on buildings
+    at max limit\r"
+  - Historical Landmark
+  - legendary
+  - 8
+  - "Apply Historical tile effect. Buildings earn 1x more money\r"
+  - Superior Design
+  - legendary
+  - 8
+  - "Apply superior building effect. Increase building base value by 50\r"
+  - Legendary Category Priority
+  - legendary
+  - 8
+  - "Drastically Increase probability to draw selected category during build phase
+    for the next 3 turns\r"
+  - Transfer
+  - epic
+  - 6
+  - "Transfer all building effect from another building to the current Building@Duplicates
+    do not get moved\r"
+  - Teleporter
+  - epic
+  - 6
+  - "Move to any desired tile\r"
+  - Epic Development
+  - epic
+  - 6
+  - "Select between random epic buildings to build on your current tile\r"
+  - Epic Loot Bag
+  - epic
+  - 6
+  - "Randomly generate 2 epic rarity items\r"
+  - Transport
+  - epic
+  - 6
+  - "Move a selected building to any location\r"
+  - Restructuring
+  - epic
+  - 6
+  - "Swap the selected building effects between two selected buildings\r"
+  - Heritage Site
+  - epic
+  - 6
+  - "Apply the heritage tile effect to current tile. Increase buildings multiplier
+    by 1.5x\r"
+  - Smooth Land
+  - epic
+  - 6
+  - "Apply the smooth tile effect to current tile. Increase building effect range
+    by 2\r"
+  - Epic Category Priority
+  - epic
+  - 6
+  - "Greatly increase probability to draw selected category during build phase for
+    the next 3 turns\r"
+  - Relocation
+  - common
+  - 2
+  - "Move a current building to a random empty location\r"
+  - Reversal
+  - common
+  - 2
+  - "Reverse the direction you travel when you next roll the dice\r"
+  - Common Development
+  - common
+  - 2
+  - "Select between random common building to build on the current tile\r"
+  - Common Loot Bag
+  - common
+  - 2
+  - "Randomly generate 3 common rarity items\r"
+  - Restoration
+  - common
+  - 2
+  - "Removes all building effects from the building\r"
+  - Valued land
+  - common
+  - 2
+  - "Apply valued tile effect to the current tile. building earns 0.25x more\r"
+  - Basic Renovation
+  - common
+  - 2
+  - "Apply the Renovated building effect. Increase a the buildings base value by
+    5\r"
+  - Cramped
+  - common
+  - 2
+  - "Apply cramped building effect. Increase base value by 10 reduce multiplier by
+    0.2x\r"
+  - Common Category Priority
+  - common
+  - 2
+  - "Slightly increase probability to draw selected category during build phase for
+    the next 3 turns. Does not stack\r"
+  - 
+  colAmount: 4

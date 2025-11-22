@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436073cc7689ed9439534748f239214c, type: 3}
   m_Name: Cramped
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 0
   prefab: {fileID: 8231255406048521489, guid: 6656500a23878be45a9623bf6721a30b, type: 3}
-  description: Apply cramped building effect. Increase base value by 10 reduce multiplier
+  <rarity>k__BackingField: 0
+  cost: 2
+  effect: Apply cramped building effect. Increase base value by 10 reduce multiplier
     by 0.2x
   objectPF: {fileID: 8258521448429327832, guid: c2a391ff2399a0f41bf9f224e900d0ce, type: 3}

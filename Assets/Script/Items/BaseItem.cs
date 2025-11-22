@@ -14,6 +14,8 @@ public class BaseItem : MonoBehaviour
     [SerializeField]
     protected ItemSO itemSO;
 
+    protected int sellPrice;
+
     public EventHandler<boolEventArgs> OnItemUse;
 
     protected ItemManager manager;
@@ -51,10 +53,16 @@ public class BaseItem : MonoBehaviour
     public virtual void OnGenerate(ItemSO itemSO)
     {
         this.itemSO = itemSO;
+        sellPrice = Mathf.FloorToInt(itemSO.cost * 0.5f);
     }
     public ItemSO GetSO()
     {
         return itemSO;
+    }
+
+    public int GetSellPrice()
+    {
+        return sellPrice;
     }
 
     protected bool TileHasEffect(int pos = -1)

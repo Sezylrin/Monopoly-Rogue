@@ -14,12 +14,12 @@ public class BoolSO : ResetableTypeSO<bool>
         get { return _bool; }
         set
         {
-            if (_bool == value)
+            if (_bool != value)
             {
-                return;
+                _bool = value; 
+                onValueChanged?.Invoke(this, EventArgs.Empty);
             }
-            _bool = value;
-            onValueChanged?.Invoke(this, EventArgs.Empty);
+            onValueUpdated?.Invoke(this, EventArgs.Empty);
             DelayReset();
         }
     }

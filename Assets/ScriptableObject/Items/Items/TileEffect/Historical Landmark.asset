@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436073cc7689ed9439534748f239214c, type: 3}
   m_Name: Historical Landmark
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 3
   prefab: {fileID: 8231255406048521489, guid: e7e6fdc2d3acee7439f2e9e1e602340d, type: 3}
-  description: Apply Historical tile effect. Buildings earn 1x more money
+  <rarity>k__BackingField: 3
+  cost: 8
+  effect: Apply Historical tile effect. Buildings earn 1x more money
   objectPF: {fileID: 1656503179704823069, guid: 945c3b2edb7839a4888e5ac1f185c5a2, type: 3}

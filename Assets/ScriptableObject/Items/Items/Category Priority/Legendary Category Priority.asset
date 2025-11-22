@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df15d40c6b33a03449d7f63a4e62130f, type: 3}
   m_Name: Legendary Category Priority
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 3
   prefab: {fileID: 1048289579315933783, guid: 8b5c153958f3e5444acae94b0fea86c5, type: 3}
-  description: Increase probability to draw selected category during build phase
-    for the next 3 turns. Does not stack
+  <rarity>k__BackingField: 3
+  cost: 8
+  effect: Drastically Increase probability to draw selected category during build
+    phase for the next 3 turns
   amount: 50

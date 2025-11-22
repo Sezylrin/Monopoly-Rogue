@@ -16,16 +16,24 @@ public class ItemManager : MonoBehaviour
     [SerializeField]
     private ItemSOListSO allItemSO;
     [SerializeField]
+    private ItemSOSO ItemToBuySO;
+    [SerializeField]
     private List<ListWrapper<ItemSO>> sortedItemSO = new List<ListWrapper<ItemSO>>();
-    private void Start()
+    private void Awake()
     {
         itemSlotUsed.onValueChanged += UseItem;
         IsAttemptGenerate.onValueChanged += AttemptGenerate;
+        ItemToBuySO.onValueChanged += BuyItem;
+        ItemSlotToSellSO.onValueChanged += SellItem;
         if(GenerateOnStart)
             TestGenerate();
     }
     
-
+    public void BuyItem(object sender, EventArgs e)
+    {
+        GenerateItem(ItemToBuySO.ItemSO);
+        ItemToBuySO.ResetValue();
+    }
     public void UseItem(object sender, EventArgs e)
     {
        itemListSO[itemSlotUsed.Int].AttemptItemUse();
@@ -91,6 +99,19 @@ public class ItemManager : MonoBehaviour
         if(sender)
             sortedItemSO[(int)rarity].Add(sender);
     }
+
+    #region Sell Item
+    [CollapsibleGroup("Sell item")]
+    [SerializeField]
+    private IntSO ItemSlotToSellSO;
+
+    private void SellItem(object sender, EventArgs e)
+    {
+        Destroy(itemListSO[ItemSlotToSellSO.Int].gameObject);
+        itemListSO.RemoveAt(ItemSlotToSellSO.Int);
+        ItemSlotToSellSO.ResetValue();
+    }
+    #endregion
 
     #region ItemLottery
     [CollapsibleGroup("Item Lottery")]

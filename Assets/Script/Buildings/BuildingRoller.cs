@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.Burst.Intrinsics;
 using UnityEditor;
 using UnityEngine;
@@ -21,10 +22,9 @@ public class BuildingRoller : MonoBehaviour
     //list one rarity, list two which category, list 3 actual building
     [SerializeField]
     private List<ListWrapper<ListWrapper<BuildingSO>>> sortedBuildings = new List<ListWrapper<ListWrapper<BuildingSO>>>();
-    [SerializeField, NamedArray(new string[] { "common", "rare", "epic", "legendary" })]
-    private int[] rarityProbabilty = new int[Enum.GetValues(typeof(Rarity)).Length];
-    [SerializeField, ReadOnlyProp]
-    private int[] _rarityProbabilty = new int[Enum.GetValues(typeof(Rarity)).Length - 1];
+
+    [SerializeField]
+    private CalculateRarityListSO CalculateAllRarity;
 
     [SerializeField, NamedArray(new string[] { "residential", "industrial", "commerce", "energy", "educational", "environmental"})]
     private int[] categoryProbabilty = new int[Enum.GetValues(typeof(BuildingCategory)).Length];
@@ -49,6 +49,7 @@ public class BuildingRoller : MonoBehaviour
             Instance = this;
             Debug.Log("smth has gone wrong");
         }
+        UpdateRerollText();
     }
     void Start()
     {
@@ -56,14 +57,7 @@ public class BuildingRoller : MonoBehaviour
         GenerateProbability(); 
         GenerateBuildingStored();
         allCategory = (BuildingCategory[])Enum.GetValues(typeof(BuildingCategory));
-        allRarity = (Rarity[])Enum.GetValues(typeof(Rarity));
         IsTurnChangeSO.onValueChanged += ProbabilityTurnCounter;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     #region Sort Building
     [ContextMenu("Sort Buildings")]
@@ -112,26 +106,15 @@ public class BuildingRoller : MonoBehaviour
         List<BuildingSO> finalBuildings = new List<BuildingSO>();
 #if UNITY_EDITOR
         allCategory = (BuildingCategory[])Enum.GetValues(typeof(BuildingCategory));
-        allRarity = (Rarity[])Enum.GetValues(typeof(Rarity));
 #endif
         BuildingCategory selectedCategory = 0;
         List<BuildingSO> selectedSO = new List<BuildingSO>();
         for (int i = 0; i < 3; i++)
         {
-            Rarity selectedRarity = allRarity[allRarity.Length - 1];
+            Rarity selectedRarity;
             int rarity = Random.Range(0, 100);
             if (RarityOverride == (Rarity)(-1))
-            {
-                selectedRarity = allRarity[allRarity.Length - 1];
-                for (int j = 0; j < _rarityProbabilty.Length; j++)
-                {
-                    if (rarity < _rarityProbabilty[j])
-                    {
-                        selectedRarity = allRarity[j];
-                        break;
-                    }
-                }
-            }
+                selectedRarity = CalculateAllRarity.CalculateRarity();
             else
                 selectedRarity = RarityOverride;
             //Debug.Log(rarity + " " + selectedRarity.ToString());
@@ -217,11 +200,6 @@ public class BuildingRoller : MonoBehaviour
     [ContextMenu("GenerateProbabilty")]
     private void GenerateProbability()
     {
-        _rarityProbabilty[0] = rarityProbabilty[0];
-        for (int i = 1; i < _rarityProbabilty.Length; i++)
-            _rarityProbabilty[i] = _rarityProbabilty[i - 1] + rarityProbabilty[i];
-        if (_rarityProbabilty[_rarityProbabilty.Length - 1] + rarityProbabilty[rarityProbabilty.Length - 1] > 100)
-            Debug.LogWarning("rarity probabilty exceedes 100");
         _categoryProbabilty[0] = categoryProbabilty[0];
         for (int i = 1; i < _categoryProbabilty.Length; i++)
             _categoryProbabilty[i] = _categoryProbabilty[i - 1] + categoryProbabilty[i];
@@ -273,12 +251,40 @@ public class BuildingRoller : MonoBehaviour
     }
     #endregion
     #endregion
+
+    #region Reroll
+    [CollapsibleGroup("Reroll")]
+    [SerializeField]
+    private int rerollAmount;
+    [SerializeField]
+    private int currentReroll;
+    [SerializeField]
+    private TMP_Text rerollText;
+    public void Reroll()
+    {
+        if (currentReroll == 0)
+            return;
+        currentReroll--;
+        GenerateBuildingStored();
+        UpdateRerollText();
+    }
+    public void ResetReroll()
+    {
+        currentReroll = rerollAmount;
+        UpdateRerollText();
+    }
+    public void UpdateRerollText()
+    {
+        rerollText.text = "Reroll (" + currentReroll.ToString() + ")";
+    }
+    #endregion
+
+    #region Debug
     [CollapsibleGroup("Debug")]
     [SerializeField]
     private BuildingCategory[] allCategory = new BuildingCategory[Enum.GetValues(typeof(BuildingCategory)).Length];
-    [SerializeField]
-    private Rarity[] allRarity = new Rarity[Enum.GetValues(typeof(Rarity)).Length];
-
+    
     [SerializeField]
     private StringSO debugValuesSO;
+    #endregion
 }
