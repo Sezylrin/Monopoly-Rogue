@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Restoration
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 0
   prefab: {fileID: 339788448380594967, guid: e9f960c1f9518c64b967f4841d1e7891, type: 3}
-  description: Removes all building effects from the building
+  <rarity>k__BackingField: 0
+  cost: 2
+  effect: Removes all building effects from the building

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Custom Dice
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 1
   prefab: {fileID: 1555105206129806503, guid: a6f52b55b54078c47a77a4667d0b98d5, type: 3}
-  description: Control your next dice roll to be a value between 1-10
+  <rarity>k__BackingField: 1
+  cost: 4
+  effect: Control your next dice roll to be a value between 1-10

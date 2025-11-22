@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Restructuring
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  <rarity>k__BackingField: 2
   prefab: {fileID: 3317233202196908394, guid: 44131de62d6284b4c94fa180d0621bfe, type: 3}
-  description: Swap the building effects from the selected and current building
+  <rarity>k__BackingField: 2
+  cost: 6
+  effect: Swap the selected building effects between two selected buildings

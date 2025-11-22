@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436073cc7689ed9439534748f239214c, type: 3}
   m_Name: Heritage Site
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 2
   prefab: {fileID: 8231255406048521489, guid: e7e6fdc2d3acee7439f2e9e1e602340d, type: 3}
-  description: Apply the heritage tile effect to current tile. Increase buildings
-    multiplier by 1.5x
+  <rarity>k__BackingField: 2
+  cost: 6
+  effect: Apply the heritage tile effect to current tile. Increase buildings multiplier
+    by 1.5x
   objectPF: {fileID: 4446801478593207905, guid: 4528dd65cef04f54c912b13a46c6825b, type: 3}

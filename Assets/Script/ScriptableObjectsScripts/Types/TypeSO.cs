@@ -9,8 +9,9 @@ public class TypeSO<T> : BaseTypeSO
 {
 
     public virtual EventHandler onValueChanged { get; set; }
+    public virtual EventHandler onValueUpdated { get; set; }
     protected bool delayReset;
-    protected virtual void OnValidate()
+    protected override void OnValidate()
     {
         if (EditorApplication.isPlaying)
         {
@@ -25,6 +26,8 @@ public class TypeSO<T> : BaseTypeSO
             Debug.Log(name + " OnDisabled Triggered");
         onValueChanged = null;
     }
+
+    
 }
 
 public class BaseTypeSO : ScriptableObject
@@ -33,6 +36,16 @@ public class BaseTypeSO : ScriptableObject
     [TextArea(3,10)]
     public string Descirption;
 
+    protected virtual void OnValidate()
+    {
+
+    }
+#if UNITY_EDITOR
+    public virtual void OnFileDelete()
+    {
+        OnValidate();
+    }
+#endif
 }
 
 public class ResetableTypeSO<T> : TypeSO<T>, ITypeSO<T>, ITypeCanReset
@@ -85,6 +98,12 @@ public class ResetableTypeSO<T> : TypeSO<T>, ITypeSO<T>, ITypeCanReset
         }
 
         EditorUtility.SetDirty(contentsRoot);
+    }
+
+    public override void OnFileDelete()
+    {
+        ShouldReset = false;
+        base.OnFileDelete();
     }
 #endif
 }

@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: ResetterSO
   m_EditorClassIdentifier: 
   ScriptableObjectsToReset:
-  - {fileID: 11400000, guid: 2839112328709b440a244839b46e206b, type: 2}
   - {fileID: 11400000, guid: 2974b5cd8b31d8c4cac78bd92cc5e92b, type: 2}
   - {fileID: 11400000, guid: 17c6d9fd41c31c74b8345ca547a061a4, type: 2}
   - {fileID: 11400000, guid: ad4d239dfd11ace44aebe0fc7fcc2b05, type: 2}
@@ -26,7 +25,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b9669e19ce7581428eb5b53de726569, type: 2}
   - {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
   - {fileID: 11400000, guid: e976a232cd9d46740846cca3d2a9c66e, type: 2}
-  - {fileID: 11400000, guid: 8e9999a0187139b4886d611f9f95420b, type: 2}
   - {fileID: 11400000, guid: 9d61562b85188f5429ed1b68db1a0900, type: 2}
   - {fileID: 11400000, guid: a8bfea3d447884347ae538778a3a2d40, type: 2}
   - {fileID: 11400000, guid: c0ad7794c0ec25041a93a06a488c7f45, type: 2}
@@ -41,3 +39,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a44e999711bc45b4a8abf58d5cfc629f, type: 2}
   - {fileID: 11400000, guid: 9d404bb13e1916b4eb496ea1ee3c7ce2, type: 2}
   - {fileID: 11400000, guid: 326092942dd60d540a9764d2f9979762, type: 2}
+  - {fileID: 11400000, guid: 12a4959ac4dffbb4ba4b52c337c64116, type: 2}
+  - {fileID: 11400000, guid: c27cbb79587ff0e40be67aedad2eb60d, type: 2}
+  - {fileID: 11400000, guid: ac859b1127968aa4f80787257bc70c6a, type: 2}
+  - {fileID: 11400000, guid: 4b0c8320aedbb9d44b93a2539109a929, type: 2}
+  - {fileID: 11400000, guid: c3acb0a043a456d468090f01f3b30bf2, type: 2}
+  - {fileID: 11400000, guid: 8e9999a0187139b4886d611f9f95420b, type: 2}
+  - {fileID: 11400000, guid: 0f029f393514ca64fad7847b9fcc98f0, type: 2}
+  - {fileID: 11400000, guid: 8306ec2cad448b246a1df53d1ecf777e, type: 2}
+  - {fileID: 11400000, guid: a19572367fbd44b438e7d69d5d810cd2, type: 2}
+  - {fileID: 11400000, guid: 57aca0c664ca282488421cd1803fcdb8, type: 2}
+  - {fileID: 11400000, guid: 321e6646d1257b3459d0f56cf132666c, type: 2}
+  - {fileID: 11400000, guid: 3728039a8ff65354fad9094ccdf4298c, type: 2}

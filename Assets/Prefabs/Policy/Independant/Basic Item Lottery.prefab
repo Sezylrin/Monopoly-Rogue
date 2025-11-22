@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
   percentPerBuilding: 3
-  rarity: 0
+  CalculateAllRarity: {fileID: 11400000, guid: e8b3896edddae164ba09a5f479bb05e5, type: 2}
   itemLotteryRaritySO: {fileID: 11400000, guid: 4795454d1d863ca408b899bcbe8a9298, type: 2}
   IsAttemptGenerate: {fileID: 11400000, guid: a44e999711bc45b4a8abf58d5cfc629f, type: 2}

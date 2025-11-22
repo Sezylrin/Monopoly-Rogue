@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Boundary Adjustment
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  <rarity>k__BackingField: 1
   prefab: {fileID: 3836429214799806332, guid: 7702e52761645e94ebc19a22397cd842, type: 3}
-  description: Move the current building to a chosen nearby location
+  <rarity>k__BackingField: 1
+  cost: 4
+  effect: Move the current building to a chosen nearby location
