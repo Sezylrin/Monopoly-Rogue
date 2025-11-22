@@ -5,7 +5,7 @@ using System.IO;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-[CreateAssetMenu(fileName = "ExportCSVObj", menuName = "ScriptableObjects/Utility/ExportToCSV")]
+[CreateAssetMenu(fileName = "BuildingCSVObj", menuName = "ScriptableObjects/Utility/BuildingCSVIO")]
 
 public class CSVIO : ScriptableObject
 {
@@ -69,8 +69,6 @@ public class CSVIO : ScriptableObject
         List<string> tempAllSO = new List<string>();
         foreach (BuildingSO building in allBuildings.List)
             tempAllSO.Add(building.name);
-
-        List<string> SOToCreate = new List<string>();
 
         string unSplit = TextAssetData.text;
         unSplit = unSplit.Replace(", ", "@").Replace("\"", "");

@@ -14,7 +14,7 @@ public class ValuePolicy : BuildingPolicy
     [SerializeField]
     protected BuildingTypeSO newBuildingSO;
     // Start is called before the first frame update
-    public override void Initialise()
+    protected override void Initialise()
     {
         base.Initialise();
         newBuildingSO.onValueChanged += UpdateNewBuilding;

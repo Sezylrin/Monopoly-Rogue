@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Teleport
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 2
   prefab: {fileID: 3500135858838253568, guid: 632f0e159023b3b4198c2da7629fb818, type: 3}
-  description: Move to any desired tile
+  <rarity>k__BackingField: 2
+  cost: 6
+  effect: Move to any desired tile

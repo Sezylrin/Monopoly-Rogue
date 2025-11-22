@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436073cc7689ed9439534748f239214c, type: 3}
   m_Name: Smooth Land
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 2
   prefab: {fileID: 8231255406048521489, guid: e7e6fdc2d3acee7439f2e9e1e602340d, type: 3}
-  description: Apply the smooth tile effect to current tile. Increase building effect
+  <rarity>k__BackingField: 2
+  cost: 6
+  effect: Apply the smooth tile effect to current tile. Increase building effect
     range by 2
   objectPF: {fileID: 6255104284335804555, guid: 792f6e9eed7697b40b63aa3b7031fe3c, type: 3}

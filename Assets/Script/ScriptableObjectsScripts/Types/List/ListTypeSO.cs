@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,18 +10,26 @@ public class ListTypeSO<T> : TypeSO<T>, ITypeCanReset, IEnumerable<T>
 {
     [CollapsibleGroup("List")]
     [SerializeField]
-    private List<T> list = new List<T>();
+    protected List<T> list = new List<T>();
     public int Count { get { return list.Count; } }
-
+    /// <summary>
+    /// Does not invoke
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
     public T this[int key]
     {
         get { return list[key]; }
-        set { list[key] = value; ValueChanged();  }
+        set { list[key] = value; }
     }
     public void Add(T item)
     {
         list.Add(item);
         ValueChanged();
+    }
+    public void AddInvokeless(T item)
+    {
+        list.Add(item);
     }
     public void Remove(T item)
     {
@@ -43,7 +52,27 @@ public class ListTypeSO<T> : TypeSO<T>, ITypeCanReset, IEnumerable<T>
     }
     public void ValueChanged()
     {
-        onValueChanged.Invoke(this, EventArgs.Empty);
+        onValueChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void Copy(List<T> list)
+    {
+        this.list = list;
+    }
+    public void Copy(T[] list)
+    {
+        this.list = list.ToList();
+    }
+
+    public void CopyInvoke(T[] list)
+    {
+        Copy(list);
+        ValueChanged();
+    }
+
+    public List<T> GetList()
+    {
+        return list;
     }
 
     [field: CollapsibleGroup("Reset Value", 99), SerializeField]
@@ -51,6 +80,7 @@ public class ListTypeSO<T> : TypeSO<T>, ITypeCanReset, IEnumerable<T>
     public void ResetValue()
     {
         list.Clear();
+        
     }
 #if UNITY_EDITOR
     protected override void OnValidate()

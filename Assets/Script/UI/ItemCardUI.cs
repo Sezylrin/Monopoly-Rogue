@@ -20,9 +20,9 @@ public class ItemCardUI : MonoBehaviour
         
     }
 
-    public void SetValueFromSO(ItemSO itemSO)
+    public void SetValueFromSO(BasePrefabSO itemSO)
     {
         itemName.text = itemSO.name;
-        description.text = itemSO.description;
+        description.text = itemSO.effect;
     }
 }

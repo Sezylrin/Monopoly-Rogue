@@ -5,12 +5,22 @@ using UnityEngine;
 public class BasePolicy : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField]
+    protected PolicySO policySO;
+
+    protected int sellPrice;
     protected virtual void Start()
     {
         
     }
+    public virtual void Initialise(PolicySO policySO)
+    {
+        this.policySO = policySO;
+        sellPrice = Mathf.FloorToInt(policySO.cost * 0.5f);
+        Initialise();
+    }
 
-    public virtual void Initialise()
+    protected virtual void Initialise()
     {
 
     }
@@ -22,6 +32,15 @@ public class BasePolicy : MonoBehaviour
     {
 
     }
+
+    public PolicySO GetSO()
+    {
+        return policySO;
+    }
+    public int GetSellPrice()
+    {
+        return sellPrice;
+    }
 }
 
 public class BuildingPolicy : BasePolicy
@@ -29,7 +48,7 @@ public class BuildingPolicy : BasePolicy
     protected TileGrid grid;
     protected List<Building> affected = new List<Building>();
 
-    public override void Initialise()
+    protected override void Initialise()
     {
         grid = TileGrid.Instance;
     }

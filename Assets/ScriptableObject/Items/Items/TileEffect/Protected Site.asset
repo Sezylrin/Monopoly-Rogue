@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436073cc7689ed9439534748f239214c, type: 3}
   m_Name: Protected Site
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 1
   prefab: {fileID: 8231255406048521489, guid: e7e6fdc2d3acee7439f2e9e1e602340d, type: 3}
-  description: Apply the Protected tile effect to the current tile. buildings on
-    tile have base value increased by 30, no changes can be made to the tile or building.
+  <rarity>k__BackingField: 1
+  cost: 4
+  effect: Apply the Protected tile effect to the current tile. buildings on tile
+    have base value increased by 30, no more changes can be made to the tile or building.
   objectPF: {fileID: 3495893633107547928, guid: 699f4197692242a4fb5ab10e60f8d04c, type: 3}

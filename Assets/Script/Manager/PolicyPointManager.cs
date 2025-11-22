@@ -17,13 +17,13 @@ public class PolicyPointManager : MonoBehaviour
     [SerializeField]
     private BoolSO IsBasicInterest;
     [SerializeField]
-    private IntSO SpendPolicyPoint;
+    private IntSO SpendPolicyPointSO;
     [SerializeField]
     private BoolSO canSpendPolicyPoint;
     void Start()
     {
         IsTurnChangeSO.onValueChanged += UpdateRollCounter;
-        SpendPolicyPoint.onValueChanged += AttemptSpendPolicyPoint;
+        SpendPolicyPointSO.onValueChanged += AttemptSpendPolicyPoint;
     }
 
     private void UpdateRollCounter(object sender, EventArgs e)
@@ -44,13 +44,26 @@ public class PolicyPointManager : MonoBehaviour
 
     private void AttemptSpendPolicyPoint(object sender, EventArgs e)
     {
-        if (SpendPolicyPoint.Int <= CurrentPolicyPointSO.Int)
+        if (SpendPolicyPointSO.Int <= CurrentPolicyPointSO.Int)
         {
-            CurrentPolicyPointSO.Int -= SpendPolicyPoint.Int;
+            CurrentPolicyPointSO.Int -= SpendPolicyPointSO.Int;
             canSpendPolicyPoint.Bool = true;
         }
         else
+        {
             canSpendPolicyPoint.Bool = false;
-        CurrentPolicyPointSO.ResetValue();
+        }
+        SpendPolicyPointSO.ResetValueDelay();
     }
+
+    #region Debug
+    [CollapsibleGroup("Debug")]
+    [SerializeField]
+    private int DebugEarn;
+    [ContextMenu("Earn money")]
+    private void DebugEarnPP()
+    {
+        CurrentPolicyPointSO.Int += DebugEarn;
+    }
+    #endregion
 }

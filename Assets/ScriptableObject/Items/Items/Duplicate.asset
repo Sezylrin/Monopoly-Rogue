@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Duplicate
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 3
   prefab: {fileID: 1937166447101389310, guid: fee9c4a8840c3e9469cf27273f254c71, type: 3}
-  description: 
+  <rarity>k__BackingField: 3
+  cost: 8
+  effect: Duplicate a selected building with all its effects, will not work on buildings
+    at max limit

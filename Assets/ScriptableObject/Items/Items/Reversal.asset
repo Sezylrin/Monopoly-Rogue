@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Reversal
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 0
   prefab: {fileID: 4341628907883739242, guid: 303651c581b3bb940834364fd5d9afeb, type: 3}
-  description: Reverse the direction you travel when you next roll the dice
+  <rarity>k__BackingField: 0
+  cost: 2
+  effect: Reverse the direction you travel when you next roll the dice

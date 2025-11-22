@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Transport
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  <rarity>k__BackingField: 2
   prefab: {fileID: 601122215777204000, guid: 8dd97baa86e12ee4cb2d7bbd0818efba, type: 3}
-  description: Move a selected building to any location
+  <rarity>k__BackingField: 2
+  cost: 6
+  effect: Move a selected building to any location

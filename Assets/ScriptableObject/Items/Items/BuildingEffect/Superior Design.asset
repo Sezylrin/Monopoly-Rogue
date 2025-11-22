@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436073cc7689ed9439534748f239214c, type: 3}
   m_Name: Superior Design
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 3
   prefab: {fileID: 8231255406048521489, guid: 6656500a23878be45a9623bf6721a30b, type: 3}
-  description: Apply superior building effect. Increase building base value by 50
+  <rarity>k__BackingField: 3
+  cost: 8
+  effect: Apply superior building effect. Increase building base value by 50
   objectPF: {fileID: 4139222073338468771, guid: 433a48e7ce23b14428b52780c6503e03, type: 3}

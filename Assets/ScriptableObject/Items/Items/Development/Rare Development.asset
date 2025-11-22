@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Rare Development
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 1
   prefab: {fileID: 1185195974151897147, guid: 1cec2d9e2bdd2364b8728301e75a08d5, type: 3}
-  description: Select between a random rare building to build on your current tile
+  <rarity>k__BackingField: 1
+  cost: 4
+  effect: Select between a random rare building to build on your current tile

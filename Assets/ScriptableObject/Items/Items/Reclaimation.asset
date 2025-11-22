@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Reclaimation
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 1
   prefab: {fileID: 4650627239569709736, guid: abd0e13c2cdb2a940b0d50ca7630d843, type: 3}
-  description: Remove all tile effects from the current tile
+  <rarity>k__BackingField: 1
+  cost: 4
+  effect: Remove all tile effects from the current tile

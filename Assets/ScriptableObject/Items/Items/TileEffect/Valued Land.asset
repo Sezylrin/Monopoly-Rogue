@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436073cc7689ed9439534748f239214c, type: 3}
   m_Name: Valued Land
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 0
   prefab: {fileID: 8231255406048521489, guid: e7e6fdc2d3acee7439f2e9e1e602340d, type: 3}
-  description: Apply valued tile effect to the current tile. building earns 0.25x
-    more
+  <rarity>k__BackingField: 0
+  cost: 2
+  effect: Apply valued tile effect to the current tile. building earns 0.25x more
   objectPF: {fileID: 1656503179704823069, guid: 30742e6acc10b924389b51a654f5e198, type: 3}

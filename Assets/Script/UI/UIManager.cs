@@ -138,6 +138,23 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region Shop
+    [CollapsibleGroup("Shop Screen")]
+    [SerializeField]
+    private ShopUI shopUI;
+    [SerializeField]
+    private GameObject shopUiObj;
+    public void CloseShopUI()
+    {
+        shopUiObj.SetActive(false);
+    }
+    public void OpenShopUI()
+    {
+        shopUiObj.SetActive(true);
+        shopUI.ResetRerollCost();
+    }
+    #endregion
+
     #region Collect Money
     [CollapsibleGroup("Collect Money")]
     [SerializeField]
@@ -158,6 +175,7 @@ public class UIManager : MonoBehaviour
         IsTurnChangeSO.Bool = true;
         CanRollSO.Bool = true;
         BuildingRoller.Instance.GenerateBuildingStored();
+        BuildingRoller.Instance.ResetReroll();
     }
     #endregion
 

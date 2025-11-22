@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b60b506c754e2243b7a9e648c699b18, type: 3}
   m_Name: Transfer
   m_EditorClassIdentifier: 
-  <rarity>k__BackingField: 2
   prefab: {fileID: 1593775698284406924, guid: 9a3cc4e952b39024ba4ccda7b0bf6b08, type: 3}
-  description: Transfer all building effect from another building to the current
-    Building, Duplicates do not get moved
+  <rarity>k__BackingField: 2
+  cost: 6
+  effect: Transfer all building effect from another building to the current Building,
+    Duplicates do not get moved

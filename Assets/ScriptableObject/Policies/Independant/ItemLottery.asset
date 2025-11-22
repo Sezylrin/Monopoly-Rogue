@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180de661651d079478cd0c3b034221e5, type: 3}
   m_Name: ItemLottery
   m_EditorClassIdentifier: 
-  PolicyPF: {fileID: 2481190641859973450, guid: 5886d7b42fdb692488ebd45379160879, type: 3}
-  rarity: 0
-  effect: '"+2%" chance to generate a random common item per building on turn end'
+  prefab: {fileID: 2481190641859973450, guid: 5886d7b42fdb692488ebd45379160879, type: 3}
+  <rarity>k__BackingField: 1
+  cost: 0
+  effect: +3% chance to generate a random item per building on turn end

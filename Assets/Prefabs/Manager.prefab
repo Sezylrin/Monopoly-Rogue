@@ -1,0 +1,312 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4549988251557774288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4921151438224902677}
+  - component: {fileID: 8647022814785956476}
+  - component: {fileID: 4025668745723765865}
+  - component: {fileID: 5733597530465670935}
+  - component: {fileID: 4579036398678820972}
+  - component: {fileID: 5017486251828402341}
+  - component: {fileID: 6231308464028002819}
+  - component: {fileID: 3757959613582140426}
+  - component: {fileID: 2440868220803253436}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4921151438224902677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549988251557774288}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.5187426, y: 2.670645, z: -0.034203712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8647022814785956476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549988251557774288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf53b1861a2c6814e904cd46dfa928d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMoney: {fileID: 11400000, guid: 9d404bb13e1916b4eb496ea1ee3c7ce2, type: 2}
+  IsCollectCash: {fileID: 11400000, guid: 6c2cec0c49da30d4eb03f02ccd0794aa, type: 2}
+  IsBasicGambling: {fileID: 11400000, guid: 326092942dd60d540a9764d2f9979762, type: 2}
+--- !u!114 &4025668745723765865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549988251557774288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b401b67f89a59c47a5a1ed3cae8292a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnNumberSO: {fileID: 11400000, guid: 0ae50bef838492e47b07d98a7ed6e59e, type: 2}
+  grid: {fileID: 0}
+  turnsPerTaxSO: {fileID: 11400000, guid: d60a98829b4ab0f469e2dee2ce7eb916, type: 2}
+  IsTaxTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
+  currentSubTurnSO: {fileID: 11400000, guid: 2974b5cd8b31d8c4cac78bd92cc5e92b, type: 2}
+  IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
+--- !u!114 &5733597530465670935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549988251557774288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f83ffb5f4d0b91479eeb51f475e02b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMoneySO: {fileID: 0}
+  GameOverSO: {fileID: 11400000, guid: 1b9669e19ce7581428eb5b53de726569, type: 2}
+  taxes: 3200000064000000c8000000
+  IsTaxTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
+  taxTurn: {fileID: 11400000, guid: ce49ba9300f458b4b8ae7616a1c5e06f, type: 2}
+  taxAmount: {fileID: 11400000, guid: 64d7c05fa0745724f94e10902974565b, type: 2}
+--- !u!114 &4579036398678820972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549988251557774288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade0076acd6d0e94780995f88b0ed2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemListSO: {fileID: 11400000, guid: 8e9999a0187139b4886d611f9f95420b, type: 2}
+  itemSlotUsed: {fileID: 11400000, guid: 17c6d9fd41c31c74b8345ca547a061a4, type: 2}
+  itemAmount: 5
+  allItemSO: {fileID: 11400000, guid: 3bb6d4556ab710f4493ec69a8f43c322, type: 2}
+  ItemToBuySO: {fileID: 11400000, guid: 0f029f393514ca64fad7847b9fcc98f0, type: 2}
+  sortedItemSO:
+  - Name: common
+    list:
+    - {fileID: 11400000, guid: f99a819c55980404cac4dfa025940940, type: 2}
+    - {fileID: 11400000, guid: 6f99b071880c1fb47902d7685677fad2, type: 2}
+  - Name: rare
+    list:
+    - {fileID: 11400000, guid: 5ee4ea1bccef2464aafd17bb3eca6d7d, type: 2}
+    - {fileID: 11400000, guid: 45cb43131a875a141afc1feb2b8c1530, type: 2}
+  - Name: epic
+    list:
+    - {fileID: 11400000, guid: 0acde8c0061f6f645bb279800f79e653, type: 2}
+  - Name: legendary
+    list:
+    - {fileID: 11400000, guid: 1198471e2ea2e8446b44ac4668fd38b5, type: 2}
+  ItemSlotToSellSO: {fileID: 11400000, guid: 57aca0c664ca282488421cd1803fcdb8, type: 2}
+  IsAttemptGenerate: {fileID: 11400000, guid: a44e999711bc45b4a8abf58d5cfc629f, type: 2}
+  itemLotteryRaritySO: {fileID: 11400000, guid: 4795454d1d863ca408b899bcbe8a9298, type: 2}
+  testItem:
+  - {fileID: 11400000, guid: 83dc9588a8e83d24aa73d5480d25df9e, type: 2}
+  - {fileID: 11400000, guid: f99a819c55980404cac4dfa025940940, type: 2}
+  - {fileID: 11400000, guid: dd0d244ac12aadc47b0ae34296cfea0e, type: 2}
+  - {fileID: 11400000, guid: f8d570d6b8d1ba9499a606026238ace0, type: 2}
+  GenerateOnStart: 0
+--- !u!114 &5017486251828402341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549988251557774288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6676ff3dc8daf4c99f3a349a750a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  policies: {fileID: 11400000, guid: a19572367fbd44b438e7d69d5d810cd2, type: 2}
+  PolicyToBuySO: {fileID: 11400000, guid: 8306ec2cad448b246a1df53d1ecf777e, type: 2}
+  PolicySlotToSellSO: {fileID: 11400000, guid: 321e6646d1257b3459d0f56cf132666c, type: 2}
+  debugSpawn:
+  - {fileID: 0}
+--- !u!114 &6231308464028002819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549988251557774288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1862366f56950f44978da0919f80e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
+  rollsPerPolicy: 2
+  currentRoll: 0
+  CurrentPolicyPointSO: {fileID: 11400000, guid: f9493dd58c5e51b4db94df44a7107d0a, type: 2}
+  IsBasicInterest: {fileID: 11400000, guid: 0cf968a667bf1444fab4457b4883962d, type: 2}
+  SpendPolicyPointSO: {fileID: 11400000, guid: 4bc8d20a84e515744b9064925744dd74, type: 2}
+  canSpendPolicyPoint: {fileID: 11400000, guid: 4b3dc239de56d4c469cf00ed15d40b87, type: 2}
+  DebugEarn: 100
+--- !u!114 &3757959613582140426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549988251557774288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643921ec5f6131548a5f349b320a4802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  calculatedProbabilityListSO: {fileID: 11400000, guid: 12a4959ac4dffbb4ba4b52c337c64116, type: 2}
+  initialProbabilityListSO: {fileID: 11400000, guid: c27cbb79587ff0e40be67aedad2eb60d, type: 2}
+  ProbabilityLevelSO: {fileID: 11400000, guid: 3728039a8ff65354fad9094ccdf4298c, type: 2}
+  rarityProbabilty:
+  - Common: 100
+    Rare: 0
+    Epic: 0
+    Legendary: 0
+  - Common: 90
+    Rare: 10
+    Epic: 0
+    Legendary: 0
+  - Common: 80
+    Rare: 20
+    Epic: 0
+    Legendary: 0
+  - Common: 70
+    Rare: 25
+    Epic: 5
+    Legendary: 0
+  - Common: 60
+    Rare: 30
+    Epic: 10
+    Legendary: 0
+  - Common: 50
+    Rare: 35
+    Epic: 13
+    Legendary: 2
+  - Common: 40
+    Rare: 40
+    Epic: 15
+    Legendary: 5
+  - Common: 30
+    Rare: 40
+    Epic: 20
+    Legendary: 10
+  - Common: 30
+    Rare: 30
+    Epic: 20
+    Legendary: 20
+  - Common: 25
+    Rare: 25
+    Epic: 25
+    Legendary: 25
+--- !u!114 &2440868220803253436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549988251557774288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47cd2f56fe640214dba20617a3168467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllPolicySOListSO: {fileID: 11400000, guid: 763ae844f8acd6343990c02db000f1e1, type: 2}
+  AllItemSOListSO: {fileID: 11400000, guid: 3bb6d4556ab710f4493ec69a8f43c322, type: 2}
+  calculateAllRarity: {fileID: 11400000, guid: e8b3896edddae164ba09a5f479bb05e5, type: 2}
+  sortedPoliciesSO:
+  - Name: common
+    list:
+    - {fileID: 11400000, guid: cd0357c02e3636a499289baf3aff4822, type: 2}
+    - {fileID: 11400000, guid: 5d5f712bca6b8df4296f43ee04a7c6b4, type: 2}
+    - {fileID: 11400000, guid: b8cf31e30b708e1429a50dad28a96a15, type: 2}
+    - {fileID: 11400000, guid: fd5cfa4e96f59904fb33af1f1f55d32a, type: 2}
+    - {fileID: 11400000, guid: 2b1000e1af9f6264292a975e168211f6, type: 2}
+    - {fileID: 11400000, guid: b8703a0e6f22cec408186ce844db9c00, type: 2}
+    - {fileID: 11400000, guid: 18af709ab547bd94baa4a9f31b8f5fe9, type: 2}
+    - {fileID: 11400000, guid: 8b5d19088cd37bf4eae2fe914ce12ff3, type: 2}
+    - {fileID: 11400000, guid: 5f8b8f4411de6c546975defc6c08d967, type: 2}
+    - {fileID: 11400000, guid: 42e68802299bca84a8b868515ef56cbd, type: 2}
+    - {fileID: 11400000, guid: 2f0aa0ab99761bf41ad1ceabe5b53a8d, type: 2}
+    - {fileID: 11400000, guid: 00211b869076d5542ac9247cde47e161, type: 2}
+    - {fileID: 11400000, guid: 0db8b7cd37a9c1d4684d5f25ed1686cf, type: 2}
+    - {fileID: 11400000, guid: f34f4fd619ea6c146b3358e1128f0b6c, type: 2}
+    - {fileID: 11400000, guid: 1baad995a9d21a342bf073f814780a02, type: 2}
+    - {fileID: 11400000, guid: a743cd4dc659f724d8ea54b195ff2307, type: 2}
+    - {fileID: 11400000, guid: c3b3b2afac19e1f40823cd2a81c66aeb, type: 2}
+  - Name: rare
+    list: []
+  - Name: epic
+    list: []
+  - Name: legendary
+    list: []
+  sortedItemsSO:
+  - Name: common
+    list:
+    - {fileID: 11400000, guid: 681cd452378a60c47850769653c603d4, type: 2}
+    - {fileID: 11400000, guid: 83dc9588a8e83d24aa73d5480d25df9e, type: 2}
+    - {fileID: 11400000, guid: b6246343ec3292a4390df4e474d4f0c7, type: 2}
+    - {fileID: 11400000, guid: c3adab233dd20cf40adcc54e3c1249eb, type: 2}
+    - {fileID: 11400000, guid: 6f99b071880c1fb47902d7685677fad2, type: 2}
+    - {fileID: 11400000, guid: f99a819c55980404cac4dfa025940940, type: 2}
+    - {fileID: 11400000, guid: 586047f3af378f747b69b48a93a7153e, type: 2}
+    - {fileID: 11400000, guid: fac9f6468f07e5f408a83f93eeb19f5d, type: 2}
+    - {fileID: 11400000, guid: 38426e060d9aa3c41a866e5e899d7d3f, type: 2}
+  - Name: rare
+    list:
+    - {fileID: 11400000, guid: b46dc32a1103f084aa0f863789bd534b, type: 2}
+    - {fileID: 11400000, guid: 5ee4ea1bccef2464aafd17bb3eca6d7d, type: 2}
+    - {fileID: 11400000, guid: e3d3a8e42dab4cd4b9c8124d106d8713, type: 2}
+    - {fileID: 11400000, guid: 0b6818d8f03e5e14eb40ed4c28566ca5, type: 2}
+    - {fileID: 11400000, guid: 2db59209f66d42a418c64cc7d72db33c, type: 2}
+    - {fileID: 11400000, guid: 45cb43131a875a141afc1feb2b8c1530, type: 2}
+    - {fileID: 11400000, guid: 82c9e8bcc730f514ba45f5a4b198002d, type: 2}
+    - {fileID: 11400000, guid: 8735df329182fd74c92e66ada6481d97, type: 2}
+    - {fileID: 11400000, guid: 10b0995e773586649ae93b5bd6931dbc, type: 2}
+  - Name: epic
+    list:
+    - {fileID: 11400000, guid: 1b305778baaea8a45909401e745cb8da, type: 2}
+    - {fileID: 11400000, guid: 926ea52f47e58524084431c9e80cf56a, type: 2}
+    - {fileID: 11400000, guid: 739e8efe985dc8a4cba214f443f0ffdf, type: 2}
+    - {fileID: 11400000, guid: 0d747b4b17a178d409002a83516c101a, type: 2}
+    - {fileID: 11400000, guid: f8d570d6b8d1ba9499a606026238ace0, type: 2}
+    - {fileID: 11400000, guid: 54e03801be010e54ea6dc9ebcd4d7656, type: 2}
+    - {fileID: 11400000, guid: 4d7c7ad13955c4a42aae5b792b40b29c, type: 2}
+    - {fileID: 11400000, guid: 0acde8c0061f6f645bb279800f79e653, type: 2}
+    - {fileID: 11400000, guid: 40b1ecb40889b9847a9165927890bef4, type: 2}
+  - Name: legendary
+    list:
+    - {fileID: 11400000, guid: 235b8ea78d2fbfa42b55bd049210ba88, type: 2}
+    - {fileID: 11400000, guid: 1e5bf3a11d0001a429b420c6764d6ddd, type: 2}
+    - {fileID: 11400000, guid: 1198471e2ea2e8446b44ac4668fd38b5, type: 2}
+    - {fileID: 11400000, guid: c2138ccfe3722fa4db455842be1e6984, type: 2}
+    - {fileID: 11400000, guid: dd0d244ac12aadc47b0ae34296cfea0e, type: 2}
+  newItems: {fileID: 11400000, guid: ac859b1127968aa4f80787257bc70c6a, type: 2}
+  newPolicies: {fileID: 11400000, guid: 4b0c8320aedbb9d44b93a2539109a929, type: 2}
+  AmountToGenerate: 3
+  IsGenerateShopItem: {fileID: 11400000, guid: c3acb0a043a456d468090f01f3b30bf2, type: 2}
