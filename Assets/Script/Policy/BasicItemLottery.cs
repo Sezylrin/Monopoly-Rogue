@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class BasicItemLottery : BasePolicy
 {
     [SerializeField]
-    private BoolSO IsTurnChangeSO;
+    private EventSO OnTurnChangeSO;
     [SerializeField]
     private int percentPerBuilding;
     [SerializeField]
@@ -18,7 +18,7 @@ public class BasicItemLottery : BasePolicy
     private BoolSO IsAttemptGenerate;
     protected override void Initialise()
     {
-        IsTurnChangeSO.onValueChanged += AttemptItemGenerate;
+        OnTurnChangeSO.onEventTrigger += AttemptItemGenerate;
     }
 
     private void AttemptItemGenerate(object sender, EventArgs e)

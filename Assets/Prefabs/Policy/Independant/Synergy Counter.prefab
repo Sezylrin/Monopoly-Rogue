@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   policySO: {fileID: 0}
-  IsCollectCash: {fileID: 11400000, guid: 6c2cec0c49da30d4eb03f02ccd0794aa, type: 2}
+  OnCollectCashSO: {fileID: 11400000, guid: 726d49092a83d224abe6353717512ea0, type: 2}
   MoneyEarnedSO: {fileID: 11400000, guid: dde42f704bede7a41ac44e3d48bda3b4, type: 2}
   moneyPerSynergy: 10

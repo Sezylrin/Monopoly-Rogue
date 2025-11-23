@@ -9,7 +9,7 @@ public class MoneyManager : MonoBehaviour
     [SerializeField]
     private FloatSO CurrentMoneySO;
     [SerializeField]
-    private BoolSO IsCollectCash;
+    private EventSO OnCollectCashSO;
     [SerializeField]
     private BoolSO IsBasicGambling;
     [SerializeField]
@@ -17,7 +17,7 @@ public class MoneyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        IsCollectCash.onValueChanged += UpdateCurrentMoney;
+        OnCollectCashSO.onEventTrigger += UpdateCurrentMoney;
         MoneyEarnedSO.onValueChanged += EarnMoney;
     }
 

@@ -22,7 +22,7 @@ public class UpdateMoneyUI : MonoBehaviour
 
     private void UpdateValue()
     {
-        UIText.text = "CurrentMoneySO: $" + CurrentMoneySO.Float.ToString("0.00");
+        UIText.text = "Money: $" + CurrentMoneySO.Float.ToString("0.00");
     }
     // Update is called once per frame
     void Update()

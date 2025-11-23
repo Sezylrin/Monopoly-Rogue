@@ -6,7 +6,7 @@ using UnityEngine;
 public class SynergyCounter : BasePolicy
 {
     [SerializeField]
-    private BoolSO IsCollectCash;
+    private EventSO OnCollectCashSO;
     [SerializeField]
     private FloatSO MoneyEarnedSO;
     [SerializeField]
@@ -14,7 +14,7 @@ public class SynergyCounter : BasePolicy
     protected override void Start()
     {
         base.Start();
-        IsCollectCash.onValueChanged += EarnMoney;
+        OnCollectCashSO.onEventTrigger += EarnMoney;
     }
 
     private void EarnMoney(object sender, EventArgs e)
@@ -30,6 +30,6 @@ public class SynergyCounter : BasePolicy
 
     public override void RemoveEffect()
     {
-        IsCollectCash.onValueChanged -= EarnMoney;
+        OnCollectCashSO.onEventTrigger -= EarnMoney;
     }
 }

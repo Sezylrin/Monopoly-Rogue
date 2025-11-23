@@ -2304,17 +2304,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1931271877 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 573241752306863861, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-  m_PrefabInstance: {fileID: 7685817956285007017}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42330c977ec75f64880e6849cf2c7aec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1949278864 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 471105584530262570, guid: 12f586cff34bfc24a91651261715b060, type: 3}
@@ -2549,7 +2538,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4025668745723765865, guid: 9868ca251c870314f8776f67dbda662f, type: 3}
+    - target: {fileID: 3041132922065928429, guid: 9868ca251c870314f8776f67dbda662f, type: 3}
       propertyPath: grid
       value: 
       objectReference: {fileID: 922022542}
@@ -2597,10 +2586,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5017486251828402341, guid: 9868ca251c870314f8776f67dbda662f, type: 3}
-      propertyPath: debugSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: a01b3df40784a2347ae573bc9a83f953, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2679,26 +2664,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1166576613761536207, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
+      propertyPath: rerollText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166576613761536207, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
+      propertyPath: cards.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166576613761536207, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
+      propertyPath: cards.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166576613761536207, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
+      propertyPath: cards.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1485518465076110189, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 3668391161535848106, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3888595496438256126, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1931271877}
-    - target: {fileID: 3888595496438256126, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseShopUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 3888595496438256126, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 5269918055862013325, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.85541123
@@ -2739,14 +2724,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5657847873377074866, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Reroll
-      objectReference: {fileID: 0}
-    - target: {fileID: 5732803517458221581, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6197785192384921104, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2759,10 +2736,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 7237487247100018935, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7896722204693549532, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
       propertyPath: m_Camera
       value: 

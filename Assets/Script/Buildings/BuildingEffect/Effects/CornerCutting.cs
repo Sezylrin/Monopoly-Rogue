@@ -9,12 +9,12 @@ public class CornerCutting : BuildingEffect
     [SerializeField]
     private int turnAmount;
     [SerializeField]
-    private BoolSO IsTurnChangeSO;
+    private EventSO OnTurnChangeSO;
     [SerializeField]
     private int currentTurn = 0;
     private void Start()
     {
-        IsTurnChangeSO.onValueChanged += TurnChanged;
+        OnTurnChangeSO.onEventTrigger += TurnChanged;
     }
 
     public void TurnChanged(object sender, EventArgs e)

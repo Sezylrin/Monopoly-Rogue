@@ -57,7 +57,7 @@ public class BuildingRoller : MonoBehaviour
         GenerateProbability(); 
         GenerateBuildingStored();
         allCategory = (BuildingCategory[])Enum.GetValues(typeof(BuildingCategory));
-        IsTurnChangeSO.onValueChanged += ProbabilityTurnCounter;
+        OnTurnChangeSO.onEventTrigger += ProbabilityTurnCounter;
     }
     #region Sort Building
     [ContextMenu("Sort Buildings")]
@@ -213,7 +213,7 @@ public class BuildingRoller : MonoBehaviour
     [SerializeField]
     private int currentTurn;
     [SerializeField]
-    private BoolSO IsTurnChangeSO;
+    private EventSO OnTurnChangeSO;
     private int modifiedAmount;
     private int modifiedPos;
     [SerializeField, ReadOnlyProp]

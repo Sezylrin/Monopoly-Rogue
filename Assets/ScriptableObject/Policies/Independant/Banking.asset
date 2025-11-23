@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ced0be75aa3f58c4eadad9a791e55e9a, type: 3}
-  m_Name: IsTurnChange
+  m_Script: {fileID: 11500000, guid: 180de661651d079478cd0c3b034221e5, type: 3}
+  m_Name: Banking
   m_EditorClassIdentifier: 
-  Descirption: bool to determine when a turn has changed
-  <ShouldReset>k__BackingField: 1
-  <defaultValue>k__BackingField: 0
-  _bool: 0
+  prefab: {fileID: 3280165587371691333, guid: 3580ad79671d8024585f5384be53285a, type: 3}
+  <rarity>k__BackingField: 0
+  cost: 0
+  effect: +4 to sell value every turn

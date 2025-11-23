@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2481190641859973450
+--- !u!1 &3280165587371691333
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8832463798258308119}
-  - component: {fileID: 5956513847268829489}
+  - component: {fileID: 4801855888727196686}
+  - component: {fileID: 5249257958647040566}
   m_Layer: 0
-  m_Name: Basic Item Lottery
+  m_Name: Banking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8832463798258308119
+--- !u!4 &4801855888727196686
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2481190641859973450}
+  m_GameObject: {fileID: 3280165587371691333}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.80059385, y: 1.3377533, z: -0.04520159}
+  m_LocalPosition: {x: 0, y: -0.00000023841858, z: 90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5956513847268829489
+--- !u!114 &5249257958647040566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2481190641859973450}
+  m_GameObject: {fileID: 3280165587371691333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce87f42f46fd3aa468308115379dc3e8, type: 3}
+  m_Script: {fileID: 11500000, guid: b057837f436150f469e729a5f5a50de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   policySO: {fileID: 0}
   OnTurnChangeSO: {fileID: 11400000, guid: b2461218f89ec3a43805f13cb9a18b9a, type: 2}
-  percentPerBuilding: 3
-  CalculateAllRarity: {fileID: 11400000, guid: e8b3896edddae164ba09a5f479bb05e5, type: 2}
-  itemLotteryRaritySO: {fileID: 11400000, guid: 4795454d1d863ca408b899bcbe8a9298, type: 2}
-  IsAttemptGenerate: {fileID: 11400000, guid: a44e999711bc45b4a8abf58d5cfc629f, type: 2}
+  SellIncrease: 4
