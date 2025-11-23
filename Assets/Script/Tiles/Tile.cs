@@ -192,6 +192,9 @@ public class Tile : MonoBehaviour
     #endregion
 
     #region Change Building
+    [CollapsibleGroup("BuildingDestoyed event")]
+    [SerializeField]
+    private EventSO OnBuildingDestroyedSO;
     public void ChangeBuilding(Building newBuilding, int position = -1, bool destroy = true)
     {
         if (currentBuilding)
@@ -206,7 +209,9 @@ public class Tile : MonoBehaviour
                 if (currentBuilding.GetSO().maxLimit > 0)
                     grid.RemoveLimit(currentBuilding.GetSO());
                 Destroy(currentBuilding.gameObject);
-                grid.BuildingRemoved();
+                OnBuildingDestroyedSO.Invoke();
+                if (!newBuilding)
+                    grid.BuildingRemoved();
             }
         }
         if(newBuilding == null)

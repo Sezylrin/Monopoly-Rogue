@@ -3425,8 +3425,8 @@ MonoBehaviour:
   IsOpenBuildMenuUI: {fileID: 11400000, guid: 9d61562b85188f5429ed1b68db1a0900, type: 2}
   developmentRarity: {fileID: 11400000, guid: fd35dea22491e1f40bddeab2208f9f4f, type: 2}
   rerollButtonOBJ: {fileID: 1441994442214087248}
-  shopUI: {fileID: 0}
-  shopUiObj: {fileID: 0}
+  shopUI: {fileID: 3534022184837739841}
+  shopUiObj: {fileID: 5732803517458221581}
   IsCollectCashSO: {fileID: 11400000, guid: 6c2cec0c49da30d4eb03f02ccd0794aa, type: 2}
   IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
   CanRollSO: {fileID: 11400000, guid: 76044513a8b25c140b0bc2d48fc4631c, type: 2}
@@ -3616,6 +3616,9 @@ MonoBehaviour:
   currentRerollCost: 0
   rerollCostScaling: 2
   rerollText: {fileID: 4396882375965427071}
+  IsFreeShopReroll: {fileID: 11400000, guid: 455c3176bdec30e4a8ca7c3dcddf40d6, type: 2}
+  freeRerollAmount: 2
+  currentRerollAmount: 0
   newItems: {fileID: 11400000, guid: ac859b1127968aa4f80787257bc70c6a, type: 2}
   itemCardUIs:
   - {fileID: 355301135383848126}
@@ -11843,7 +11846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIText: {fileID: 1187939684489603351}
-  currentMoney: {fileID: 11400000, guid: 9d404bb13e1916b4eb496ea1ee3c7ce2, type: 2}
+  CurrentMoneySO: {fileID: 11400000, guid: 9d404bb13e1916b4eb496ea1ee3c7ce2, type: 2}
 --- !u!1 &3486254765576493830
 GameObject:
   m_ObjectHideFlags: 0

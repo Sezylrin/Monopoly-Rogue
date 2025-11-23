@@ -26,6 +26,7 @@ public class TileGrid : MonoBehaviour
 
     [SerializeField]
     private IntSO GridSize;
+
     private void Awake()
     {
         if (Instance == null)
@@ -340,7 +341,7 @@ public class TileGrid : MonoBehaviour
     {
         Building temp = Instantiate(debugBuildingSO.building, Vector3.zero, Quaternion.identity).GetComponent<Building>();
         temp.Initiate(debugBuildingSO);
-        ChangeBuilding(temp, DebugPosition);
+        newBuildingSO.Building = temp;
     }
     #endregion
 }

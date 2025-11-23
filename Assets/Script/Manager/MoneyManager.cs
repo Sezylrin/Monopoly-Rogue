@@ -7,15 +7,18 @@ using Random = UnityEngine.Random;
 public class MoneyManager : MonoBehaviour
 {
     [SerializeField]
-    private FloatSO currentMoney;
+    private FloatSO CurrentMoneySO;
     [SerializeField]
     private BoolSO IsCollectCash;
     [SerializeField]
     private BoolSO IsBasicGambling;
+    [SerializeField]
+    private FloatSO MoneyEarnedSO;
     // Start is called before the first frame update
     void Start()
     {
         IsCollectCash.onValueChanged += UpdateCurrentMoney;
+        MoneyEarnedSO.onValueChanged += EarnMoney;
     }
 
     private void UpdateCurrentMoney(object sender, EventArgs e)
@@ -37,9 +40,14 @@ public class MoneyManager : MonoBehaviour
                     break;
             }
         }
-        currentMoney.Float += earned;
+        CurrentMoneySO.Float += earned;
     }
 
+    private void EarnMoney(object sender, EventArgs e)
+    {
+        CurrentMoneySO.Float += MoneyEarnedSO.Float;
+        MoneyEarnedSO.ResetValue();
+    }
 
     // Update is called once per frame
     void Update()

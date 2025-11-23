@@ -2,18 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
-public class ValuePolicy : BuildingPolicy
+public class RarityPolicy : BuildingPolicy
 {
     [SerializeField]
-    protected BuildingCategory targetCategory;
+    protected BuildingTypeSO newBuildingSO;
+    [SerializeField]
+    protected Rarity targetRarity;
     [SerializeField]
     protected int value;
     [SerializeField]
-    protected float multiplier;
-    [SerializeField]
-    protected BuildingTypeSO newBuildingSO;
-    // Start is called before the first frame update
+    protected int multiplier;
     protected override void Initialise()
     {
         base.Initialise();
@@ -30,12 +30,16 @@ public class ValuePolicy : BuildingPolicy
     }
     private void AddBuilding(Building current)
     {
-        if (current && (current.CompareCategory(targetCategory) || targetCategory == 0))
+        if (current && (current.GetSO().rarity == targetRarity))
         {
             affected.Add(current);
             current.ModifyValue(value);
             current.ModifyMultiplier(multiplier);
         }
+    }
+    protected virtual void UpdateNewBuilding(object sender, EventArgs e)
+    {
+        AddBuilding(newBuildingSO.Building);
     }
     public override void RemoveEffect()
     {
@@ -45,10 +49,5 @@ public class ValuePolicy : BuildingPolicy
             affected[i].ModifyMultiplier(-multiplier);
             affected.RemoveAt(i);
         }
-    }
-
-    private void UpdateNewBuilding(object sender, EventArgs e)
-    {
-        AddBuilding(newBuildingSO.Building);
     }
 }
