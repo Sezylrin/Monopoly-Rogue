@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce87f42f46fd3aa468308115379dc3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
+  policySO: {fileID: 0}
+  OnTurnChangeSO: {fileID: 11400000, guid: b2461218f89ec3a43805f13cb9a18b9a, type: 2}
   percentPerBuilding: 3
   CalculateAllRarity: {fileID: 11400000, guid: e8b3896edddae164ba09a5f479bb05e5, type: 2}
   itemLotteryRaritySO: {fileID: 11400000, guid: 4795454d1d863ca408b899bcbe8a9298, type: 2}

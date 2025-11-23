@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 180de661651d079478cd0c3b034221e5, type: 3}
-  m_Name: ItemLottery
+  m_Name: Common Only
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2481190641859973450, guid: 5886d7b42fdb692488ebd45379160879, type: 3}
-  <rarity>k__BackingField: 1
+  prefab: {fileID: 3571466110255580113, guid: 29ba38206cea73b47a9f29178e164c2f, type: 3}
+  <rarity>k__BackingField: 0
   cost: 0
-  effect: +3% chance to generate a random item per building on turn end
+  effect: All building get bonus 1x multiplier as long as only there is only common
+    rarity building

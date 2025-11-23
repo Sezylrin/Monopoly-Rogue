@@ -17,19 +17,16 @@ public class TurnManager : MonoBehaviour
     private IntSO currentSubTurnSO;
 
     [SerializeField]
-    private BoolSO IsTurnChangeSO;
+    private EventSO OnTurnChangeSO;
     // Start is called before the first frame update
     void Start()
     {
         currentSubTurnSO.Int = turnsPerTaxSO.Int;
-        IsTurnChangeSO.onValueChanged += TriggerSubTurn;
+        OnTurnChangeSO.onEventTrigger += TriggerSubTurn;
     }
 
     private void TriggerSubTurn(object sender, EventArgs e)
-    {
-        if (!IsTurnChangeSO.Bool)
-            return;
-        IsTurnChangeSO.ResetValueDelay();
+    {        
         currentSubTurnSO.Int--;
         if (currentSubTurnSO.Int == -1)
         {

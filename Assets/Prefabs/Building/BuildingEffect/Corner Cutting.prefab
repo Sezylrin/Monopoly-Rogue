@@ -48,5 +48,5 @@ MonoBehaviour:
   range: 0
   multiplier: 0
   turnAmount: 4
-  IsTurnChangeSO: {fileID: 11400000, guid: f87cf111034415a498eead0cb366e03b, type: 2}
+  OnTurnChangeSO: {fileID: 11400000, guid: b2461218f89ec3a43805f13cb9a18b9a, type: 2}
   currentTurn: 0

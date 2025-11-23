@@ -6,7 +6,7 @@ using UnityEngine;
 public class TaxManager : MonoBehaviour
 {
     [SerializeField]
-    private IntSO currentMoneySO;
+    private FloatSO currentMoneySO;
     [SerializeField]
     private BoolSO GameOverSO;
     [SerializeField]
@@ -29,9 +29,9 @@ public class TaxManager : MonoBehaviour
         {
             if(taxTurn.Int < taxes.Count)
             {
-                currentMoneySO.Int -= taxes[taxTurn.Int];
+                currentMoneySO.Float -= taxes[taxTurn.Int];
                 taxTurn.Int++;
-                if (currentMoneySO.Int < 0)
+                if (currentMoneySO.Float < 0)
                     GameOverSO.Bool = true;
                 else
                     taxAmount.Int = taxes[taxTurn.Int];

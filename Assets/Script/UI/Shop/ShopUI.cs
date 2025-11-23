@@ -30,11 +30,26 @@ public class ShopUI : MonoBehaviour
     private int rerollCostScaling;
     [SerializeField]
     private TMP_Text rerollText;
+    [SerializeField]
+    private BoolSO IsFreeShopReroll;
+    [SerializeField]
+    private int freeRerollAmount;
+    [SerializeField]
+    private int currentRerollAmount;
     //Called by unity button
     public void Reroll()
     {
-        canSpendPolicyPoint.onValueUpdated += CanReroll;
-        SpendPolicyPointSO.Int = currentRerollCost;
+        if (IsFreeShopReroll.Bool && currentRerollAmount > 0)
+        {
+            currentRerollAmount--;
+            IsGenerateShopItem.Bool = true;
+            UpdateRerollText();
+        }
+        else
+        {
+            canSpendPolicyPoint.onValueUpdated += CanReroll;
+            SpendPolicyPointSO.Int = currentRerollCost;
+        }
     }
 
     private void CanReroll(object sender, EventArgs e)
@@ -49,12 +64,16 @@ public class ShopUI : MonoBehaviour
     }
     private void UpdateRerollText()
     {
-        rerollText.text = "Reroll: " + currentRerollCost.ToString();
+        if (IsFreeShopReroll.Bool && currentRerollAmount > 0)
+            rerollText.text = "Reroll (" + currentRerollAmount.ToString() + ")"; 
+        else
+            rerollText.text = "Reroll: " + currentRerollCost.ToString();
     }
 
     public void ResetRerollCost()
     {
         currentRerollCost = initialRerollCost;
+        currentRerollAmount = freeRerollAmount;
         UpdateRerollText();
     }
     #endregion

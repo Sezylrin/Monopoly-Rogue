@@ -97,18 +97,19 @@ public class Building : MonoBehaviour
     {
         currentTile.DestroyBuilding();
     }
-
-    public float GetCurrentValue()
-    {
-        return currentValue * currentMultiplier;
-    }
-
     public void ResetAllValues()
     {
         currentValue = baseValue;
         currentMultiplier = baseMultiplier;
         comparisons = new List<Comparisons>(buildingSO.comparisonChecks);
     }
+
+    #region Getters
+    public float GetCurrentValue()
+    {
+        return currentValue * currentMultiplier;
+    }
+
     public BuildingSO GetSO()
     {
         return buildingSO;
@@ -118,6 +119,19 @@ public class Building : MonoBehaviour
     {
         return currentPosition;
     }
+
+    public bool IsSynergyActive()
+    {
+        foreach (ListWrapper<Building> buildings in buildingSelfAffecting)
+        {
+            if (buildings.Count > 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    #endregion
 
     #region Compare getters
     public bool CompareCategory(BuildingCategory category)

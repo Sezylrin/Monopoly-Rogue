@@ -41,8 +41,8 @@ public class ValuePolicy : BuildingPolicy
     {
         for (int i = affected.Count - 1; i >= 0; i--)
         {
-            affected[i].ModifyValue(value);
-            affected[i].ModifyMultiplier(multiplier);
+            affected[i].ModifyValue(-value);
+            affected[i].ModifyMultiplier(-multiplier);
             affected.RemoveAt(i);
         }
     }

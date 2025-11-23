@@ -158,21 +158,21 @@ public class UIManager : MonoBehaviour
     #region Collect Money
     [CollapsibleGroup("Collect Money")]
     [SerializeField]
-    private BoolSO IsCollectCashSO;
+    private EventSO OnCollectCashSO;
     [SerializeField]
-    private BoolSO IsTurnChangeSO;
+    private EventSO OnTurnChangeSO;
     [SerializeField]
     private BoolSO CanRollSO;
     //being called by unity button event
     public void OnCollectCash()
     {
-        IsCollectCashSO.Bool = true;
+        OnCollectCashSO.Invoke();
         buildMenuButton.enabled = true;
         openBuildMenuObj.SetActive(false);
         collectCashObj.SetActive(false);
         rollUIObj.SetActive(true);
 
-        IsTurnChangeSO.Bool = true;
+        OnTurnChangeSO.Invoke();
         CanRollSO.Bool = true;
         BuildingRoller.Instance.GenerateBuildingStored();
         BuildingRoller.Instance.ResetReroll();
