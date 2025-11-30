@@ -6,7 +6,6 @@ using UnityEngine;
 public class TempUI : MonoBehaviour
 {
     public TMP_Text buildingName;
-    public TMP_Text buildingValue;
     public Building building;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +17,6 @@ public class TempUI : MonoBehaviour
     void Update()
     {
         buildingName.text = building.GetSO().name;
-        buildingValue.text = building.GetCurrentValue().ToString();
-    }
+        }
 
 }

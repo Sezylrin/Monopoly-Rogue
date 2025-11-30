@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -290,6 +289,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1001 &196825007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -708,17 +708,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f586cff34bfc24a91651261715b060, type: 3}
---- !u!114 &398478718 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4774052781609726878, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-  m_PrefabInstance: {fileID: 7685817956285007017}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9daa26f847ffb614c94e8bc06f5a926e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &428869239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1312,6 +1301,8 @@ GameObject:
   m_Component:
   - component: {fileID: 922022541}
   - component: {fileID: 922022542}
+  - component: {fileID: 922022544}
+  - component: {fileID: 922022543}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1401,9 +1392,41 @@ MonoBehaviour:
   GridSize: {fileID: 11400000, guid: 1abb22a1d0b2f32499565b6499a3843e, type: 2}
   newTilePosSO: {fileID: 11400000, guid: a8bfea3d447884347ae538778a3a2d40, type: 2}
   isRemoveTileEffect: {fileID: 11400000, guid: 4bb3354d72acb6f4084d6b627f28a670, type: 2}
-  pointAmount: 00000000000000000000000000000000
+  pointAmount: 01000000020000000400000008000000
   debugBuildingSO: {fileID: 11400000, guid: 4ed100a96b7bbc246b07840611f9fb7f, type: 2}
   DebugPosition: 0
+--- !u!114 &922022543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922022540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b887cfee3be51ab4ca24d087db500719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <times>k__BackingField: []
+--- !u!114 &922022544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922022540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d099818a66942409b329eb979056c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyUIOBJ: {fileID: 8886274027666034579, guid: a553f65df56640342b4b734b9f97f472, type: 3}
+  OnCollectCashSO: {fileID: 11400000, guid: 726d49092a83d224abe6353717512ea0, type: 2}
+  timer: {fileID: 922022543}
+  moneyUiDelay: 0.5
+  moneyUiDuration: 1
+  delay: 2
+  OnTurnChangeSO: {fileID: 11400000, guid: b2461218f89ec3a43805f13cb9a18b9a, type: 2}
 --- !u!1001 &1035792082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1797,17 +1820,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5280596357208741090, guid: 12f586cff34bfc24a91651261715b060, type: 3}
   m_PrefabInstance: {fileID: 8944839157689147858}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1403193821 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 485363025046700907, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-  m_PrefabInstance: {fileID: 7685817956285007017}
+--- !u!1 &1400495069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400495071}
+  - component: {fileID: 1400495070}
+  m_Layer: 0
+  m_Name: Pool Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1400495070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400495069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9daa26f847ffb614c94e8bc06f5a926e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4868d2c14b9ac2a4ea81ee1e752e2be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1400495071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400495069}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.5187426, y: 2.670645, z: -0.034203712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1448888338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1881,17 +1937,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f586cff34bfc24a91651261715b060, type: 3}
---- !u!114 &1465508950 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8447872781980973494, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-  m_PrefabInstance: {fileID: 7685817956285007017}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9daa26f847ffb614c94e8bc06f5a926e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1497382950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1987,6 +2032,7 @@ MonoBehaviour:
   diceAmount: 2
   customDiceRollSO: {fileID: 11400000, guid: ad4d239dfd11ace44aebe0fc7fcc2b05, type: 2}
   moveDuration: 1
+  OnPlayerMoveCompleteSO: {fileID: 11400000, guid: 9b0fed9791d57614ea4b58db39bfb173, type: 2}
   isToRollSO: {fileID: 11400000, guid: e976a232cd9d46740846cca3d2a9c66e, type: 2}
   canRollSO: {fileID: 11400000, guid: 76044513a8b25c140b0bc2d48fc4631c, type: 2}
   IsReversalActive: {fileID: 11400000, guid: 00a04d1efddf89b439f950004c252510, type: 2}
@@ -2619,10 +2665,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6578423590719683754, guid: 9868ca251c870314f8776f67dbda662f, type: 3}
-      propertyPath: debugSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: e5bca7bfb49f2914f910336026f4ad53, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2701,22 +2743,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 1166576613761536207, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: rerollText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1166576613761536207, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: cards.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1166576613761536207, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: cards.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1166576613761536207, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: cards.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1485518465076110189, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2765,6 +2791,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 6204774099070113955, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6751530755584767114, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2777,18 +2807,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 8414192457054388447, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: cards.Array.data[3]
-      value: 
-      objectReference: {fileID: 1465508950}
-    - target: {fileID: 8414192457054388447, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: cards.Array.data[4]
-      value: 
-      objectReference: {fileID: 1403193821}
-    - target: {fileID: 8414192457054388447, guid: 1a4a42b67941df9489b2df4d0b1ce907, type: 3}
-      propertyPath: cards.Array.data[5]
-      value: 
-      objectReference: {fileID: 398478718}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2866,3 +2884,4 @@ SceneRoots:
   - {fileID: 109300559}
   - {fileID: 4834524027016689957}
   - {fileID: 7685817956285007017}
+  - {fileID: 1400495071}

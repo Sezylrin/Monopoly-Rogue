@@ -9,21 +9,18 @@ public class MoneyManager : MonoBehaviour
     [SerializeField]
     private FloatSO CurrentMoneySO;
     [SerializeField]
-    private EventSO OnCollectCashSO;
-    [SerializeField]
     private BoolSO IsBasicGambling;
     [SerializeField]
     private FloatSO MoneyEarnedSO;
     // Start is called before the first frame update
     void Start()
     {
-        OnCollectCashSO.onEventTrigger += UpdateCurrentMoney;
-        MoneyEarnedSO.onValueChanged += EarnMoney;
+        MoneyEarnedSO.onValueChanged += UpdateCurrentMoney;
     }
 
     private void UpdateCurrentMoney(object sender, EventArgs e)
     {
-        float earned = TileGrid.Instance.GetProjectedMoney();
+        float earned = MoneyEarnedSO.Float;
         if (IsBasicGambling.Bool)
         {
             int random = Random.Range(0, 4);
@@ -41,11 +38,6 @@ public class MoneyManager : MonoBehaviour
             }
         }
         CurrentMoneySO.Float += earned;
-    }
-
-    private void EarnMoney(object sender, EventArgs e)
-    {
-        CurrentMoneySO.Float += MoneyEarnedSO.Float;
         MoneyEarnedSO.ResetValue();
     }
 

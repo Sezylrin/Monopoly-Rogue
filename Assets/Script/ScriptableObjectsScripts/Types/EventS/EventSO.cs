@@ -8,9 +8,10 @@ using UnityEngine.EventSystems;
 public class EventSO : BaseTypeSO
 {
     public EventHandler onEventTrigger { get; set; }
-
+    public EventHandler onEventOver { get; set; }
     public void Invoke()
     {
         onEventTrigger?.Invoke(this, EventArgs.Empty);
+        onEventOver?.Invoke(this, EventArgs.Empty);
     }
 }

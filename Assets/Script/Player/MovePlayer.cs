@@ -17,6 +17,8 @@ public class MovePlayer : MonoBehaviour
     private IntSO customDiceRollSO;
     [SerializeField]
     private float moveDuration;
+    [SerializeField]
+    private EventSO OnPlayerMoveCompleteSO;
 
     private int currentPos = 0;
     private TileGrid grid;
@@ -71,6 +73,7 @@ public class MovePlayer : MonoBehaviour
         currentPos = IsReversalActive.Bool? (currentPos - moveAmount + grid.GetSize()) % grid.GetSize() : (currentPos + moveAmount) % grid.GetSize();
         grid.SetCurrentPos(currentPos);
         IsReversalActive.ResetValue();
+        OnPlayerMoveCompleteSO.Invoke();
     }
     [CollapsibleGroup("Teleport")]
     [SerializeField]
