@@ -12,7 +12,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField]
     private IntSO turnsPerTaxSO;
     [SerializeField]
-    private BoolSO IsTaxTurn;
+    private EventSO OnTaxTurnSO;
     [SerializeField]
     private IntSO currentSubTurnSO;
 
@@ -32,7 +32,7 @@ public class TurnManager : MonoBehaviour
         {
             currentSubTurnSO.Int = turnsPerTaxSO.Int;
             turnNumberSO.Int++;
-            IsTaxTurn.Bool = true;                
+            OnTaxTurnSO.Invoke();
         }
     }
     // Update is called once per frame

@@ -43,12 +43,12 @@ public class TileGrid : MonoBehaviour
     void Start()
     {
         //spawn starting building
-        /*for (int i = 0; i < tiles.Length; i ++)
+        for (int i = 0; i < tiles.Length; i ++)
         {
             Building temp = Instantiate(startingBuilding.building, Vector3.zero, Quaternion.identity).GetComponent<Building>();
             temp.Initiate(startingBuilding);
             ChangeBuilding(temp, i);
-        }*/
+        }
         for (int i = 0; i < tiles.Length; i++)
         {
             tiles[i].SetGrid(this);

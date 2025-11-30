@@ -68,11 +68,8 @@ MonoBehaviour:
   IsAttemptGenerate: {fileID: 11400000, guid: a44e999711bc45b4a8abf58d5cfc629f, type: 2}
   itemLotteryRaritySO: {fileID: 11400000, guid: 4795454d1d863ca408b899bcbe8a9298, type: 2}
   testItem:
-  - {fileID: 11400000, guid: 83dc9588a8e83d24aa73d5480d25df9e, type: 2}
-  - {fileID: 11400000, guid: f99a819c55980404cac4dfa025940940, type: 2}
   - {fileID: 11400000, guid: dd0d244ac12aadc47b0ae34296cfea0e, type: 2}
-  - {fileID: 11400000, guid: f8d570d6b8d1ba9499a606026238ace0, type: 2}
-  GenerateOnStart: 0
+  GenerateOnStart: 1
 --- !u!1 &1968028137769616142
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentMoneySO: {fileID: 11400000, guid: 9d404bb13e1916b4eb496ea1ee3c7ce2, type: 2}
-  OnCollectCashSO: {fileID: 11400000, guid: 726d49092a83d224abe6353717512ea0, type: 2}
   IsBasicGambling: {fileID: 11400000, guid: 326092942dd60d540a9764d2f9979762, type: 2}
   MoneyEarnedSO: {fileID: 11400000, guid: dde42f704bede7a41ac44e3d48bda3b4, type: 2}
 --- !u!1 &2827779398440803593
@@ -414,7 +410,7 @@ MonoBehaviour:
   PolicyToBuySO: {fileID: 11400000, guid: 8306ec2cad448b246a1df53d1ecf777e, type: 2}
   PolicySlotToSellSO: {fileID: 11400000, guid: 321e6646d1257b3459d0f56cf132666c, type: 2}
   debugSpawn:
-  - {fileID: 11400000, guid: a01b3df40784a2347ae573bc9a83f953, type: 2}
+  - {fileID: 11400000, guid: e5bca7bfb49f2914f910336026f4ad53, type: 2}
 --- !u!1 &6811558725056407524
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +510,7 @@ MonoBehaviour:
   turnNumberSO: {fileID: 11400000, guid: 0ae50bef838492e47b07d98a7ed6e59e, type: 2}
   grid: {fileID: 0}
   turnsPerTaxSO: {fileID: 11400000, guid: d60a98829b4ab0f469e2dee2ce7eb916, type: 2}
-  IsTaxTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
+  OnTaxTurnSO: {fileID: 11400000, guid: c17218f077a6abb4791f37e5a9cdcc8b, type: 2}
   currentSubTurnSO: {fileID: 11400000, guid: 2974b5cd8b31d8c4cac78bd92cc5e92b, type: 2}
   OnTurnChangeSO: {fileID: 11400000, guid: b2461218f89ec3a43805f13cb9a18b9a, type: 2}
 --- !u!1 &8705813188933369623
@@ -562,8 +558,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMoneySO: {fileID: 11400000, guid: 9d404bb13e1916b4eb496ea1ee3c7ce2, type: 2}
-  GameOverSO: {fileID: 11400000, guid: 1b9669e19ce7581428eb5b53de726569, type: 2}
+  IsGameOver: {fileID: 11400000, guid: 1b9669e19ce7581428eb5b53de726569, type: 2}
   taxes: 3200000064000000c8000000
-  IsTaxTurn: {fileID: 11400000, guid: 4927eddd6bce2c743a0881122e747adc, type: 2}
+  OnTaxTurnSO: {fileID: 11400000, guid: c17218f077a6abb4791f37e5a9cdcc8b, type: 2}
   taxTurn: {fileID: 11400000, guid: ce49ba9300f458b4b8ae7616a1c5e06f, type: 2}
   taxAmount: {fileID: 11400000, guid: 64d7c05fa0745724f94e10902974565b, type: 2}

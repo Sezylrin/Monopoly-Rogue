@@ -54,7 +54,7 @@ public class Tile : MonoBehaviour
     public Building GetCurrentBuilding()
     {
         return currentBuilding;
-    }
+    }    
     #endregion
 
     #region Button Management

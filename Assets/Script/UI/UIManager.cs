@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
         IsDisableButtonSO.onValueChanged += DisableButton;
         IsDisableButtonSO.onValueChanged += EnableButtons;
         IsOpenProbabilityUiSO.onValueChanged += OpenProbabilityUI;
+        OnPlayerMoveCompleteSO.onEventTrigger += OnRollComplete;
+        OnTurnChangeSO.onEventTrigger += OnTurnChange;
     }
     void Start()
     {
@@ -74,11 +76,17 @@ public class UIManager : MonoBehaviour
     private GameObject rollUIObj, openBuildMenuObj, collectCashObj;
     [SerializeField]
     private Button buildMenuButton;
+    [SerializeField]
+    private EventSO OnPlayerMoveCompleteSO;
     //called by unity button event
     public void RollButtonUI()
     {
         isToRollSO.Bool = true;
         rollUIObj.SetActive(false);
+    }
+
+    private void OnRollComplete(object sender, EventArgs e)
+    {
         openBuildMenuObj.SetActive(true);
         collectCashObj.SetActive(true);
     }
@@ -155,12 +163,23 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region TurnChange
+    [CollapsibleGroup("Turn change")]
+    [SerializeField]
+    private EventSO OnTurnChangeSO;
+    private void OnTurnChange(object sender, EventArgs e)
+    {
+        rollUIObj.SetActive(true); 
+        CanRollSO.Bool = true;
+        BuildingRoller.Instance.GenerateBuildingStored();
+        BuildingRoller.Instance.ResetReroll();
+    }
+    #endregion
+
     #region Collect Money
     [CollapsibleGroup("Collect Money")]
     [SerializeField]
     private EventSO OnCollectCashSO;
-    [SerializeField]
-    private EventSO OnTurnChangeSO;
     [SerializeField]
     private BoolSO CanRollSO;
     //being called by unity button event
@@ -169,13 +188,7 @@ public class UIManager : MonoBehaviour
         OnCollectCashSO.Invoke();
         buildMenuButton.enabled = true;
         openBuildMenuObj.SetActive(false);
-        collectCashObj.SetActive(false);
-        rollUIObj.SetActive(true);
-
-        OnTurnChangeSO.Invoke();
-        CanRollSO.Bool = true;
-        BuildingRoller.Instance.GenerateBuildingStored();
-        BuildingRoller.Instance.ResetReroll();
+        collectCashObj.SetActive(false);        
     }
     #endregion
 
